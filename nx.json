@@ -12,6 +12,7 @@
     "default": ["{projectRoot}/**/*", "sharedGlobals", "projectSpecificFiles"],
     "production": ["default", "!{projectRoot}/.eslintrc.json", "!{projectRoot}/src/test-setup.[jt]s"]
   },
+  "defaultProject": "docs",
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
       "cache": true,

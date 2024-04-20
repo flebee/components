@@ -3,9 +3,13 @@
   "eslint.options": {
     "extensions": [".js", ".ts"]
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "tailwindCSS.experimental.classRegex": [["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]],
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "custom-language-properties": {
+    "html.comments.blockComment": ["<!--", "-->"]
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": "never",
