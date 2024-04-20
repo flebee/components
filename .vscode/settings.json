@@ -1,0 +1,22 @@
+{
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.options": {
+    "extensions": [".js", ".ts"]
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.fixAll": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "project.json": ".*",
+    "nx.json": ".*"
+  },
+  "files.exclude": {
+    "node_modules/": true,
+    ".angular/": true,
+    "tmp/": true,
+    ".nx/": true
+  }
+}

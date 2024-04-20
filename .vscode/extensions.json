@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "nrwl.angular-console",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "MylesMurphy.prettify-ts",
+    "YoavBls.pretty-ts-errors",
+    "EditorConfig.EditorConfig"
+  ]
+}

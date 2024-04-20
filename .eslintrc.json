@@ -1,0 +1,43 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nx", "perfectionist"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "no-duplicate-imports": "error",
+        "no-implicit-coercion": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "eqeqeq": ["error", "always", { "null": "ignore" }],
+        "@typescript-eslint/no-duplicate-enum-values": "error",
+        "no-empty-function": ["error", { "allow": ["constructors"] }],
+        "perfectionist/sort-enums": ["error", { "type": "natural" }],
+        "perfectionist/sort-exports": ["error", { "type": "natural" }],
+        "perfectionist/sort-union-types": ["error", { "type": "natural" }],
+        "perfectionist/sort-named-imports": ["error", { "type": "natural" }],
+        "perfectionist/sort-named-exports": ["error", { "type": "natural" }],
+        "perfectionist/sort-imports": [
+          "error",
+          {
+            "type": "natural",
+            "newlines-between": "always",
+            "internal-pattern": ["@flebee/**"],
+            "groups": ["angular", ["builtin", "external"], "internal"],
+            "custom-groups": { "value": { "angular": "{@angular/**,rxjs,rxjs/**}" } }
+          }
+        ],
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "allow": [],
+            "enforceBuildableLibDependency": true,
+            "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
+          }
+        ]
+      }
+    },
+    { "files": ["*.ts", "*.tsx"], "extends": ["plugin:@nx/typescript"], "rules": {} },
+    { "files": ["*.js", "*.jsx"], "extends": ["plugin:@nx/javascript"], "rules": {} }
+  ]
+}
