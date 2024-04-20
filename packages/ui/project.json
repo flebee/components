@@ -1,0 +1,39 @@
+{
+  "name": "ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/ui/src",
+  "prefix": "bee",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "package": {
+      "command": "pnpm exec nx build ui"
+    },
+    "publish": {
+      "command": "npm publish",
+      "options": {
+        "cwd": "dist/packages/ui"
+      }
+    },
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "packages/ui/ng-package.json",
+        "tailwindConfig": "packages/ui/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

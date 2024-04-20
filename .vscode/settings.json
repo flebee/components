@@ -3,6 +3,10 @@
   "eslint.options": {
     "extensions": [".js", ".ts"]
   },
+  "tailwindCSS.experimental.classRegex": [["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "editor.codeActionsOnSave": {
     "source.organizeImports": "never",
     "source.fixAll": "explicit"
