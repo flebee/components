@@ -30,7 +30,7 @@
         "@nx/enforce-module-boundaries": [
           "error",
           {
-            "allow": [],
+            "allow": ["packages/ui/src"],
             "enforceBuildableLibDependency": true,
             "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
           }
