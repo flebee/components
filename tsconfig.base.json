@@ -16,9 +16,10 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@flebee/ui": ["packages/ui/src/index.ts"],
+      "@flebee/ui/button": ["packages/ui/button/src/index.ts"],
       "@ng-doc/generated": ["./ng-doc/docs/index.ts"],
-      "@ng-doc/generated/*": ["./ng-doc/docs/*"],
-      "@flebee/ui": ["packages/ui/src/index.ts"]
+      "@ng-doc/generated/*": ["./ng-doc/docs/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
