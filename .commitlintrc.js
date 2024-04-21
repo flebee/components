@@ -1,8 +1,10 @@
+const { readdirSync } = require('node:fs');
 const fg = require('fast-glob');
 
 const { workspaceLayout } = require('./nx.json');
 
-const omitScopes = [workspaceLayout.libsDir];
+const packages = readdirSync(workspaceLayout.libsDir);
+const omitScopes = [workspaceLayout.libsDir, ...packages];
 
 const scopes = fg
   .sync(`${workspaceLayout.libsDir}/**/ng-package.json`)
@@ -34,7 +36,7 @@ module.exports = {
     'body-leading-blank': [2, 'always'],
     'footer-leading-blank': [2, 'always'],
     'type-enum': [2, 'always', questions.map(({ value }) => value)],
-    'scope-enum': [2, 'always', ['docs', 'security', 'deps', 'release', ...scopes]]
+    'scope-enum': [2, 'always', ['docs', 'security', 'deps', 'release', ...packages, ...scopes]]
   },
   prompt: {
     themeColorCode: '1;5;35',
