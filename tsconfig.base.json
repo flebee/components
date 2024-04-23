@@ -18,6 +18,7 @@
     "paths": {
       "@flebee/ui": ["packages/ui/src/index.ts"],
       "@flebee/ui/button": ["packages/ui/button/src/index.ts"],
+      "@flebee/ui/string-template": ["packages/ui/string-template/src/index.ts"],
       "@ng-doc/generated": ["./ng-doc/docs/index.ts"],
       "@ng-doc/generated/*": ["./ng-doc/docs/*"]
     }
