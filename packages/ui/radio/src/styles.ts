@@ -64,7 +64,7 @@ export const description = cva({
 });
 
 export const wrapper = cva({
-  base: 'relative inline-flex items-center justify-center flex-shrink-0 border-solid border-2 border-muted-foreground/70 rounded-full group-has-[:checked]:border-primary transition-colors ease-linear duration-200 motion-reduce:transition-none peer-enabled:peer-hover:bg-foreground',
+  base: 'relative inline-flex items-center justify-center flex-shrink-0 border-solid border-2 border-neutral-500 rounded-full group-has-[:checked]:border-primary transition-colors ease-linear duration-200 motion-reduce:transition-none peer-enabled:peer-hover:bg-neutral-300/50',
   variants: {
     size: {
       sm: 'size-4',
