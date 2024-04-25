@@ -1,3 +1,33 @@
+@import 'highlight.js/styles/github-dark.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --ng-doc-guide-tag-background: theme('colors.warning.DEFAULT');
+  --ng-doc-api-tag-background: theme('colors.danger.DEFAULT');
+  --ng-doc-mark-background: theme('colors.primary.100/10');
+  --ng-doc-base-1: theme('backgroundColor.foreground');
+  --ng-doc-code-background: theme('colors.gray.900');
+  --ng-doc-base-0: theme('backgroundColor.backdrop');
+  --ng-doc-primary: theme('colors.primary.DEFAULT');
+  --ng-doc-text-muted: theme('textColor.secondary');
+  --ng-doc-base-10: theme('colors.neutral.900');
+  --ng-doc-base-2: theme('colors.neutral.100');
+  --ng-doc-base-3: theme('colors.neutral.200');
+  --ng-doc-base-4: theme('colors.neutral.300');
+  --ng-doc-base-5: theme('colors.neutral.400');
+  --ng-doc-base-6: theme('colors.neutral.500');
+  --ng-doc-base-7: theme('colors.neutral.600');
+  --ng-doc-base-8: theme('colors.neutral.700');
+  --ng-doc-base-9: theme('colors.neutral.800');
+  --ng-doc-app-max-width: theme('screens.2xl');
+  --ng-doc-text: theme('textColor.main');
+
+  --ng-doc-guide-tag-color: var(--ng-doc-code-background);
+  --ng-doc-search-result-color: var(--ng-doc-text-muted);
+  --ng-doc-api-tag-color: var(--ng-doc-code-background);
+  --ng-doc-link-color: var(--ng-doc-primary);
+  --ng-doc-info: var(--ng-doc-primary);
+}
