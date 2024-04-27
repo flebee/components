@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, afterNextRender, inject } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
-import { NgDocNavbarComponent, NgDocSidebarComponent } from '@ng-doc/app';
+import { NgDocNavbarComponent, NgDocSidebarComponent, NgDocThemeService } from '@ng-doc/app';
 import { NgDocRootComponent } from '@ng-doc/app/components/root';
 
 @Component({
@@ -23,4 +23,10 @@ import { NgDocRootComponent } from '@ng-doc/app/components/root';
   `,
   imports: [RouterLink, RouterOutlet, NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent]
 })
-export class AppComponent {}
+export class AppComponent {
+  private readonly _ngDocThemeSvc = inject(NgDocThemeService);
+
+  constructor() {
+    afterNextRender(() => this._ngDocThemeSvc.disableAutoTheme());
+  }
+}

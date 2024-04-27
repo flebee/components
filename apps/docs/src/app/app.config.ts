@@ -21,11 +21,11 @@ const routes = [...appRoutes, ...NG_DOC_ROUTING];
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideNgDocApp(),
     provideNgDocContext(),
     provideClientHydration(),
     provideAnimationsAsync(),
     provideHttpClient(withFetch()),
-    provideNgDocApp({ defaultThemeId: 'light' }),
     provideSearchEngine(NgDocDefaultSearchEngine),
     providePageSkeleton(NG_DOC_DEFAULT_PAGE_SKELETON),
     provideMainPageProcessor(NG_DOC_DEFAULT_PAGE_PROCESSORS),
