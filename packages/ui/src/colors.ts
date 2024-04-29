@@ -73,6 +73,6 @@ export const colors: Colors = {
   },
   backdrop: {
     dark: '240deg 55% 5%',
-    light: '240deg 1% 90%'
+    light: '240deg 10% 88%'
   }
 };
