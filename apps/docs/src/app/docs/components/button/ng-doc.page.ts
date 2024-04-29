@@ -46,7 +46,7 @@ const ButtonPage: NgDocPage = {
       template: `
         <bee-button-group>
           <button beeButton> One </button>
-          <button beeButton variant="secondary"> Custom variant </button>
+          <button beeButton variant="secondary"> Custom </button>
           <button beeButton> Three </button>
         </bee-button-group>
       `

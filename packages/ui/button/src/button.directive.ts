@@ -1,11 +1,14 @@
 import { Directive, booleanAttribute, computed, inject, input } from '@angular/core';
 
+import { BeeRipple } from '@flebee/ui/ripple';
+
 import { BeeButtonGroup } from './button-group.component';
 import { button } from './styles';
 import type { BeeButtonSize, BeeButtonVariant } from './types';
 
 @Directive({
   standalone: true,
+  hostDirectives: [BeeRipple],
   host: { '[class]': 'classList()' },
   selector: 'button[beeButton], a[beeButton]'
 })

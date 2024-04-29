@@ -32,7 +32,7 @@ export const button = cva({
 });
 
 export const buttonGroup = cva({
-  base: 'inline-flex items-center justify-center h-auto rounded-md',
+  base: 'inline-flex items-center justify-center h-auto rounded-bee-md',
   variants: {
     fullWidth: {
       true: 'w-full *:w-full',
