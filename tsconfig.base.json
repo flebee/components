@@ -22,6 +22,7 @@
       "@flebee/ui/radio": ["packages/ui/radio/src/index.ts"],
       "@flebee/ui/ripple": ["packages/ui/ripple/src/index.ts"],
       "@flebee/ui/string-template": ["packages/ui/string-template/src/index.ts"],
+      "@flebee/ui/tag": ["packages/ui/tag/src/index.ts"],
       "@ng-doc/generated": ["./ng-doc/docs/index.ts"],
       "@ng-doc/generated/*": ["./ng-doc/docs/*"]
     }
