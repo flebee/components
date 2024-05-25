@@ -18,6 +18,7 @@
     "paths": {
       "@flebee/ui": ["packages/ui/src/index.ts"],
       "@flebee/ui/button": ["packages/ui/button/src/index.ts"],
+      "@flebee/ui/checkbox": ["packages/ui/checkbox/src/index.ts"],
       "@flebee/ui/core": ["packages/ui/core/src/index.ts"],
       "@flebee/ui/radio": ["packages/ui/radio/src/index.ts"],
       "@flebee/ui/ripple": ["packages/ui/ripple/src/index.ts"],
