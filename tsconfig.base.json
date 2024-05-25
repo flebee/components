@@ -20,6 +20,7 @@
       "@flebee/ui/button": ["packages/ui/button/src/index.ts"],
       "@flebee/ui/checkbox": ["packages/ui/checkbox/src/index.ts"],
       "@flebee/ui/core": ["packages/ui/core/src/index.ts"],
+      "@flebee/ui/input": ["packages/ui/input/src/index.ts"],
       "@flebee/ui/radio": ["packages/ui/radio/src/index.ts"],
       "@flebee/ui/ripple": ["packages/ui/ripple/src/index.ts"],
       "@flebee/ui/string-template": ["packages/ui/string-template/src/index.ts"],
