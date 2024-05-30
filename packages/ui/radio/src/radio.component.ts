@@ -1,4 +1,4 @@
-import { Component, TemplateRef, booleanAttribute, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, type TemplateRef, booleanAttribute, computed, inject, input } from '@angular/core';
 
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
@@ -9,6 +9,7 @@ import { base, control, description, label, labelWrapper, wrapper } from './styl
   standalone: true,
   selector: 'bee-radio',
   imports: [BeeStringTemplate],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <label [class]="baseClass">
       <input
@@ -48,11 +49,11 @@ export class BeeRadio {
   public labelWrapperClass = computed(() => labelWrapper({ size: this._size() }));
   public descriptionClass = computed(() => description({ size: this._size() }));
   public isDisabled = computed(() => this._group.disabled() || this.disabled());
+  public isSelected = computed(() => this._group.value() === this.value());
   public wrapperClass = computed(() => wrapper({ size: this._size() }));
   public controlClass = computed(() => control({ size: this._size() }));
-  public isSelected = computed(() => this._group.value() === this.value());
-  public labelClass = computed(() => label({ size: this._size() }));
   public name = computed(() => this._group.name() || this._group.id);
+  public labelClass = computed(() => label({ size: this._size() }));
   public baseClass = base();
 
   onInput(): void {

@@ -1,4 +1,4 @@
-import { Component, booleanAttribute, computed, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, booleanAttribute, computed, input, model } from '@angular/core';
 
 import { base, icon, label, wrapper } from './style';
 import type { BeeCheckboxSize } from './types';
@@ -6,6 +6,7 @@ import type { BeeCheckboxSize } from './types';
 @Component({
   standalone: true,
   selector: 'bee-checkbox',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <label [class]="baseClass">
       <input

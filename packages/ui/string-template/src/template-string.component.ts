@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EmbeddedViewRef,
-  TemplateRef,
+  type EmbeddedViewRef,
+  type TemplateRef,
   ViewContainerRef,
   ViewEncapsulation,
   effect,
@@ -13,9 +13,9 @@ import {
 
 @Component({
   standalone: true,
+  selector: 'bee-string-template',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'bee-string-template',
   template: `
     <ng-container #viewRef />
 
@@ -24,7 +24,7 @@ import {
 })
 export class BeeStringTemplate<Type> {
   private _viewRef = viewChild.required('viewRef', { read: ViewContainerRef });
-  private _contentTpl = viewChild.required<TemplateRef<void>>('contentTpl');
+  private _contentTpl = viewChild.required<TemplateRef<Type>>('contentTpl');
   private _embeddedRef: EmbeddedViewRef<Type | void> | null = null;
 
   public content = input.required<TemplateRef<Type> | string>();
@@ -41,14 +41,13 @@ export class BeeStringTemplate<Type> {
       this._embeddedRef?.destroy();
       this._embeddedRef = null;
 
-      if (content instanceof TemplateRef) {
+      untracked(() => {
+        const safeContent = typeof content === 'string' ? contentTpl : content;
         const context = this._createContextForwardProxy();
 
-        this._embeddedRef = viewRef.createEmbeddedView(content, context);
-      } else {
-        this._embeddedRef = viewRef.createEmbeddedView(contentTpl);
+        this._embeddedRef = viewRef.createEmbeddedView(safeContent, context);
         this._embeddedRef.markForCheck();
-      }
+      });
     });
   }
 

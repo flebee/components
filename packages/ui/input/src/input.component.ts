@@ -1,5 +1,14 @@
 import { DatePipe } from '@angular/common';
-import { Component, type TemplateRef, booleanAttribute, computed, inject, input, model } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  type TemplateRef,
+  booleanAttribute,
+  computed,
+  inject,
+  input,
+  model
+} from '@angular/core';
 
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
@@ -12,6 +21,7 @@ import type { BeeInputDateType, BeeInputSize, BeeInputType, BeeInputValue } from
   providers: [DatePipe],
   selector: 'bee-input',
   imports: [BeeStringTemplate],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <label [class]="baseWrapperClass">
       @if (label(); as label) {

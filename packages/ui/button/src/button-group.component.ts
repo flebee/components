@@ -1,4 +1,4 @@
-import { Component, booleanAttribute, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, booleanAttribute, computed, input } from '@angular/core';
 
 import { buttonGroup } from './styles';
 import type { BeeButtonSize, BeeButtonVariant } from './types';
@@ -7,6 +7,7 @@ import type { BeeButtonSize, BeeButtonVariant } from './types';
   standalone: true,
   selector: 'bee-button-group',
   host: { '[class]': 'classList()' },
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: ` <ng-content select="[beeButton]" /> `
 })
 export class BeeButtonGroup {

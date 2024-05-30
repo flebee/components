@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 import { tag } from './styles';
 import type { BeeTagColor, BeeTagSize } from './types';
@@ -7,7 +7,8 @@ import type { BeeTagColor, BeeTagSize } from './types';
   standalone: true,
   selector: 'bee-tag',
   template: ` <ng-content /> `,
-  host: { '[class]': 'classList()' }
+  host: { '[class]': 'classList()' },
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeeTag {
   public color = input<BeeTagColor>('neutral');
