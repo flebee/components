@@ -1,5 +1,6 @@
 import { Directive, booleanAttribute, computed, inject, input } from '@angular/core';
 
+import type { BooleanInput } from '@flebee/ui/core';
 import { BeeRipple } from '@flebee/ui/ripple';
 
 import { BeeButtonGroup } from './button-group.component';
@@ -15,10 +16,10 @@ import type { BeeButtonSize, BeeButtonVariant } from './types';
 export class BeeButton {
   private _group = inject(BeeButtonGroup, { optional: true });
 
-  public iconOnly = input(false, { transform: booleanAttribute });
+  public iconOnly = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public variant = input<BeeButtonVariant>('primary');
   public size = input<BeeButtonSize>('md');
-  public class = input('');
+  public class = input<string>();
 
   public classList = computed(() => {
     const variant = this._group?.variant() || this.variant();

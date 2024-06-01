@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, booleanAttribute, computed, input, model } from '@angular/core';
 
+import type { BooleanInput } from '@flebee/ui/core';
+
 import { base, icon, label, wrapper } from './style';
 import type { BeeCheckboxSize } from './types';
 
@@ -46,8 +48,8 @@ import type { BeeCheckboxSize } from './types';
   `
 })
 export class BeeCheckbox {
-  public indeterminate = input(false, { transform: booleanAttribute });
-  public disabled = input(false, { transform: booleanAttribute });
+  public indeterminate = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
+  public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public size = input<BeeCheckboxSize>('md');
   public checked = model(false);
 

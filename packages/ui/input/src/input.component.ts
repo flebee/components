@@ -10,6 +10,7 @@ import {
   model
 } from '@angular/core';
 
+import type { Nullable } from '@flebee/ui/core';
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
 import { dateTypes, formatDates } from './constants';
@@ -56,14 +57,14 @@ import type { BeeInputDateType, BeeInputSize, BeeInputType, BeeInputValue } from
 export class BeeInput<Type extends BeeInputType> {
   private _datePipe = inject(DatePipe);
 
+  public placeholder = input('', { transform: (value: Nullable<string>) => value ?? '' });
   public disabled = input(false, { transform: booleanAttribute });
-  public startContent = input<TemplateRef<void> | string>('');
-  public description = input<TemplateRef<void> | string>('');
-  public endContent = input<TemplateRef<void> | string>('');
-  public label = input<TemplateRef<void> | string>('');
+  public startContent = input<TemplateRef<void> | string>();
+  public description = input<TemplateRef<void> | string>();
+  public endContent = input<TemplateRef<void> | string>();
   public value = model<BeeInputValue<Type>>(undefined);
+  public label = input<TemplateRef<void> | string>();
   public size = input<BeeInputSize>('md');
-  public placeholder = input<string>('');
   public type = input.required<Type>();
 
   public renderValue = computed(() => this._getRenderValue(this.type(), this.value()));

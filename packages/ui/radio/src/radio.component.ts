@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, type TemplateRef, booleanAttribute, computed, inject, input } from '@angular/core';
 
+import type { BooleanInput } from '@flebee/ui/core';
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
 import { BeeRadioGroup } from './radio-group.component';
@@ -42,8 +43,8 @@ export class BeeRadio {
   private _group = inject(BeeRadioGroup);
   private _size = this._group.size;
 
-  public disabled = input(false, { transform: booleanAttribute });
-  public description = input<TemplateRef<void> | string>('');
+  public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
+  public description = input<TemplateRef<void> | string>();
   public value = input.required<string>();
 
   public labelWrapperClass = computed(() => labelWrapper({ size: this._size() }));

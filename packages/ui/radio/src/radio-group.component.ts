@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, type TemplateRef, booleanAttribute, computed, input, model } from '@angular/core';
 
-import { useId } from '@flebee/ui/core';
+import { type BooleanInput, type Nullable, useId } from '@flebee/ui/core';
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
 import { groupBase, groupLabel } from './styles';
@@ -26,15 +26,15 @@ import type { BeeRadioGroupOrientation, BeeRadioGroupSize } from './types';
   `
 })
 export class BeeRadioGroup {
+  public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public orientation = input<BeeRadioGroupOrientation>('vertical');
-  public disabled = input(false, { transform: booleanAttribute });
-  public label = input<TemplateRef<void> | string>('');
+  public label = input<TemplateRef<void> | string>();
   public size = input<BeeRadioGroupSize>('md');
-  public value = model<string | undefined>();
-  public name = input<string>('');
-  public class = input('');
+  public value = model<Nullable<string>>();
+  public class = input<string>();
+  public name = input<string>();
 
   public baseClass = computed(() => groupBase({ orientation: this.orientation(), size: this.size(), class: this.class() }));
   public labelClass = computed(() => groupLabel({ size: this.size() }));
-  public id = useId('radio-group');
+  public id = useId('bee-button-group');
 }

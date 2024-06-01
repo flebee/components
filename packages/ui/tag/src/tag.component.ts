@@ -13,7 +13,7 @@ import type { BeeTagColor, BeeTagSize } from './types';
 export class BeeTag {
   public color = input<BeeTagColor>('neutral');
   public size = input<BeeTagSize>('md');
-  public class = input('');
+  public class = input<string>();
 
   public classList = computed(() => tag({ color: this.color(), size: this.size(), class: this.class() }));
 }

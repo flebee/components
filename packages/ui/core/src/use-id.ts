@@ -1,12 +1,9 @@
-type Prefix = `bee-${string}`;
+const ids = new Map<string, number>();
 
-const ids = new Map<Prefix, number>();
+export const useId = <Prefix extends string>(prefix: Prefix): `${Prefix}-${number}` => {
+  const id = (ids.get(prefix) ?? 0) + 1;
 
-export const useId = (prefix: string) => {
-  const fullPrefix = `bee-${prefix}` as const;
-  const id = (ids.get(fullPrefix) ?? 0) + 1;
-
-  ids.set(fullPrefix, id);
+  ids.set(prefix, id);
 
   return `${prefix}-${id}`;
 };

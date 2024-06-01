@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, booleanAttribute, computed, input } from '@angular/core';
 
+import type { BooleanInput } from '@flebee/ui/core';
+
 import { buttonGroup } from './styles';
 import type { BeeButtonSize, BeeButtonVariant } from './types';
 
@@ -11,10 +13,10 @@ import type { BeeButtonSize, BeeButtonVariant } from './types';
   template: ` <ng-content select="[beeButton]" /> `
 })
 export class BeeButtonGroup {
-  public fullWidth = input(false, { transform: booleanAttribute });
-  public variant = input<'' | BeeButtonVariant>('');
+  public fullWidth = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
+  public variant = input<BeeButtonVariant>();
   public size = input<BeeButtonSize>('md');
-  public class = input('');
+  public class = input<string>();
 
   public classList = computed(() => buttonGroup({ fullWidth: this.fullWidth(), class: this.class() }));
 }
