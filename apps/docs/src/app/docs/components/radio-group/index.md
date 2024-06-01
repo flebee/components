@@ -25,8 +25,7 @@ import { BeeRadio, BeeRadioGroup } from '@flebee/ui/radio';
 | ----------- | -------------------------- | ---------- |
 | orientation | `vertical` \| `horizontal` | `vertical` |
 | size        | `sm` \| `md` \| `lg`       | `md`       |
-| disabled    | `Boolean`                  | `false`    |
-| class       | `string`                   | `''`       |
+| disabled    | `boolean`                  | `false`    |
 | label       | `string` \| `TemplateRef`  |            |
 | name        | `string`                   |            |
 
@@ -36,4 +35,4 @@ import { BeeRadio, BeeRadioGroup } from '@flebee/ui/radio';
 | ----------- | ------------------------- | ------- |
 | value       | `string`                  |         |
 | description | `string` \| `TemplateRef` |         |
-| disabled    | `Boolean`                 | `false` |
+| disabled    | `boolean`                 | `false` |

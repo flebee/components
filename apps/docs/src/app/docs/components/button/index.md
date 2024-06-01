@@ -25,7 +25,7 @@ import { BeeButton } from '@flebee/ui/button';
 | ---------- | ------------------------------------ | --------- |
 | size       | `sm` \| `md` \| `lg`                 | `md`      |
 | variant    | `primary` \| `secondary` \| `danger` | `primary` |
-| iconOnly   | `Boolean`                            | `false`   |
+| iconOnly   | `boolean`                            | `false`   |
 
 ### Import Button Group
 
@@ -39,8 +39,8 @@ import { BeeButton, BeeButtonGroup } from '@flebee/ui/button';
 
 ### Button Group Properties
 
-| Properties | Type                                                                                                             | Default |
-| ---------- | ---------------------------------------------------------------------------------------------------------------- | ------- |
-| size       | `sm` \| `md` \| `lg` \|                                                                                          | `md`    |
-| variant    | `primary` \| `secondary` \| `danger`\| `''` <br /> If the variant is not passed, each button handles its variant | `''`    |
-| fullWidth  | `Boolean`                                                                                                        | `false` |
+| Properties | Type                                                                                                        | Default |
+| ---------- | ----------------------------------------------------------------------------------------------------------- | ------- |
+| size       | `sm` \| `md` \| `lg` \|                                                                                     | `md`    |
+| variant    | `primary` \| `secondary` \| `danger`\| <br /> If the variant is not passed, each button handles its variant |         |
+| fullWidth  | `boolean`                                                                                                   | `false` |

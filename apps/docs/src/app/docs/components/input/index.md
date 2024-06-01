@@ -8,7 +8,7 @@ import { BeeInput } from '@flebee/ui/input';
 
 ### Usage Input
 
-{{ NgDocActions.playground("Input") }}
+{{ NgDocActions.playground("Input", { inputs: { type: 'text' } }) }}
 
 ### Input Properties
 
