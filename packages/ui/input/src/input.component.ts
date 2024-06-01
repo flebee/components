@@ -1,25 +1,23 @@
-import { DatePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   type TemplateRef,
   booleanAttribute,
   computed,
-  inject,
+  effect,
   input,
-  model
+  model,
+  untracked
 } from '@angular/core';
 
-import type { Nullable } from '@flebee/ui/core';
+import type { BooleanInput, Nullable } from '@flebee/ui/core';
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
-import { dateTypes, formatDates } from './constants';
 import { baseWrapper, content, description, inputBase, label, wrapper } from './styles';
 import type { BeeInputDateType, BeeInputSize, BeeInputType, BeeInputValue } from './types';
 
 @Component({
   standalone: true,
-  providers: [DatePipe],
   selector: 'bee-input',
   imports: [BeeStringTemplate],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -55,10 +53,10 @@ import type { BeeInputDateType, BeeInputSize, BeeInputType, BeeInputValue } from
   `
 })
 export class BeeInput<Type extends BeeInputType> {
-  private _datePipe = inject(DatePipe);
+  private _dateTypes: BeeInputDateType[] = ['date', 'month', 'datetime-local'];
 
   public placeholder = input('', { transform: (value: Nullable<string>) => value ?? '' });
-  public disabled = input(false, { transform: booleanAttribute });
+  public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public startContent = input<TemplateRef<void> | string>();
   public description = input<TemplateRef<void> | string>();
   public endContent = input<TemplateRef<void> | string>();
@@ -75,6 +73,16 @@ export class BeeInput<Type extends BeeInputType> {
   public labelClass = computed(() => label({ size: this.size() }));
   public baseWrapperClass = baseWrapper();
 
+  constructor() {
+    effect(() => {
+      const value = this.value();
+
+      if (!this._dateTypes.includes(this.type() as BeeInputDateType) || value instanceof Date) return;
+
+      untracked(() => this.value.set(this._getValidDate(value) as BeeInputValue<Type>));
+    });
+  }
+
   onInput(event: Event): void {
     const target = event.target as HTMLInputElement;
 
@@ -82,30 +90,31 @@ export class BeeInput<Type extends BeeInputType> {
   }
 
   private _getRenderValue(type: Type, value: BeeInputValue<Type>): string {
-    const cleanValue = value?.toString() ?? '';
+    if (value == null || !this._dateTypes.includes(type as BeeInputDateType)) return value?.toString() ?? '';
 
-    if (!dateTypes.includes(type as BeeInputDateType)) return cleanValue;
+    const formatDates: Record<BeeInputDateType, number> = { 'datetime-local': 19, date: 10, month: 7 };
+    const date = this._getValidDate(value);
 
-    return this._datePipe.transform(cleanValue, formatDates[type as BeeInputDateType]) ?? '';
+    return date?.toISOString()?.substring(0, formatDates[type as BeeInputDateType]) ?? '';
   }
 
   private _parseValue(target: HTMLInputElement): BeeInputValue<Type> {
-    const dateValue = new Date(target.value);
+    const dateValue = new Date(target.value) as BeeInputValue<Type>;
     const numberValue = target.valueAsNumber;
     const type = this.type();
 
-    if (dateTypes.includes(type)) return this._isValidDate(dateValue) ? (dateValue as BeeInputValue<Type>) : undefined;
+    if (this._dateTypes.includes(type as BeeInputDateType)) return this._getValidDate(dateValue) as BeeInputValue<Type>;
 
     if (type === 'number') return isNaN(numberValue) ? undefined : (numberValue as BeeInputValue<Type>);
 
     return (target.value as BeeInputValue<Type>) || undefined;
   }
 
-  private _isValidDate(value: Date | null | number | string | undefined): boolean {
-    if (value == null) return false;
+  private _getValidDate(value: BeeInputValue<Type>): BeeInputValue<BeeInputDateType> {
+    if (value == null) return undefined;
 
-    const date = new Date(value);
+    const date = value instanceof Date ? value : new Date(value);
 
-    return date instanceof Date && !isNaN(date.getTime());
+    return isNaN(date.getTime()) ? undefined : date;
   }
 }
