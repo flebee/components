@@ -22,6 +22,7 @@
       "@flebee/ui/core": ["packages/ui/core/src/index.ts"],
       "@flebee/ui/input": ["packages/ui/input/src/index.ts"],
       "@flebee/ui/intl": ["packages/ui/intl/src/index.ts"],
+      "@flebee/ui/progress": ["packages/ui/progress/src/index.ts"],
       "@flebee/ui/radio": ["packages/ui/radio/src/index.ts"],
       "@flebee/ui/ripple": ["packages/ui/ripple/src/index.ts"],
       "@flebee/ui/string-template": ["packages/ui/string-template/src/index.ts"],

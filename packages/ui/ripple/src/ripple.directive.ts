@@ -1,5 +1,7 @@
 import { Directive, ElementRef, Renderer2, inject } from '@angular/core';
 
+import { clamp } from '@flebee/ui/core';
+
 import { ripple } from './styles';
 
 @Directive({
@@ -18,7 +20,7 @@ export class BeeRipple {
     const rect = trigger.getBoundingClientRect();
 
     const size = Math.max(trigger.clientWidth, trigger.clientHeight);
-    const duration = this._clamp(0.01 * size, 0.2, size > 100 ? 0.75 : 0.5) * 1_000;
+    const duration = clamp(0.01 * size, 0.2, size > 100 ? 0.75 : 0.5) * 1_000;
     const animation = span.animate({ opacity: [0.35, 0], transform: ['scale(0)', 'scale(2)'] }, { duration, fill: 'both' });
 
     span.style.left = `${event.clientX - rect.x - size / 2}px`;
@@ -30,6 +32,4 @@ export class BeeRipple {
     animation.onfinish = () => span.remove();
     elementRef.append(span);
   }
-
-  private _clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 }
