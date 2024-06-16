@@ -20,6 +20,7 @@
       "@flebee/ui/button": ["packages/ui/button/src/index.ts"],
       "@flebee/ui/checkbox": ["packages/ui/checkbox/src/index.ts"],
       "@flebee/ui/core": ["packages/ui/core/src/index.ts"],
+      "@flebee/ui/icon": ["packages/ui/icon/src/index.ts"],
       "@flebee/ui/input": ["packages/ui/input/src/index.ts"],
       "@flebee/ui/intl": ["packages/ui/intl/src/index.ts"],
       "@flebee/ui/progress": ["packages/ui/progress/src/index.ts"],
