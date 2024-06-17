@@ -3,6 +3,7 @@ declare global {
     export interface BeeIconTypes {
       outline: 'carousel-horizontal' | 'settings-pin' | 'user' | string;
       filled: 'carousel-horizontal' | 'user' | string;
+      brand: 'flebee';
     }
   }
 }
