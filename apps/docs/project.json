@@ -31,7 +31,11 @@
             "input": "ng-doc/docs/assets",
             "output": "assets/ng-doc"
           },
-          "apps/docs/src/favicon.ico",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@tabler/icons/icons",
+            "output": "assets/icons"
+          },
           "apps/docs/src/assets"
         ],
         "styles": ["node_modules/@ng-doc/app/styles/global.css", "apps/docs/src/styles.css"],
