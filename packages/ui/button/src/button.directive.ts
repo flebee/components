@@ -16,16 +16,18 @@ import type { BeeButtonSize, BeeButtonVariant } from './types';
 export class BeeButton {
   private _group = inject(BeeButtonGroup, { optional: true });
 
+  public fullWidth = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public iconOnly = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public variant = input<BeeButtonVariant>('primary');
   public size = input<BeeButtonSize>('md');
   public class = input<string>();
 
   public classList = computed(() => {
+    const fullWidth = this._group?.fullWidth() || this.fullWidth();
     const variant = this._group?.variant() || this.variant();
     const size = this._group?.size() || this.size();
     const isInGroup = Boolean(this._group);
 
-    return button({ size, isInGroup, variant, iconOnly: this.iconOnly(), class: this.class() });
+    return button({ size, isInGroup, variant, fullWidth, iconOnly: this.iconOnly(), class: this.class() });
   });
 }

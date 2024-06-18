@@ -19,15 +19,19 @@ export const button = cva({
     },
     iconOnly: {
       true: null
+    },
+    fullWidth: {
+      true: 'w-full'
     }
   },
   compoundVariants: [
     { size: 'sm', iconOnly: false, class: 'px-4' },
     { size: 'md', iconOnly: false, class: 'px-5' },
     { size: 'lg', iconOnly: false, class: 'px-5' },
-    { size: 'sm', iconOnly: true, class: 'w-9' },
-    { size: 'md', iconOnly: true, class: 'w-10' },
-    { size: 'lg', iconOnly: true, class: 'w-11' }
+    { iconOnly: false, fullWidth: false, class: 'w-min' },
+    { size: 'sm', iconOnly: true, fullWidth: false, class: 'w-9' },
+    { size: 'md', iconOnly: true, fullWidth: false, class: 'w-10' },
+    { size: 'lg', iconOnly: true, fullWidth: false, class: 'w-11' }
   ]
 });
 
@@ -35,7 +39,7 @@ export const buttonGroup = cva({
   base: 'inline-flex items-center justify-center h-auto rounded-bee-md',
   variants: {
     fullWidth: {
-      true: 'w-full *:w-full',
+      true: 'w-full',
       false: 'w-max'
     }
   }
