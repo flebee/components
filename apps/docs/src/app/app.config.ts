@@ -13,11 +13,9 @@ import {
   providePageSkeleton,
   provideSearchEngine
 } from '@ng-doc/app';
-import { NG_DOC_ROUTING, provideNgDocContext } from '@ng-doc/generated';
+import { provideNgDocContext } from '@ng-doc/generated';
 
 import { appRoutes } from './app.routes';
-
-const routes = [...appRoutes, ...NG_DOC_ROUTING];
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -31,7 +29,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideMainPageProcessor(NG_DOC_DEFAULT_PAGE_PROCESSORS),
     provideRouter(
-      routes,
+      appRoutes,
       withViewTransitions({ skipInitialTransition: true }),
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' })
     )
