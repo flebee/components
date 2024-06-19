@@ -18,7 +18,7 @@ You must create a `global.d.ts` file at the same level as `main.ts`
 
 Then declare an interface where the keys will be the types available for icon and the values ​​will be the names. should be as follows
 
-```typescript name="global.d.ts"
+```typescript name="global.d.ts" icon="typescript"
 declare global {
   declare module '@flebee/ui/icon' {
     export interface BeeIconTypes {
@@ -46,7 +46,7 @@ You can change the strategy of loading the default icons already provided for ea
 
 To change the default options you can use `provideBeeIcon` and adjust it to your needs
 
-```typescript name="app.config,ts"
+```typescript name="app.config,ts" icon="typescript"
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import type { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
@@ -66,7 +66,7 @@ export const appConfig: ApplicationConfig = {
 
 #### Improve SSR performance with custom provider
 
-```typescript name="app.config.server.ts"
+```typescript name="app.config.server.ts" icon="typescript"
 import { type ApplicationConfig, mergeApplicationConfig } from '@angular/core';
 import { provideServerRendering } from '@angular/platform-server';
 import { of, throwError } from 'rxjs';

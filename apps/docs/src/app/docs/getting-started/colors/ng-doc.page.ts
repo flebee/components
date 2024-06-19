@@ -68,7 +68,7 @@ const colors: Record<Exclude<BeeColor, 'backdrop'>, string[]> = {
 };
 
 const ColorsPage: NgDocPage = {
-  order: 1,
+  order: 2,
   title: 'Colors',
   mdFile: './index.md',
   category: GettingStartedCategory,
