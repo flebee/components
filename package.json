@@ -5,14 +5,14 @@
   "scripts": {
     "dev": "nx serve",
     "commit": "git-cz",
-    "changelog": "nx release",
+    "release": "nx release",
     "postinstall": "simple-git-hooks",
     "build": "nx run-many --target build --all --parallel=1"
   },
   "private": true,
   "engines": {
-    "pnpm": "^9.1.0",
-    "node": "^20.0.0"
+    "pnpm": ">=9.1.0",
+    "node": ">=20"
   },
   "dependencies": {
     "@angular/animations": "18.0.1",
