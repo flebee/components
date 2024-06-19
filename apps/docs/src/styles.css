@@ -30,6 +30,7 @@
   --ng-doc-guide-tag-color: var(--ng-doc-code-background);
   --ng-doc-search-result-color: var(--ng-doc-text-muted);
   --ng-doc-api-tag-color: var(--ng-doc-code-background);
+  --ng-doc-app-horizontal-padding: theme('spacing.3');
   --ng-doc-link-color: var(--ng-doc-primary);
   --ng-doc-info: var(--ng-doc-primary);
 }
