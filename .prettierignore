@@ -4,5 +4,5 @@
 /.nx/cache
 /.angular
 /tmp
-
+/.nx/workspace-data
 .angular
