@@ -25,7 +25,7 @@
 ### Text content
 
 <ul class="grid grid-cols-2 max-w-56 font-semibold gap-1 !-mb-12">
-  {{ boxColorName('bg-neutral-900 text-neutral-50', 'primary') }}
+  {{ boxColorName('bg-neutral-900 text-neutral-50', 'main') }}
   {{ boxColorName('bg-neutral-700 text-neutral-50', 'secondary') }}
 </ul>
 
