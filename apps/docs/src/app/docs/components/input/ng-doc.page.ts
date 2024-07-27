@@ -14,9 +14,12 @@ const InputPage: NgDocPage = {
       template: ` <bee-input /> `,
       controls: {
         label: { type: 'string' },
+        invalid: { type: 'boolean' },
         disabled: { type: 'boolean' },
         endContent: { type: 'string' },
+        placeholder: { type: 'string' },
         description: { type: 'string' },
+        errorMessage: { type: 'string' },
         startContent: { type: 'string' },
         type: { type: 'BeeInputType', options: ['text', 'password', 'number', 'date', 'datetime-local', 'month'] }
       }

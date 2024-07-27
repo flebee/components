@@ -1,54 +1,58 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
-  type TemplateRef,
-  booleanAttribute,
   computed,
   effect,
   input,
   model,
-  untracked
+  untracked,
+  type TemplateRef
 } from '@angular/core';
 
-import type { BooleanInput, Nullable } from '@flebee/ui/core';
+import { useId, type BooleanInput, type Nullable } from '@flebee/ui/core';
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
-import { baseWrapper, content, description, inputBase, label, wrapper } from './styles';
+import { base, content, description, inputBase, label, wrapper } from './styles';
 import type { BeeInputDateType, BeeInputSize, BeeInputType, BeeInputValue } from './types';
 
 @Component({
   standalone: true,
   selector: 'bee-input',
   imports: [BeeStringTemplate],
+  host: { '[class]': 'baseClass' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <label [class]="baseWrapperClass">
-      @if (label(); as label) {
+    @if (label(); as label) {
+      <label [id]="labelledById()" [for]="id">
         <bee-string-template [content]="label" [class]="labelClass()" />
+      </label>
+    }
+
+    <div [class]="wrapperClass()">
+      @if (startContent(); as startContent) {
+        <bee-string-template [content]="startContent" [class]="contentClass()" />
       }
 
-      <div [class]="wrapperClass()">
-        @if (startContent(); as startContent) {
-          <bee-string-template [content]="startContent" [class]="contentClass()" />
-        }
+      <input
+        [id]="id"
+        [type]="type()"
+        [class]="inputClass()"
+        [value]="renderValue()"
+        [disabled]="disabled()"
+        [placeholder]="placeholder()"
+        [attr.aria-labelledby]="labelledById()"
+        [attr.aria-describedby]="describedById()"
+        (input)="onInput($event)"
+      />
 
-        <input
-          [type]="type()"
-          [class]="inputClass()"
-          [value]="renderValue()"
-          [disabled]="disabled()"
-          [placeholder]="placeholder()"
-          (input)="onInput($event)"
-        />
+      @if (endContent(); as endContent) {
+        <bee-string-template [content]="endContent" [class]="contentClass()" />
+      }
+    </div>
 
-        @if (endContent(); as endContent) {
-          <bee-string-template [content]="endContent" [class]="contentClass()" />
-        }
-      </div>
-    </label>
-
-    @if (description(); as description) {
-      <bee-string-template [content]="description" [class]="descriptionClass()" />
+    @if (hit(); as hit) {
+      <bee-string-template [id]="describedById()" [content]="hit" [class]="descriptionClass()" />
     }
   `
 })
@@ -57,7 +61,9 @@ export class BeeInput<Type extends BeeInputType> {
 
   public placeholder = input('', { transform: (value: Nullable<string>) => value ?? '' });
   public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
+  public invalid = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public startContent = input<TemplateRef<void> | string>();
+  public errorMessage = input<TemplateRef<void> | string>();
   public description = input<TemplateRef<void> | string>();
   public endContent = input<TemplateRef<void> | string>();
   public value = model<BeeInputValue<Type>>(undefined);
@@ -65,13 +71,17 @@ export class BeeInput<Type extends BeeInputType> {
   public size = input<BeeInputSize>('md');
   public type = input.required<Type>();
 
+  public hit = computed(() => (!!this.errorMessage() && this.invalid() ? this.errorMessage() : this.description()));
+  public descriptionClass = computed(() => description({ size: this.size(), invalid: this.invalid() }));
+  public inputClass = computed(() => inputBase({ size: this.size(), invalid: this.invalid() }));
+  public wrapperClass = computed(() => wrapper({ size: this.size(), invalid: this.invalid() }));
+  public labelClass = computed(() => label({ size: this.size(), invalid: this.invalid() }));
+  public describedById = computed(() => (this.hit() ? `${this.id}-described` : undefined));
+  public labelledById = computed(() => (this.label() ? `${this.id}-labelled` : undefined));
   public renderValue = computed(() => this._getRenderValue(this.type(), this.value()));
-  public descriptionClass = computed(() => description({ size: this.size() }));
   public contentClass = computed(() => content({ size: this.size() }));
-  public inputClass = computed(() => inputBase({ size: this.size() }));
-  public wrapperClass = computed(() => wrapper({ size: this.size() }));
-  public labelClass = computed(() => label({ size: this.size() }));
-  public baseWrapperClass = baseWrapper();
+  public id = useId('bee-input');
+  public baseClass = base();
 
   constructor() {
     effect(() => {
