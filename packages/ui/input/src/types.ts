@@ -1,6 +1,6 @@
 import type { VariantProps } from 'cva';
 
-import type { baseWrapper, content, description, inputBase, label, wrapper } from './styles';
+import type { base, content, description, inputBase, label, wrapper } from './styles';
 
 export type BeeInputType = 'date' | 'datetime-local' | 'email' | 'month' | 'number' | 'password' | 'tel' | 'text';
 
@@ -11,10 +11,10 @@ export type BeeInputValue<Type extends BeeInputType> =
   | undefined;
 
 type BeeInputProps = VariantProps<typeof inputBase> &
+  VariantProps<typeof base> &
   VariantProps<typeof label> &
   VariantProps<typeof wrapper> &
   VariantProps<typeof content> &
-  VariantProps<typeof baseWrapper> &
   VariantProps<typeof description>;
 
 export type BeeInputSize = NonNullable<BeeInputProps['size']>;
