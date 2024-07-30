@@ -11,8 +11,12 @@ const CheckboxPage: NgDocPage = {
   playgrounds: {
     Checkbox: {
       target: BeeCheckbox,
-      template: ` <bee-checkbox> Checkbox </bee-checkbox> `,
-      controls: { disabled: { type: 'boolean' }, indeterminate: { type: 'boolean' } }
+      controls: {
+        invalid: { type: 'boolean' },
+        disabled: { type: 'boolean' },
+        indeterminate: { type: 'boolean' }
+      },
+      template: ` <bee-checkbox> Checkbox </bee-checkbox> `
     }
   }
 };

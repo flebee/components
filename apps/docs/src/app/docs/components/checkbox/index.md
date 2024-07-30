@@ -10,7 +10,7 @@ import { BeeCheckbox } from '@flebee/ui/checkbox';
 
 {{ NgDocActions.playground("Checkbox") }}
 
-### Radio Properties
+### Checkbox Properties
 
 | Properties    | Type                 | Default |
 | ------------- | -------------------- | ------- |
@@ -18,3 +18,4 @@ import { BeeCheckbox } from '@flebee/ui/checkbox';
 | indeterminate | `boolean`            | `false` |
 | disabled      | `boolean`            | `false` |
 | checked       | `boolean`            | `false` |
+| invalid       | `boolean`            | `false` |

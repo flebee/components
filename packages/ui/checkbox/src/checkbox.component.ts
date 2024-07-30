@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, booleanAttribute, computed, input, 
 
 import type { BooleanInput } from '@flebee/ui/core';
 
-import { base, icon, label, wrapper } from './style';
+import { base, icon, label, wrapper } from './styles';
 import type { BeeCheckboxSize } from './types';
 
 @Component({
@@ -50,11 +50,12 @@ import type { BeeCheckboxSize } from './types';
 export class BeeCheckbox {
   public indeterminate = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
+  public invalid = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public size = input<BeeCheckboxSize>('md');
   public checked = model(false);
 
-  public wrapperClass = computed(() => wrapper({ size: this.size() }));
-  public labelClass = computed(() => label({ size: this.size() }));
+  public wrapperClass = computed(() => wrapper({ size: this.size(), invalid: this.invalid() }));
+  public labelClass = computed(() => label({ size: this.size(), invalid: this.invalid() }));
   public iconClass = computed(() => icon({ size: this.size() }));
   public baseClass = base();
 
