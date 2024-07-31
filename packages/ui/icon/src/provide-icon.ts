@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { type EnvironmentProviders, InjectionToken, inject, makeEnvironmentProviders } from '@angular/core';
+import { type EnvironmentProviders, inject, InjectionToken, makeEnvironmentProviders } from '@angular/core';
 
 import type { ProvideBeeIconOptions } from './types';
 

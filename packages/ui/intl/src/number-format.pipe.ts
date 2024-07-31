@@ -1,4 +1,4 @@
-import { LOCALE_ID, Pipe, type PipeTransform, inject } from '@angular/core';
+import { inject, LOCALE_ID, Pipe, type PipeTransform } from '@angular/core';
 
 import type { Nullable } from '@flebee/ui/core';
 

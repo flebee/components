@@ -1,14 +1,14 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  type EmbeddedViewRef,
-  type TemplateRef,
-  ViewContainerRef,
-  ViewEncapsulation,
   effect,
+  type EmbeddedViewRef,
   input,
+  type TemplateRef,
   untracked,
-  viewChild
+  viewChild,
+  ViewContainerRef,
+  ViewEncapsulation
 } from '@angular/core';
 
 @Component({
@@ -27,7 +27,7 @@ export class BeeStringTemplate<Type> {
   private _contentTpl = viewChild.required<TemplateRef<Type>>('contentTpl');
   private _embeddedRef: EmbeddedViewRef<Type | void> | null = null;
 
-  public content = input.required<TemplateRef<Type> | string>();
+  public content = input.required<string | TemplateRef<Type>>();
   public context = input<Type | undefined>(undefined);
 
   constructor() {
