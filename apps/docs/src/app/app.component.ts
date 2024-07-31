@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, afterNextRender, inject } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { NgDocThemeService } from '@ng-doc/app';
@@ -14,6 +14,6 @@ export class AppComponent {
   private readonly _ngDocThemeSvc = inject(NgDocThemeService);
 
   constructor() {
-    afterNextRender(() => this._ngDocThemeSvc.disableAutoTheme());
+    afterNextRender({ write: () => this._ngDocThemeSvc.disableAutoTheme() });
   }
 }

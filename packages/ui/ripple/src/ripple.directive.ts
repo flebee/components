@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, inject } from '@angular/core';
+import { Directive, ElementRef, inject, Renderer2 } from '@angular/core';
 
 import { clamp } from '@flebee/ui/core';
 

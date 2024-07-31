@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { Injectable, Injector, inject, runInInjectionContext } from '@angular/core';
-import { type Observable, catchError, finalize, map, of, share } from 'rxjs';
+import { inject, Injectable, Injector, runInInjectionContext } from '@angular/core';
+import { catchError, finalize, map, type Observable, of, share } from 'rxjs';
 
 import { BeeIconOptions } from './provide-icon';
 import type { GetIcon, GetIconResponse } from './types';
@@ -59,7 +59,7 @@ export class BeeIconService {
     return newCacheDocument;
   }
 
-  private _getIconResponse(id: string, svg: SVGMarkerElement | null): GetIconResponse {
+  private _getIconResponse(id: string, svg: null | SVGMarkerElement): GetIconResponse {
     const viewBox = svg?.getAttribute('viewBox') ?? null;
     const size = viewBox?.split(' ')?.splice(2) || [];
     const height = Number(size[1]);

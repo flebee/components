@@ -6,11 +6,11 @@ import {
   effect,
   input,
   model,
-  untracked,
-  type TemplateRef
+  type TemplateRef,
+  untracked
 } from '@angular/core';
 
-import { useId, type BooleanInput, type Nullable } from '@flebee/ui/core';
+import { type BooleanInput, type Nullable, useId } from '@flebee/ui/core';
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
 import { base, content, description, inputBase, label, wrapper } from './styles';
@@ -62,12 +62,12 @@ export class BeeInput<Type extends BeeInputType> {
   public placeholder = input('', { transform: (value: Nullable<string>) => value ?? '' });
   public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public invalid = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
-  public startContent = input<TemplateRef<void> | string>();
-  public errorMessage = input<TemplateRef<void> | string>();
-  public description = input<TemplateRef<void> | string>();
-  public endContent = input<TemplateRef<void> | string>();
+  public startContent = input<string | TemplateRef<void>>();
+  public errorMessage = input<string | TemplateRef<void>>();
+  public description = input<string | TemplateRef<void>>();
+  public endContent = input<string | TemplateRef<void>>();
   public value = model<BeeInputValue<Type>>(undefined);
-  public label = input<TemplateRef<void> | string>();
+  public label = input<string | TemplateRef<void>>();
   public size = input<BeeInputSize>('md');
   public type = input.required<Type>();
 
