@@ -44,3 +44,45 @@ export const wrapper = cva({
     }
   }
 });
+
+export const groupBase = cva({ base: 'relative flex flex-col gap-2' });
+
+export const groupWrapper = cva({
+  base: 'flex flex-wrap gap-2',
+  variants: {
+    orientation: {
+      horizontal: 'flex-row',
+      vertical: 'flex-col'
+    }
+  }
+});
+
+export const groupLabel = cva({
+  base: 'block',
+  variants: {
+    size: {
+      sm: 'text-sm',
+      md: 'text-md',
+      lg: 'text-md'
+    },
+    invalid: {
+      false: 'text-main',
+      true: 'text-danger-600'
+    }
+  }
+});
+
+export const groupDescription = cva({
+  base: 'block',
+  variants: {
+    size: {
+      sm: 'text-xs',
+      md: 'text-xs',
+      lg: 'text-sm'
+    },
+    invalid: {
+      true: 'text-danger-600',
+      false: 'text-secondary'
+    }
+  }
+});
