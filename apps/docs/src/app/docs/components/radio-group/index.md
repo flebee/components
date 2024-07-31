@@ -21,13 +21,16 @@ import { BeeRadio, BeeRadioGroup } from '@flebee/ui/radio';
 
 ### Radio Group Properties
 
-| Properties  | Type                       | Default    |
-| ----------- | -------------------------- | ---------- |
-| orientation | `vertical` \| `horizontal` | `vertical` |
-| size        | `sm` \| `md` \| `lg`       | `md`       |
-| disabled    | `boolean`                  | `false`    |
-| label       | `string` \| `TemplateRef`  |            |
-| name        | `string`                   |            |
+| Properties   | Type                       | Default    |
+| ------------ | -------------------------- | ---------- |
+| orientation  | `vertical` \| `horizontal` | `vertical` |
+| size         | `sm` \| `md` \| `lg`       | `md`       |
+| disabled     | `boolean`                  | `false`    |
+| invalid      | `boolean`                  | `false`    |
+| description  | `string` \| `TemplateRef`  |            |
+| errorMessage | `string` \| `TemplateRef`  |            |
+| label        | `string` \| `TemplateRef`  |            |
+| name         | `string`                   |            |
 
 ### Radio Properties
 
