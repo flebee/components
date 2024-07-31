@@ -13,7 +13,13 @@ const RadioPage: NgDocPage = {
     RadioGroup: {
       target: BeeRadioGroup,
       hiddenInputs: ['class', 'name'],
-      controls: { disabled: { type: 'boolean' }, label: { type: 'string' } },
+      controls: {
+        label: { type: 'string' },
+        invalid: { type: 'boolean' },
+        disabled: { type: 'boolean' },
+        description: { type: 'string' },
+        errorMessage: { type: 'string' }
+      },
       template: `
         <bee-radio-group>
           <bee-radio value="buenos-aires"> Buenos Aires </bee-radio>
@@ -26,7 +32,13 @@ const RadioPage: NgDocPage = {
     RadioGroupWithDescription: {
       target: BeeRadioGroup,
       hiddenInputs: ['class', 'name'],
-      controls: { disabled: { type: 'boolean' }, label: { type: 'string' } },
+      controls: {
+        label: { type: 'string' },
+        invalid: { type: 'boolean' },
+        disabled: { type: 'boolean' },
+        description: { type: 'string' },
+        errorMessage: { type: 'string' }
+      },
       template: `
         <bee-radio-group>
           <bee-radio value="buenos-aires" description="Capital city"> Buenos Aires </bee-radio>
