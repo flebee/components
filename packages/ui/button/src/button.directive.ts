@@ -1,4 +1,4 @@
-import { Directive, booleanAttribute, computed, inject, input } from '@angular/core';
+import { booleanAttribute, computed, Directive, inject, input } from '@angular/core';
 
 import type { BooleanInput } from '@flebee/ui/core';
 import { BeeRipple } from '@flebee/ui/ripple';
@@ -26,7 +26,7 @@ export class BeeButton {
     const fullWidth = this._group?.fullWidth() || this.fullWidth();
     const variant = this._group?.variant() || this.variant();
     const size = this._group?.size() || this.size();
-    const isInGroup = Boolean(this._group);
+    const isInGroup = !!this._group;
 
     return button({ size, isInGroup, variant, fullWidth, iconOnly: this.iconOnly(), class: this.class() });
   });

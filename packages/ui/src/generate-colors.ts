@@ -1,4 +1,4 @@
-import type { ColorScale, Colors } from './colors';
+import type { Colors, ColorScale } from './colors';
 
 const dictionaryDark: Record<ColorScale, ColorScale> = {
   50: 900,

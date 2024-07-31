@@ -1,15 +1,15 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
-  type TemplateRef,
-  booleanAttribute,
   computed,
   input,
   model,
-  numberAttribute
+  numberAttribute,
+  type TemplateRef
 } from '@angular/core';
 
-import { type BooleanInput, type Nullable, type NumberInput, clamp } from '@flebee/ui/core';
+import { type BooleanInput, clamp, type Nullable, type NumberInput } from '@flebee/ui/core';
 import { NumberFormatPipe } from '@flebee/ui/intl';
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
@@ -56,7 +56,7 @@ export class BeeProgress {
   public min = input(0, { transform: (value: NumberInput) => numberAttribute(value, 0) });
   public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public formatOptions = input<Intl.NumberFormatOptions>({ style: 'percent' });
-  public label = input<TemplateRef<void> | string>('');
+  public label = input<string | TemplateRef<void>>('');
   public value = model<Nullable<number>>(undefined);
   public color = input<BeeProgressColor>('primary');
   public size = input<BeeProgressSize>('md');

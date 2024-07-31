@@ -3,7 +3,7 @@ import plugin from 'tailwindcss/plugin';
 import { animations } from './animations';
 import { type Colors, colors as flebeeColors } from './colors';
 import { generateColors } from './generate-colors';
-import { type Radius, generateRadius } from './generate-radius';
+import { generateRadius, type Radius } from './generate-radius';
 
 export interface FlebeeUIConfig {
   radius?: Partial<Radius>;

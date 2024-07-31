@@ -6,7 +6,7 @@
  *  type Value = Nulling<string | number>;
  * ```
  */
-export type Nullable<Type> = Type | null | undefined;
+export type Nullable<Type> = null | Type | undefined;
 
 /**
  * BooleanInput use in input signals with transform to improve developer experience with strict typing
