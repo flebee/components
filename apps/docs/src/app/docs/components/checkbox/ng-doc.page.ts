@@ -11,6 +11,7 @@ const CheckboxPage: NgDocPage = {
   playgrounds: {
     Checkbox: {
       target: BeeCheckbox,
+      hiddenInputs: ['value'],
       controls: {
         invalid: { type: 'boolean' },
         disabled: { type: 'boolean' },
