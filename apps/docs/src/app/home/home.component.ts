@@ -31,7 +31,7 @@ import { BeeIcon } from '@flebee/ui/icon';
         <p class="text-pretty"> Flebee UI aims to bring high performance and a sleek design to your Angular applications </p>
       </div>
 
-      <a beeButton routerLink="/docs/getting-started/installation">
+      <a beeButton routerLink="/docs">
         Get Started
         <bee-icon type="outline" name="arrow-narrow-right" />
       </a>
