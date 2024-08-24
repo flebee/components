@@ -30,6 +30,7 @@
     "@ng-doc/builder": "17.6.16",
     "@ng-doc/core": "17.6.16",
     "@ng-doc/ui-kit": "17.6.16",
+    "@ngx-formly/core": "6.3.6",
     "cva": "1.0.0-beta.1",
     "express": "4.19.2",
     "fast-glob": "3.3.2",
