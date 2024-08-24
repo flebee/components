@@ -53,6 +53,9 @@ importers:
       '@ng-doc/ui-kit':
         specifier: 17.6.16
         version: 17.6.16(5yqmi6bngnak7vvpbzbnrytnhm)
+      '@ngx-formly/core':
+        specifier: 6.3.6
+        version: 6.3.6(@angular/forms@18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10)))(rxjs@7.8.1))(rxjs@7.8.1)
       cva:
         specifier: 1.0.0-beta.1
         version: 1.0.0-beta.1(typescript@5.5.4)
@@ -2157,6 +2160,12 @@ packages:
       '@angular/compiler-cli': ^18.0.0
       typescript: '>=5.4 <5.6'
       webpack: ^5.54.0
+
+  '@ngx-formly/core@6.3.6':
+    resolution: {integrity: sha512-0GDllrb9fFBTKG+yT+iQf96N3/CN+qRXIYsSX3uft12+c28qKVfMTsWTPYQsmKfGcrqtOZkMVTc+jGGD2JLZLg==}
+    peerDependencies:
+      '@angular/forms': '>=13.2.0'
+      rxjs: ^6.5.3 || ^7.0.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -11209,6 +11218,12 @@ snapshots:
       '@angular/compiler-cli': 18.2.1(@angular/compiler@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4)
       typescript: 5.5.4
       webpack: 5.93.0(@swc/core@1.7.18(@swc/helpers@0.5.12))(esbuild@0.23.0)
+
+  '@ngx-formly/core@6.3.6(@angular/forms@18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10)))(rxjs@7.8.1))(rxjs@7.8.1)':
+    dependencies:
+      '@angular/forms': 18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.10)))(rxjs@7.8.1)
+      rxjs: 7.8.1
+      tslib: 2.7.0
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

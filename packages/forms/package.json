@@ -1,0 +1,17 @@
+{
+  "name": "@flebee/forms",
+  "license": "MIT",
+  "version": "0.1.0-beta.0",
+  "repository": "flebee/components",
+  "homepage": "https://components.flebee.com",
+  "description": "Formly integration with flebee ui",
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@ngx-formly/core": "^6.3.3"
+  },
+  "sideEffects": false
+}
