@@ -1,8 +1,6 @@
-import type { Route } from '@angular/router';
+import type { Routes } from '@angular/router';
 
-import { NG_DOC_ROUTING } from '@ng-doc/generated';
-
-export const appRoutes: Route[] = [
+export const appRoutes: Routes = [
   { path: '', loadComponent: () => import('./home/home.component') },
-  { path: 'docs', loadComponent: () => import('./docs/layout.component'), children: NG_DOC_ROUTING }
+  { path: 'docs', loadChildren: () => import('./docs/docs.routing') }
 ];

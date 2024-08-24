@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
@@ -28,6 +27,6 @@ import { BeeIcon } from '@flebee/ui/icon';
     </ng-doc-root>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, RouterOutlet, BeeIcon, NgClass, NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent]
+  imports: [RouterLink, RouterOutlet, BeeIcon, NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent]
 })
-export default class DocsLayoutComponent {}
+export class DocsLayoutComponent {}

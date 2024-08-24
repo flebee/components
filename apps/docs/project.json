@@ -38,7 +38,7 @@
           },
           "apps/docs/src/assets"
         ],
-        "styles": ["node_modules/@ng-doc/app/styles/global.css", "apps/docs/src/styles.css"],
+        "styles": ["apps/docs/src/styles.css"],
         "scripts": [],
         "server": "apps/docs/src/main.server.ts",
         "prerender": true,
