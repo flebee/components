@@ -2,7 +2,7 @@ import { NgDocPage } from '@ng-doc/core';
 
 import { BeeColor } from '@flebee/ui';
 
-import GettingStartedCategory from '../ng-doc.category';
+import ComponentsCategory from '../ng-doc.category';
 
 const colors: Record<Exclude<BeeColor, 'backdrop'>, string[]> = {
   primary: [
@@ -71,7 +71,7 @@ const ColorsPage: NgDocPage = {
   order: 2,
   title: 'Colors',
   mdFile: './index.md',
-  category: GettingStartedCategory,
+  category: ComponentsCategory,
   data: { ...colors, colors: Object.keys(colors) }
 };
 
