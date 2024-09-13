@@ -17,6 +17,7 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@flebee/forms": ["packages/forms/src/index.ts"],
+      "@flebee/forms/core": ["packages/forms/core/src/index.ts"],
       "@flebee/ui": ["packages/ui/src/index.ts"],
       "@flebee/ui/button": ["packages/ui/button/src/index.ts"],
       "@flebee/ui/checkbox": ["packages/ui/checkbox/src/index.ts"],
