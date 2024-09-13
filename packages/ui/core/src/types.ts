@@ -16,7 +16,7 @@ export type Nullable<Type> = null | Type | undefined;
  *  public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
  * ```
  */
-export type BooleanInput = '' | 'false' | 'true' | boolean;
+export type BooleanInput = Nullable<'' | 'false' | 'true' | boolean>;
 
 /**
  * NumberInput use in input signals with transform to improve developer experience with strict typing
@@ -28,3 +28,18 @@ export type BooleanInput = '' | 'false' | 'true' | boolean;
  * ```
  */
 export type NumberInput<Type extends number = number> = `${Type}` | Type;
+
+/**
+ * SafeFunction is a type for functions that accept any number of arguments of unknown types
+ * and return a value of an unknown type. This is useful when you want to define a function
+ * without being strict about the input or output types, maintaining flexibility.
+ *
+ * @example ```ts
+ *  const safeFn: SafeFunction = (...args) => {
+ *    return args.length > 0 ? args[0] : null;
+ *  };
+ *
+ *  const result = safeFn(1, 'hello'); // result: 1
+ * ```
+ */
+export type SafeFunction = (...args: unknown[]) => unknown;
