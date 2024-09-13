@@ -18,6 +18,7 @@
     "paths": {
       "@flebee/forms": ["packages/forms/src/index.ts"],
       "@flebee/forms/core": ["packages/forms/core/src/index.ts"],
+      "@flebee/forms/field-group": ["packages/forms/field-group/src/index.ts"],
       "@flebee/forms/template": ["packages/forms/template/src/index.ts"],
       "@flebee/ui": ["packages/ui/src/index.ts"],
       "@flebee/ui/button": ["packages/ui/button/src/index.ts"],
