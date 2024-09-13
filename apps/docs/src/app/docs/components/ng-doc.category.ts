@@ -1,9 +1,9 @@
 import { NgDocCategory } from '@ng-doc/core';
 
 const ComponentsCategory: NgDocCategory = {
-  order: 2,
+  order: 1,
   expandable: true,
-  title: 'Components'
+  title: 'UI Components'
 };
 
 export default ComponentsCategory;

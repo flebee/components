@@ -1,7 +1,7 @@
 import { NgDocCategory } from '@ng-doc/core';
 
 const PipesCategory: NgDocCategory = {
-  order: 3,
+  order: 2,
   title: 'Pipes',
   expandable: true
 };
