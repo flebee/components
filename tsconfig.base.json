@@ -17,6 +17,7 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@flebee/forms": ["packages/forms/src/index.ts"],
+      "@flebee/forms/button": ["packages/forms/button/src/index.ts"],
       "@flebee/forms/core": ["packages/forms/core/src/index.ts"],
       "@flebee/forms/field-group": ["packages/forms/field-group/src/index.ts"],
       "@flebee/forms/input": ["packages/forms/input/src/index.ts"],
