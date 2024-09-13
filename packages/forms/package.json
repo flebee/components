@@ -10,8 +10,10 @@
   },
   "peerDependencies": {
     "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0",
-    "@ngx-formly/core": "^6.3.3"
+    "@angular/core": "^18.0.0"
+  },
+  "dependencies": {
+    "@ngx-formly/core": "^6.3.6"
   },
   "sideEffects": false
 }
