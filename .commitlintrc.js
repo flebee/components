@@ -1,18 +1,12 @@
-const { readdirSync } = require('node:fs');
 const fg = require('fast-glob');
 
 const { workspaceLayout } = require('./nx.json');
 
-const packages = readdirSync(workspaceLayout.libsDir);
-const omitScopes = [workspaceLayout.libsDir, ...packages];
+const removeScopeRegex = new RegExp(`${workspaceLayout.libsDir}\/|\/ng-package.json`, 'g');
 
 const scopes = fg
   .sync(`${workspaceLayout.libsDir}/**/ng-package.json`)
-  .map((filePath) => {
-    const scopes = filePath.split('/').slice(-3, -1);
-
-    return scopes.filter((scope) => !omitScopes.includes(scope)).join('/');
-  })
+  .map((filePath) => filePath.replace(removeScopeRegex, ''))
   .filter((scope) => !!scope.trim());
 
 /** @type {Array<{ value: string; description: string }>} */
@@ -36,7 +30,7 @@ module.exports = {
     'body-leading-blank': [2, 'always'],
     'footer-leading-blank': [2, 'always'],
     'type-enum': [2, 'always', questions.map(({ value }) => value)],
-    'scope-enum': [2, 'always', ['docs', 'security', 'deps', 'release', ...packages, ...scopes]]
+    'scope-enum': [2, 'always', ['docs', 'security', 'deps', 'release', ...scopes]]
   },
   prompt: {
     themeColorCode: '1;5;35',
