@@ -1,16 +1,8 @@
-import {
-  booleanAttribute,
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  effect,
-  input,
-  model,
-  type TemplateRef,
-  untracked
-} from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input, type TemplateRef } from '@angular/core';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
 import { type BooleanInput, type Nullable, useId } from '@flebee/ui/core';
+import { BeeControlValueAccessor } from '@flebee/ui/core/control-value-accessor';
 import { BeeStringTemplate } from '@flebee/ui/string-template';
 
 import { base, content, description, inputBase, label, wrapper } from './styles';
@@ -39,11 +31,12 @@ import type { BeeInputDateType, BeeInputSize, BeeInputType, BeeInputValue } from
         [type]="type()"
         [class]="inputClass()"
         [value]="renderValue()"
-        [disabled]="disabled()"
+        [disabled]="cva.disabled()"
         [placeholder]="placeholder()"
         [attr.aria-labelledby]="labelledById()"
         [attr.aria-describedby]="describedById()"
         (input)="onInput($event)"
+        (blur)="cva.markAsTouched()"
       />
 
       @if (endContent(); as endContent) {
@@ -54,19 +47,19 @@ import type { BeeInputDateType, BeeInputSize, BeeInputType, BeeInputValue } from
     @if (hit(); as hit) {
       <bee-string-template [id]="describedById()" [content]="hit" [class]="descriptionClass()" />
     }
-  `
+  `,
+  hostDirectives: [{ directive: BeeControlValueAccessor, inputs: ['value', 'disabled'], outputs: ['valueChange'] }]
 })
 export class BeeInput<Type extends BeeInputType> {
   private _dateTypes: BeeInputDateType[] = ['date', 'month', 'datetime-local'];
 
+  public cva = inject<BeeControlValueAccessor<BeeInputValue<Type>>>(BeeControlValueAccessor);
   public placeholder = input('', { transform: (value: Nullable<string>) => value ?? '' });
-  public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public invalid = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public startContent = input<string | TemplateRef<void>>();
   public errorMessage = input<string | TemplateRef<void>>();
   public description = input<string | TemplateRef<void>>();
   public endContent = input<string | TemplateRef<void>>();
-  public value = model<BeeInputValue<Type>>(undefined);
   public label = input<string | TemplateRef<void>>();
   public size = input<BeeInputSize>('md');
   public type = input.required<Type>();
@@ -76,27 +69,27 @@ export class BeeInput<Type extends BeeInputType> {
   public inputClass = computed(() => inputBase({ size: this.size(), invalid: this.invalid() }));
   public wrapperClass = computed(() => wrapper({ size: this.size(), invalid: this.invalid() }));
   public labelClass = computed(() => label({ size: this.size(), invalid: this.invalid() }));
+  public renderValue = computed(() => this._getRenderValue(this.type(), this.cva.value()));
   public describedById = computed(() => (this.hit() ? `${this.id}-described` : undefined));
   public labelledById = computed(() => (this.label() ? `${this.id}-labelled` : undefined));
-  public renderValue = computed(() => this._getRenderValue(this.type(), this.value()));
   public contentClass = computed(() => content({ size: this.size() }));
   public id = useId('bee-input');
   public baseClass = base();
 
   constructor() {
-    effect(() => {
-      const value = this.value();
+    toObservable(this.cva.value)
+      .pipe(takeUntilDestroyed())
+      .subscribe((value) => {
+        if (!this._dateTypes.includes(this.type() as BeeInputDateType) || value instanceof Date) return;
 
-      if (!this._dateTypes.includes(this.type() as BeeInputDateType) || value instanceof Date) return;
-
-      untracked(() => this.value.set(this._getValidDate(value) as BeeInputValue<Type>));
-    });
+        this.cva.value.set(this._getValidDate(value) as BeeInputValue<Type>);
+      });
   }
 
   onInput(event: Event): void {
     const target = event.target as HTMLInputElement;
 
-    this.value.set(this._parseValue(target));
+    this.cva.value.set(this._parseValue(target));
   }
 
   private _getRenderValue(type: Type, value: BeeInputValue<Type>): string {
