@@ -1,4 +1,5 @@
 export { BeeFieldType } from './base.field';
+export type { BeeBuildFormFields } from './build-form';
 export { BeeField } from './field.component';
 export type {
   BeeFieldConfig,

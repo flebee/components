@@ -1,7 +1,7 @@
 import type { FormGroup } from '@angular/forms';
 
-import type { BeeInferFormFields } from '@flebee/forms';
 import type {
+  BeeBuildFormFields,
   BeeFieldConfigValidWithControlKeys,
   BeeFieldConfigWithFieldGroup,
   OmitStrict,
@@ -14,7 +14,7 @@ export type BeeFieldGroupConfig<
   Fields extends unknown[],
   Props extends Record<string, unknown> = Record<string, any>
 > = PickStrict<
-  BeeFieldConfigWithFieldGroup<Key, Props, any, Fields, FormGroup<BeeInferFormFields<Fields>>>,
+  BeeFieldConfigWithFieldGroup<Key, Props, any, Fields, FormGroup<BeeBuildFormFields<Fields>>>,
   BeeFieldConfigValidWithControlKeys
 >;
 

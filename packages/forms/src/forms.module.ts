@@ -5,7 +5,6 @@ import { FormlyModule } from '@ngx-formly/core';
 import type { FormlyTemplate } from '@ngx-formly/core/lib/components/formly.template';
 import type { FieldType } from '@ngx-formly/core/public_api';
 
-/* eslint-disable @nx/enforce-module-boundaries */
 import { BeeFieldGroup } from '@flebee/forms/field-group';
 import { BeeFieldTemplate } from '@flebee/forms/template';
 
