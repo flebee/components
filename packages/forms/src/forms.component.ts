@@ -4,9 +4,8 @@ import { FormGroup } from '@angular/forms';
 import { FormlyConfig, FormlyForm, FormlyFormBuilder } from '@ngx-formly/core';
 import type { ConfigOption, FormlyFieldConfig, ValidationMessageOption, ValidatorOption } from '@ngx-formly/core/lib/models';
 
-import { BeeField, type BeeFieldConfig } from '@flebee/forms/core';
+import { type BeeBuildFormFields, BeeField, type BeeFieldConfig } from '@flebee/forms/core';
 
-import type { BeeBuildFormFields } from './build-form';
 import { BeeFieldTemplates, BeeFormsModule } from './forms.module';
 import { injectBeeForms } from './provide-forms';
 
@@ -63,7 +62,7 @@ export class BeeForms<
       Object.entries(validations || {}).forEach(([name, validation]) => {
         if (typeof validation === 'function') {
           validationMessages.push({ name, message: validation as ValidationMessageOption['message'] });
-        } else if ('expression' in validation) {
+        } else if (this._isValidation(validation)) {
           validationMessages.push({ name, message: validation.message as ValidationMessageOption['message'] });
           validators.push({ name, validation: validation.expression as ValidatorOption['validation'] });
         }
@@ -73,5 +72,11 @@ export class BeeForms<
     });
 
     super(inject(FormlyFormBuilder), formlyConfig, inject(NgZone), inject(BeeFieldTemplates));
+  }
+
+  private _isValidation(
+    validation: any
+  ): validation is { message: ValidationMessageOption['message']; expression: ValidatorOption['validation'] } {
+    return validation && typeof validation.message === 'string';
   }
 }
