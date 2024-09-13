@@ -22,12 +22,12 @@ Beautiful, fast, and modern components, visually inspired by the elegance and fu
 > [!IMPORTANT]
 > Flebee UI is currently under construction and in beta. Some features may not be fully functional yet.
 
-### Flebee Formly
+### Flebee Forms
 
-An integration with [Formly](https://formly.dev/) providing dynamic forms with Angular.
+Flebee Forms is an integration with [Formly](https://formly.dev/) that expands it with signals and a declarative approach to form creation. It allows for complex forms with strong type inference, making form development in Angular more intuitive and efficient.
 
-> [!NOTE]
-> Flebee Formly will be under construction soon. Stay tuned for more details and future updates.
+> [!IMPORTANT]
+> Flebee Forms is currently under construction and in beta. Some features may not be fully functional yet.
 
 ## Contributing
 
