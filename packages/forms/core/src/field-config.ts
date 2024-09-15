@@ -136,12 +136,14 @@ export interface BeeFieldConfig<
    * Should be an object of key - value pairs. The value can either be an expression to evaluate or a function to run.
    * Each should return a boolean value, returning true when the field is valid. See Validation for more information.
    */
+  // @ts-expect-error 'does not satisfy the constraint'
   validators?: BeeFieldValidators<BeeFieldConfig<Key, BeeFieldUnwrapProps<Props>, Value, Model, FormState, Fields, Control>>;
   /**
    * Use this one for anything that needs to validate asynchronously.
    * Pretty much exactly the same as the validators api, except it must be a function that returns a promise.
    */
   asyncValidators?: BeeFieldAsyncValidators<
+    // @ts-expect-error 'does not satisfy the constraint'
     BeeFieldConfig<Key, BeeFieldUnwrapProps<Props>, Value, Model, FormState, Fields, Control>
   >;
   /**
