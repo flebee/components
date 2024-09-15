@@ -20,7 +20,7 @@ pnpm add @flebee/ui @flebee/forms
 bun add @flebee/ui @flebee/forms
 ```
 
-For additional setup steps, such as configuring **Tailwind CSS** or installing fonts, visit the [Flebee UI installation guide](/docs/getting-started/installation)
+For additional setup steps, such as configuring **Tailwind CSS** or installing fonts, visit the [Flebee UI installation guide](/docs/components/installation)
 
 ---
 

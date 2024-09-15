@@ -149,48 +149,30 @@ In this setup:
 You can also apply validators to individual inputs within your form. This allows for more granular control over validation rules:
 
 ```typescript
-import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-
-import { BeeForms, buildForm } from '@flebee/forms';
+import { buildForm } from '@flebee/forms';
 import { withInput } from '@flebee/forms/input';
 
-@Component({
-  standalone: true,
-  imports: [BeeForms, ReactiveFormsModule],
-  template: `
-    <form [formGroup]="myForm.form" (ngSubmit)="onSubmit()">
-      <bee-forms [fields]="myForm.fields" [form]="myForm.form" [(model)]="myForm.model" />
-    </form>
-  `
-})
-export class AppComponent {
-  public myForm = buildForm(
-    withInput({
-      key: 'internalIp',
-      props: { type: 'text', label: 'Internal IP Address' },
-      validators: {
-        // Custom validator specific to this input
-        internalIp: {
-          expression: (control) => (/(\d{1,3}\.){3}\d{1,3}/.test(control.value ?? '') ? null : { internalIp: true }),
-          message: (_, field) => `"${field.formControl?.value ?? ''}" is not a valid IP address`
-        }
+const myForm = buildForm(
+  withInput({
+    key: 'externalIp',
+    props: { type: 'text', label: 'External IP Address' },
+    validators: {
+      // Use the global 'ipGlobalAddress' validator
+      validation: ['ipGlobalAddress']
+    }
+  }),
+  withInput({
+    key: 'internalIp',
+    props: { type: 'text', label: 'Internal IP Address' },
+    validators: {
+      // Custom validator specific to this input
+      internalIp: {
+        expression: (control) => (/(\d{1,3}\.){3}\d{1,3}/.test(control.value ?? '') ? null : { internalIp: true }),
+        message: (_, field) => `"${field.formControl?.value ?? ''}" is not a valid IP address`
       }
-    }),
-    withInput({
-      key: 'externalIp',
-      props: { type: 'text', label: 'External IP Address' },
-      validators: {
-        // Use the global 'ipGlobalAddress' validator
-        validation: ['ipGlobalAddress']
-      }
-    })
-  );
-
-  onSubmit() {
-    console.log(this.myForm.form.getRawValue());
-  }
-}
+    }
+  })
+);
 ```
 
 In this example:
