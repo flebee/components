@@ -1,3 +1,31 @@
+## 0.2.0-beta.1 (2024-09-15)
+
+
+### 🚀 Features
+
+- **checkbox:** add support with invalid status ([fff6582](https://github.com/flebee/components/commit/fff6582))
+- **checkbox:** add checkbox group component ([f823b76](https://github.com/flebee/components/commit/f823b76))
+- **core:** add new utilities for assert-injector, create-injection-token and control-value-accessor ([b7bd214](https://github.com/flebee/components/commit/b7bd214))
+- **forms:** init library ([e758bce](https://github.com/flebee/components/commit/e758bce))
+- **forms:** add base library with validator config provider and signals support ([c669ecb](https://github.com/flebee/components/commit/c669ecb))
+- **forms/button:** add button field component ([19de341](https://github.com/flebee/components/commit/19de341))
+- **forms/core:** add base components with signals, injector support, and strict form typing ([e4ba2b3](https://github.com/flebee/components/commit/e4ba2b3))
+- **forms/field-group:** add field component with tracking support for better performance ([999980f](https://github.com/flebee/components/commit/999980f))
+- **forms/input:** add input field component ([57bffe9](https://github.com/flebee/components/commit/57bffe9))
+- **forms/template:** add support for rendering templates, components, string, and HTML ([ba26501](https://github.com/flebee/components/commit/ba26501))
+- **input:** add support for error message with invalid status ([fff6582](https://github.com/flebee/components/commit/fff6582))
+- **input:** support Angular Forms with control-value-accessor ([219c52a](https://github.com/flebee/components/commit/219c52a))
+- **radio:** add support for error message with invalid status ([87af569](https://github.com/flebee/components/commit/87af569))
+
+### 🩹 Fixes
+
+- **forms:** resolve issue with validation detection in BeeForms component ([64a6083](https://github.com/flebee/components/commit/64a6083))
+- **ui:** text color name ([a4c3f7e](https://github.com/flebee/components/commit/a4c3f7e))
+
+### ❤️  Thank You
+
+- Yeison Herrera
+
 ## 0.1.0-beta.2 (2024-06-19)
 
 
