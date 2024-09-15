@@ -40,6 +40,11 @@
           "codeCoverage": true
         }
       }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}"
+      }
     }
   },
   "generators": {

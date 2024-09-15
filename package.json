@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "nx serve",
     "commit": "git-cz",
-    "release": "nx release",
+    "publish": "nx release publish",
     "postinstall": "simple-git-hooks",
+    "release": "nx release --skip-publish",
     "build": "nx run-many --target build --all --parallel=1"
   },
   "private": true,
