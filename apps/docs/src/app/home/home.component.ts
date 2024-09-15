@@ -10,20 +10,21 @@ import { BeeIcon } from '@flebee/ui/icon';
   standalone: true,
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'flex flex-col gap-16 mx-auto px-3 py-6 max-w-screen-lg' },
+  host: { class: 'flex flex-col gap-16 mx-auto px-3 pb-6 max-w-screen-lg' },
   imports: [BeeIcon, BeeButton, RouterLink, NgDocLinkComponent, NgDocPageLinkComponent],
   template: `
-    <header class="flex flex-col gap-4">
-      <h1 style="view-transition-name: title;" class="text-primary font-bold flex gap-2 items-center">
-        <bee-icon type="brand" name="flebee" class="text-7xl" />
-        <span class="text-3xl sm:text-5xl"> Flebee Components </span>
-      </h1>
+    <h1
+      style="view-transition-name: title;"
+      class="text-primary font-bold flex gap-2 items-center sticky top-0 p-3 -mx-3 bg-backdrop z-10"
+    >
+      <bee-icon type="brand" name="flebee" class="text-7xl" />
+      <span class="text-3xl sm:text-5xl"> Flebee Components </span>
+    </h1>
 
-      <p class="text-2xl text-pretty font-semibold">
-        Welcome to Flebee! Explore our suite of powerful Angular libraries designed to enhance your development experience with
-        elegant and efficient solutions.
-      </p>
-    </header>
+    <p class="text-2xl text-pretty font-semibold -mt-4">
+      Welcome to Flebee! Explore our suite of powerful Angular libraries designed to enhance your development experience with
+      elegant and efficient solutions.
+    </p>
 
     <section class="flex flex-col gap-4">
       <h2 class="text-3xl font-semibold text-primary"> Flebee UI </h2>
