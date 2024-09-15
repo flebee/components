@@ -9,6 +9,12 @@ import { type BeeBuildFormFields, BeeField, type BeeFieldConfig } from '@flebee/
 import { BeeFieldTemplates, BeeFormsModule } from './forms.module';
 import { injectBeeForms } from './provide-forms';
 
+const isValidation = (
+  validation: unknown
+): validation is { message: ValidationMessageOption['message']; expression: ValidatorOption['validation'] } => {
+  return typeof validation === 'object' && (validation as { message: unknown })['message'] != null;
+};
+
 @Component({
   standalone: true,
   selector: 'bee-forms',
@@ -62,9 +68,9 @@ export class BeeForms<
       Object.entries(validations || {}).forEach(([name, validation]) => {
         if (typeof validation === 'function') {
           validationMessages.push({ name, message: validation as ValidationMessageOption['message'] });
-        } else if (this._isValidation(validation)) {
-          validationMessages.push({ name, message: validation.message as ValidationMessageOption['message'] });
-          validators.push({ name, validation: validation.expression as ValidatorOption['validation'] });
+        } else if (isValidation(validation)) {
+          validationMessages.push({ name, message: validation.message });
+          validators.push({ name, validation: validation.expression });
         }
       });
 
@@ -72,11 +78,5 @@ export class BeeForms<
     });
 
     super(inject(FormlyFormBuilder), formlyConfig, inject(NgZone), inject(BeeFieldTemplates));
-  }
-
-  private _isValidation(
-    validation: any
-  ): validation is { message: ValidationMessageOption['message']; expression: ValidatorOption['validation'] } {
-    return validation && typeof validation.message === 'string';
   }
 }
