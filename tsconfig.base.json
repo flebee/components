@@ -22,6 +22,7 @@
       "@flebee/forms/field-group": ["packages/forms/field-group/src/index.ts"],
       "@flebee/forms/input": ["packages/forms/input/src/index.ts"],
       "@flebee/forms/template": ["packages/forms/template/src/index.ts"],
+      "@flebee/forms/progress": ["packages/forms/progress/src/index.ts"],
       "@flebee/ui": ["packages/ui/src/index.ts"],
       "@flebee/ui/button": ["packages/ui/button/src/index.ts"],
       "@flebee/ui/checkbox": ["packages/ui/checkbox/src/index.ts"],
