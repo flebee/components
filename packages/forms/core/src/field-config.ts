@@ -3,7 +3,7 @@ import type { AbstractControl, FormArray, FormControl, FormGroup, FormGroupDirec
 import type { Observable, Subject } from 'rxjs';
 
 import type { BeeFieldType } from './base.field';
-import type { BeeFieldUnwrapProps, ExtractStrict, PartialDeep } from './types';
+import type { BeeFieldUnwrapProps, ExtractStrict, PartialDeep, PickStrict } from './types';
 import type { BeeFieldAsyncValidators, BeeFieldValidators, BeeValidationMessages } from './validators';
 
 type BeeHookFn<
@@ -136,15 +136,22 @@ export interface BeeFieldConfig<
    * Should be an object of key - value pairs. The value can either be an expression to evaluate or a function to run.
    * Each should return a boolean value, returning true when the field is valid. See Validation for more information.
    */
-  // @ts-expect-error 'does not satisfy the constraint'
-  validators?: BeeFieldValidators<BeeFieldConfig<Key, BeeFieldUnwrapProps<Props>, Value, Model, FormState, Fields, Control>>;
+
+  validators?: BeeFieldValidators<
+    PickStrict<
+      BeeFieldConfig<Key, BeeFieldUnwrapProps<Props>, Value, Model, FormState, Fields, Control>,
+      'defaultValue' | 'form' | 'formControl' | 'key' | 'model' | 'props'
+    >
+  >;
   /**
    * Use this one for anything that needs to validate asynchronously.
    * Pretty much exactly the same as the validators api, except it must be a function that returns a promise.
    */
   asyncValidators?: BeeFieldAsyncValidators<
-    // @ts-expect-error 'does not satisfy the constraint'
-    BeeFieldConfig<Key, BeeFieldUnwrapProps<Props>, Value, Model, FormState, Fields, Control>
+    PickStrict<
+      BeeFieldConfig<Key, BeeFieldUnwrapProps<Props>, Value, Model, FormState, Fields, Control>,
+      'defaultValue' | 'form' | 'formControl' | 'key' | 'model' | 'props'
+    >
   >;
   /**
    * An object with a few useful properties to control the model changes

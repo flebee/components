@@ -1,5 +1,4 @@
 export { BeeFieldType } from './base.field';
-export type { BeeBuildFormFields } from './build-form';
 export { BeeField } from './field.component';
 export type {
   BeeFieldConfig,
@@ -10,6 +9,7 @@ export type {
   BeeFieldTemplateValue,
   BeeFormOptions
 } from './field-config';
+export type { BeeBuildInferForm, BeeBuildInferModel } from './infer-build-form';
 export type {
   BeeFieldSignalProps,
   BeeFieldUnwrapProp,
