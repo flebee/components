@@ -17,7 +17,7 @@
 ### Layout
 
 <ul class="grid grid-cols-3 font-semibold gap-1 max-w-[19rem] !-mb-12">
-  {{ boxColorName('bg-backdrop text-main', 'backdrop') }}
+  {{ boxColorName('bg-backdrop text-main border border-divider', 'backdrop') }}
   {{ boxColorName('bg-foreground text-main', 'foreground') }}
   {{ boxColorName('bg-neutral-200 text-main', 'divider') }}
 </ul>

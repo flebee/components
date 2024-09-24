@@ -7,6 +7,7 @@
 @tailwind utilities;
 
 :root {
+  --ng-doc-demo-displayer-background: theme('backgroundColor.foreground');
   --ng-doc-guide-tag-background: theme('colors.warning.DEFAULT');
   --ng-doc-api-tag-background: theme('colors.danger.DEFAULT');
   --ng-doc-mark-background: theme('colors.primary.100/10');
