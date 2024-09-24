@@ -30,7 +30,7 @@ export const indicator = cva({
 });
 
 export const label = cva({
-  base: 'flex justify-between text-main items-center',
+  base: 'flex justify-between text-main gap-1 items-center',
   variants: {
     size: {
       sm: 'text-sm',

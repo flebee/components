@@ -35,7 +35,7 @@ import type { BeeProgressColor, BeeProgressSize } from './types';
     @if (showValue() || label()) {
       <div [class]="labelClass()">
         @if (label()) {
-          <bee-string-template [content]="label()" />
+          <bee-string-template [content]="label()" class="flex-1" />
         }
 
         @if (!indeterminate() && showValue()) {
@@ -61,7 +61,7 @@ export class BeeProgress {
   public color = input<BeeProgressColor>('primary');
   public size = input<BeeProgressSize>('md');
 
-  public clamValue = computed(() => clamp(this.indeterminate() ? this.max() : this.value() ?? 0, this.min(), this.max()));
+  public clamValue = computed(() => clamp(this.indeterminate() ? this.max() : (this.value() ?? 0), this.min(), this.max()));
   public valueLabel = computed(() => (this.formatOptions()?.style === 'percent' ? this.percentage() : this.clamValue()));
   public indicatorClass = computed(() => indicator({ color: this.color(), indeterminate: this.indeterminate() }));
   public percentage = computed(() => (this.clamValue() - this.min()) / (this.max() - this.min()));
