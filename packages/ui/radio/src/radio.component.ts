@@ -17,9 +17,10 @@ import { base, control, description, label, labelWrapper, wrapper } from './styl
         type="radio"
         [name]="name()"
         [value]="value()"
-        (input)="onInput()"
         [checked]="isSelected()"
         [disabled]="isDisabled()"
+        (input)="onInput()"
+        (blur)="cva.markAsTouched()"
         class="sr-only peer"
       />
 
@@ -45,19 +46,20 @@ export class BeeRadio {
 
   public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
   public description = input<string | TemplateRef<void>>();
-  public value = input.required<string>();
+  public value = input.required<number | string>();
 
   public descriptionClass = computed(() => description({ size: this._size(), invalid: this._group.invalid() }));
   public wrapperClass = computed(() => wrapper({ size: this._size(), invalid: this._group.invalid() }));
   public controlClass = computed(() => control({ size: this._size(), invalid: this._group.invalid() }));
   public labelClass = computed(() => label({ size: this._size(), invalid: this._group.invalid() }));
   public labelWrapperClass = computed(() => labelWrapper({ size: this._size() }));
-  public isDisabled = computed(() => this._group.disabled() || this.disabled());
-  public isSelected = computed(() => this._group.value() === this.value());
+  public isDisabled = computed(() => this.cva.disabled() || this.disabled());
+  public isSelected = computed(() => this.cva.value() === this.value());
   public name = computed(() => this._group.name() || this._group.id);
+  public cva = this._group.cva;
   public baseClass = base();
 
   onInput(): void {
-    this._group.value.set(this.value());
+    this.cva.value.set(this.value());
   }
 }
