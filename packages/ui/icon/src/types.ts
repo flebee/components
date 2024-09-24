@@ -29,7 +29,7 @@ export interface GetIconResponse {
 
 export interface ProvideBeeIconOptions {
   /**
-   * @default '1em'
+   * @default '1.25em'
    */
   defaultSize: BeeIconSize;
   /**

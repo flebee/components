@@ -4,7 +4,7 @@ import { type EnvironmentProviders, inject, InjectionToken, makeEnvironmentProvi
 import type { ProvideBeeIconOptions } from './types';
 
 const defaultOptions: ProvideBeeIconOptions = {
-  defaultSize: '1em',
+  defaultSize: '1.25em',
   getUrl: ({ type, name }) => `/assets/icons/${type}/${name}.svg`,
   load: (url) => inject(HttpClient).get(url, { responseType: 'text' })
 };

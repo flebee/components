@@ -9,6 +9,7 @@ import type { BeeIconName, BeeIconSize, BeeIconType, GetIcon, GetIconResponse, I
 @Component({
   standalone: true,
   selector: 'bee-icon',
+  host: { class: 'block align-middle w-max' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <svg [attr.width]="safeWidth()" [attr.height]="safeHeight()" [attr.viewBox]="viewBox()">
