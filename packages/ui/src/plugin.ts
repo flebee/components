@@ -15,7 +15,14 @@ export const flebeeUI = (config?: FlebeeUIConfig): ReturnType<typeof plugin> => 
   const mergeColors: Colors = { ...flebeeColors, ...config?.colors };
   const { colors, dark, light, backgroundColor, textColor, borderColor } = generateColors(mergeColors);
 
-  return plugin(({ addBase }) => addBase({ ':root': light, '@media (prefers-color-scheme: dark)': { ':root': dark } }), {
-    theme: { extend: { colors, textColor, borderRadius, backgroundColor, borderColor, ...animations } }
-  });
+  return plugin(
+    ({ addBase }) => {
+      addBase({
+        ':root': { ...light, accentColor: 'hsl(var(--flebee-ui-primary-500))' },
+        '@media (prefers-color-scheme: dark)': { ':root': { ...dark, colorScheme: 'dark' } },
+        body: { color: 'hsl(var(--flebee-ui-neutral-900))', backgroundColor: 'hsl(var(--flebee-ui-backdrop))' }
+      });
+    },
+    { theme: { extend: { colors, textColor, borderRadius, backgroundColor, borderColor, ...animations } } }
+  );
 };
