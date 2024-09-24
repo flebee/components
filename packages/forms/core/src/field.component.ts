@@ -5,7 +5,6 @@ import {
   Component,
   inject,
   Injector,
-  Input,
   type OnChanges,
   type OnDestroy,
   type OnInit,
@@ -14,8 +13,6 @@ import {
 } from '@angular/core';
 
 import { FormlyField } from '@ngx-formly/core';
-
-import type { BeeFieldConfig } from './field-config';
 
 @Component({
   standalone: true,
@@ -30,9 +27,6 @@ import type { BeeFieldConfig } from './field-config';
 })
 export class BeeField extends FormlyField implements OnInit, OnChanges, AfterContentInit, AfterViewInit, OnDestroy {
   private _injector = inject(Injector);
-
-  // @ts-expect-error 'override type'
-  @Input() override field!: BeeFieldConfig;
 
   override ngAfterContentInit() {
     runInInjectionContext(this._injector, () => super.ngAfterContentInit());

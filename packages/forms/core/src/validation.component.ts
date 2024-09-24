@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, Injector, input, isSignal, 
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { filter, isObservable, merge, mergeMap, type Observable, of, startWith } from 'rxjs';
 
-import { FormlyConfig } from '@ngx-formly/core';
+import { FormlyConfig, type FormlyFieldConfig } from '@ngx-formly/core';
 
 import type { BeeFieldConfig } from './field-config';
 import type { BeeMessage } from './validators';
@@ -15,9 +15,9 @@ import type { BeeMessage } from './validators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeeValidation {
-  public field = input.required<BeeFieldConfig>();
+  public field = input.required<BeeFieldConfig | FormlyFieldConfig>();
 
-  private _messages$ = toObservable(this.field).pipe(
+  private _messages$ = toObservable(this.field as Signal<BeeFieldConfig>).pipe(
     mergeMap((currentField) => {
       const statusChanges$ = currentField?.formControl?.statusChanges ? currentField?.formControl?.statusChanges : of(null);
       const fieldChanges$ = currentField?.options?.fieldChanges?.pipe(
