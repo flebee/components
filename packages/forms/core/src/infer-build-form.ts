@@ -43,15 +43,30 @@ type UnionToIntersection<Union> = (Union extends unknown ? (arg: Union) => void 
  */
 type IsLiteralType<Literal, Type> = Type extends Literal ? (Literal extends Type ? false : true) : false;
 
-type BeeBuildFormField<T> =
+type BeeBuildInferFormField<T> =
   T extends BeeFieldConfig<infer Key extends string, any, infer Value, any, any, infer Fields, infer Control>
     ? Control extends FormGroup
       ? IsLiteralType<string, Key> extends true
-        ? { [K in Key]: FormGroup<BeeBuildFormFields<Fields>> }
-        : BeeBuildFormFields<Fields>
+        ? { [K in Key]: FormGroup<BeeBuildInferForm<Fields>> }
+        : BeeBuildInferForm<Fields>
       : IsLiteralType<string, Key> extends true
         ? { [K in Key]: FormControl<Value> }
         : never
     : never;
 
-export type BeeBuildFormFields<T> = T extends Array<infer U> ? UnionToIntersection<BeeBuildFormField<U>> : BeeBuildFormField<T>;
+export type BeeBuildInferForm<T> =
+  T extends Array<infer U> ? UnionToIntersection<BeeBuildInferFormField<U>> : BeeBuildInferFormField<T>;
+
+type BeeBuildInferModelField<T> =
+  T extends BeeFieldConfig<infer Key extends string, any, infer Value, any, any, infer Fields, infer Control>
+    ? Control extends FormGroup
+      ? IsLiteralType<string, Key> extends true
+        ? { [K in Key]?: BeeBuildInferModel<Fields> }
+        : BeeBuildInferModel<Fields>
+      : IsLiteralType<string, Key> extends true
+        ? { [K in Key]?: Value }
+        : never
+    : never;
+
+export type BeeBuildInferModel<T> =
+  T extends Array<infer U> ? UnionToIntersection<BeeBuildInferModelField<U>> : BeeBuildInferModelField<T>;
