@@ -33,7 +33,7 @@ export const generateColors = ({ backdrop, ...colors }: Colors) => {
   const backdropKey = getColorKey('backdrop').light;
   const dividerKey = getColorKey('neutral', 200).light;
   const textMainKey = getColorKey('neutral', 900).light;
-  const foregroundKey = getColorKey('neutral', 50).light;
+  const foregroundKey = getColorKey('neutral', 100).light;
   const textSecondaryKey = getColorKey('neutral', 700).light;
 
   const themeCSS = {

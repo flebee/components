@@ -10,7 +10,7 @@ export const wrapper = cva({
     },
     invalid: {
       true: 'bg-danger-50 has-[:enabled]:hover:saturate-150 has-[:focus]:saturate-150',
-      false: 'bg-foreground has-[:enabled]:hover:bg-opacity-75 has-[:focus]:bg-opacity-75'
+      false: 'bg-neutral-50 has-[:enabled]:hover:bg-opacity-75 has-[:focus]:bg-opacity-75'
     }
   }
 });
