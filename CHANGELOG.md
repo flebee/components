@@ -1,3 +1,24 @@
+## 0.2.0-beta.2 (2024-09-24)
+
+
+### 🚀 Features
+
+- **forms/progress:** add progress field component ([c83da0d](https://github.com/flebee/components/commit/c83da0d))
+- **ui/checkbox:** support Angular Forms with control-value-accessor ([8c5b869](https://github.com/flebee/components/commit/8c5b869))
+- **ui/radio:** support Angular Forms with control-value-accessor ([177bddc](https://github.com/flebee/components/commit/177bddc))
+
+### 🩹 Fixes
+
+- **forms:** update typings to resolve inference issues in compiled library ([c91019c](https://github.com/flebee/components/commit/c91019c))
+- **forms:** extend Formly library instead of overwriting to fix issue in compiled library ([e9d2721](https://github.com/flebee/components/commit/e9d2721))
+- **ui:** correct color errors ([4e18176](https://github.com/flebee/components/commit/4e18176))
+- **ui/icon:** resolve styling issues in component ([07cf366](https://github.com/flebee/components/commit/07cf366))
+- **ui/progress:** resolve styling issues in component ([a334fb1](https://github.com/flebee/components/commit/a334fb1))
+
+### ❤️  Thank You
+
+- Yeison Herrera
+
 ## 0.2.0-beta.1 (2024-09-15)
 
 
