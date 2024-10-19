@@ -5,7 +5,7 @@ import type { ProvideBeeIconOptions } from './types';
 
 const defaultOptions: ProvideBeeIconOptions = {
   defaultSize: '1.25em',
-  getUrl: ({ type, name }) => `/assets/icons/${type}/${name}.svg`,
+  getUrl: ({ type, name }) => `/icons/${type}/${name}.svg`,
   load: (url) => inject(HttpClient).get(url, { responseType: 'text' })
 };
 
@@ -21,7 +21,7 @@ export const BeeIconOptions = new InjectionToken('BeeIconOptionsToken', { provid
  * bootstrapApplication(AppComponent, {
  *  providers: [
  *   provideBeeIcon({
- *     getUrl: ({ type, name }) => `/assets/icons/${type}/${name}.svg`,
+ *     getUrl: ({ type, name }) => `/icons/${type}/${name}.svg`,
  *     load: (url) => inject(HttpClient).get(url, { responseType: 'text' })
  *   })
  * ]});

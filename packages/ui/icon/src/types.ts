@@ -34,7 +34,7 @@ export interface ProvideBeeIconOptions {
   defaultSize: BeeIconSize;
   /**
    * @default ```ts
-   *  ({ name, type }) => `/assets/icons/${type}/${name}.svg`
+   *  ({ name, type }) => `/icons/${type}/${name}.svg`
    * ```
    */
   getUrl: (options: GetIcon) => string;
