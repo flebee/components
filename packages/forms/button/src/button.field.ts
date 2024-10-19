@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Injector, runInInjectionContext } from '@angular/core';
 
 import { type BeeFieldConfig, BeeFieldType } from '@flebee/forms/core';
 import { BeeButton } from '@flebee/ui/button';
@@ -17,6 +17,7 @@ import type { BeeButtonProps, BeeButtonType } from './with-button';
       [type]="props.type"
       [class]="props.class"
       [size]="props.size ?? 'md'"
+      [disabled]="props.disabled"
       [iconOnly]="props.iconOnly"
       [fullWidth]="props.fullWidth"
       [variant]="props.variant ?? 'primary'"
@@ -28,6 +29,8 @@ import type { BeeButtonProps, BeeButtonType } from './with-button';
   `
 })
 export class BeeButtonField extends BeeFieldType<BeeFieldConfig<string, BeeButtonProps<BeeButtonType>>> {
+  private _injector = inject(Injector);
+
   get templateRef() {
     return typeof this.props.label !== 'string' ? this.props.label : null;
   }
@@ -36,6 +39,6 @@ export class BeeButtonField extends BeeFieldType<BeeFieldConfig<string, BeeButto
   }
 
   onClick(event: MouseEvent): void {
-    this.props.onClick?.(this.field as any, event);
+    runInInjectionContext(this._injector, () => this.props.onClick?.(this.field as any, event));
   }
 }
