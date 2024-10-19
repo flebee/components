@@ -39,7 +39,7 @@ You can change the strategy of loading the default icons already provided for ea
 ```typescript
 {
   defaultSize: '1.25em',
-  getUrl: ({ type, name }) => `/assets/icons/${type}/${name}.svg`,
+  getUrl: ({ type, name }) => `/icons/${type}/${name}.svg`,
   load: (url) => inject(HttpClient).get(url, { responseType: 'text' })
 }
 ```
@@ -79,8 +79,8 @@ import { provideBeeIcon } from '@flebee/ui/icon';
 import { appConfig } from './app.config';
 
 const paths = [
-  'browser/assets', // Assets in production
-  'apps/docs/src/assets', // Assets in development mode and build process
+  'browser', // Assets in production
+  'apps/docs/public', // Assets in development mode and build process
   'node_modules/@tabler/icons' // Assets in development mode and build process
 ];
 const icons = new Map(globSync(`{${paths.join()}}/**/*.svg`).map((url) => [url.split('/').slice(-3).join('/'), url]));
@@ -106,10 +106,10 @@ export const config = mergeApplicationConfig(appConfig, serverConfig);
 
 ### Icon Properties
 
-| Properties | Type                                                                                                 | Default  |
-| ---------- | ---------------------------------------------------------------------------------------------------- | -------- |
-| size       | `auto` \| `number` \| `rem` \| `em` \| `px`                                                          | `1.25em` |
-| height     | `auto` \| `number` \| `rem` \| `em` \| `px`                                                          |          |
-| width      | `auto` \| `number` \| `rem` \| `em` \| `px`                                                          |          |
-| type       | By default it is a `string` but you can infer the [typing dynamically](/components/icon#icon-typing) |          |
-| name       | By default it is a `string` but you can infer the [typing dynamically](/components/icon#icon-typing) |          |
+| Properties | Type                                                                                                      | Default  |
+| ---------- | --------------------------------------------------------------------------------------------------------- | -------- |
+| size       | `auto` \| `number` \| `rem` \| `em` \| `px`                                                               | `1.25em` |
+| height     | `auto` \| `number` \| `rem` \| `em` \| `px`                                                               |          |
+| width      | `auto` \| `number` \| `rem` \| `em` \| `px`                                                               |          |
+| type       | By default it is a `string` but you can infer the [typing dynamically](/docs/components/icon#icon-typing) |          |
+| name       | By default it is a `string` but you can infer the [typing dynamically](/docs/components/icon#icon-typing) |          |
