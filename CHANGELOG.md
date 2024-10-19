@@ -1,3 +1,27 @@
+## 0.3.0-beta.0 (2024-10-19)
+
+### 🚀 Features
+
+- **forms:** add support for new Signal attributes in form fields ([96b7f0c](https://github.com/flebee/components/commit/96b7f0c))
+- ⚠️  **forms:** simplify inputs for form component ([fb244d0](https://github.com/flebee/components/commit/fb244d0))
+- **forms/button:** add disabled prop and enhance onClick for injection context ([d43f681](https://github.com/flebee/components/commit/d43f681))
+- **forms/core:** support runInInjectionContext for error messages ([8c7d405](https://github.com/flebee/components/commit/8c7d405))
+- **ui/button:** add new variants ([9922464](https://github.com/flebee/components/commit/9922464))
+- ⚠️  **ui/icon:** update icon paths for Angular 18 compatibility ([30a9f4f](https://github.com/flebee/components/commit/30a9f4f))
+
+### 🩹 Fixes
+
+- **ui/icon:** prevent icon cache duplication on multiple requests ([f8de056](https://github.com/flebee/components/commit/f8de056))
+
+### ⚠️  Breaking Changes
+
+- **forms:** Existing configurations that rely on the previous input structure may require updates.
+- **ui/icon:** Icon paths have been updated. Please change any references from `/assets/icons` to `/icons` to
+
+### ❤️  Thank You
+
+- Yeison Herrera
+
 ## 0.2.0-beta.2 (2024-09-24)
 
 
