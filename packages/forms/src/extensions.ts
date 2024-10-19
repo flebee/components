@@ -11,19 +11,16 @@ const signalsExtension: FormlyExtension<RequiredStrict<FormlyFieldConfig>> = {
     if (!_viewContainerRef) return;
 
     const { injector } = _viewContainerRef;
-    const { hide, template } = field;
+    const { hide, template, className, fieldGroupClassName } = field;
+    const attributes = { hide, template, className, fieldGroupClassName };
 
-    if (isSignal(hide)) {
-      Object.defineProperty(field, 'hide', { set: () => undefined, get: () => hide() });
+    Object.entries(attributes).forEach(([key, value]) => {
+      if (!isSignal(value)) return;
 
-      effect(() => Object.assign(field, { hide: hide() }), { injector });
-    }
+      Object.defineProperty(field, key, { set: () => undefined, get: () => value() });
 
-    if (isSignal(template)) {
-      Object.defineProperty(field, 'template', { set: () => undefined, get: () => template() });
-
-      effect(() => Object.assign(field, { template: template() }), { injector });
-    }
+      effect(() => Object.assign(field, { [key]: value() }), { injector });
+    });
 
     Object.entries(field.props || {}).forEach(([key, value]) => {
       if (!isSignal(value)) return;
