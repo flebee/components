@@ -20,7 +20,7 @@ const isLanguageEn = computed(() => language() === 'en');
   imports: [BeeForms, BeeButton, ReactiveFormsModule],
   template: `
     <form [formGroup]="myForm.form" (ngSubmit)="onSubmit()">
-      <bee-forms [fields]="myForm.fields" [form]="myForm.form" [(model)]="myForm.model" />
+      <bee-forms [form]="myForm" />
 
       <footer class=" flex flex-wrap gap-4 mt-4">
         <button beeButton variant="secondary" type="button" (click)="changeLanguage()"> {{ changeLanguageLabel() }} </button>
