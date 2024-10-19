@@ -21,11 +21,12 @@ import { BeeButton } from '@flebee/ui/button';
 
 ### Button Properties
 
-| Properties | Type                                 | Default   |
-| ---------- | ------------------------------------ | --------- |
-| size       | `sm` \| `md` \| `lg`                 | `md`      |
-| variant    | `primary` \| `secondary` \| `danger` | `primary` |
-| iconOnly   | `boolean`                            | `false`   |
+| Properties | Type                                                         | Default   |
+| ---------- | ------------------------------------------------------------ | --------- |
+| size       | `sm` \| `md` \| `lg`                                         | `md`      |
+| variant    | `primary` \| `secondary` \| `danger` \| `warning` \| `ghost` | `primary` |
+| iconOnly   | `boolean`                                                    | `false`   |
+| fullWidth  | `boolean`                                                    | `false`   |
 
 ### Import Button Group
 
@@ -39,8 +40,8 @@ import { BeeButton, BeeButtonGroup } from '@flebee/ui/button';
 
 ### Button Group Properties
 
-| Properties | Type                                                                                                        | Default |
-| ---------- | ----------------------------------------------------------------------------------------------------------- | ------- |
-| size       | `sm` \| `md` \| `lg` \|                                                                                     | `md`    |
-| variant    | `primary` \| `secondary` \| `danger`\| <br /> If the variant is not passed, each button handles its variant |         |
-| fullWidth  | `boolean`                                                                                                   | `false` |
+| Properties | Type                                                                                                                                 | Default |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| size       | `sm` \| `md` \| `lg` \|                                                                                                              | `md`    |
+| variant    | `primary` \| `secondary` \| `danger` \| `warning` \| `ghost` \| <br /> If the variant is not passed, each button handles its variant |         |
+| fullWidth  | `boolean`                                                                                                                            | `false` |
