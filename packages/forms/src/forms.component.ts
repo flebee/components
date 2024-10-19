@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
-import type { FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
+import { FormSubmittedEvent } from '@angular/forms';
 
 import { FormlyConfig } from '@ngx-formly/core';
 import type { ConfigOption, FormlyFieldConfig, ValidationMessageOption, ValidatorOption } from '@ngx-formly/core/lib/models';
 
-import { type BeeBuildInferForm, type BeeBuildInferModel, BeeField, type BeeFieldConfig } from '@flebee/forms/core';
+import { BeeField } from '@flebee/forms/core';
 
+import type { buildForm } from './build-form';
 import { BeeFormsModule } from './forms.module';
 import { injectBeeForms } from './provide-forms';
 
@@ -20,24 +21,29 @@ const isValidation = (
   selector: 'bee-forms',
   imports: [BeeField, BeeFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: ` <formly-form [form]="form()" [fields]="safeFields()" [(model)]="model" /> `
+  template: ` <formly-form [form]="formGroup()" [fields]="safeFields()" [(model)]="form().model" [options]="form().options" /> `
 })
-export class BeeForms<
-  Fields extends unknown[],
-  Form extends FormGroup<BeeBuildInferForm<Fields>>,
-  Model extends BeeBuildInferModel<Fields>
-> {
-  public fields = input.required<BeeFieldConfig[] | Fields>();
-  public model = model<Model>({} as Model);
-  public form = input.required<Form>();
+export class BeeForms<Fields extends unknown[]> {
+  private _configs = injectBeeForms({ optional: true }) ?? [];
+  private _formlyConfig = inject(FormlyConfig);
 
-  public safeFields = computed(() => this.fields() as FormlyFieldConfig[]);
+  public form = input.required<ReturnType<typeof buildForm<Fields>>>();
+
+  public safeFields = computed(() => this.form().fields as FormlyFieldConfig[]);
+  public formGroup = computed(() => this.form().form);
 
   constructor() {
-    const configs = injectBeeForms({ optional: true }) ?? [];
-    const formlyConfig = inject(FormlyConfig);
+    effect((onCleanup) => {
+      const subscription = this.formGroup().events.subscribe((events) => {
+        if (!(events instanceof FormSubmittedEvent)) return;
 
-    configs.forEach(({ validators: validations, ...settings }) => {
+        this.formGroup().markAllAsTouched();
+      });
+
+      return onCleanup(() => subscription.unsubscribe());
+    });
+
+    this._configs.forEach(({ validators: validations, ...settings }) => {
       const validators: ValidatorOption[] = [];
       const validationMessages: ValidationMessageOption[] = [];
 
@@ -50,7 +56,7 @@ export class BeeForms<
         }
       });
 
-      formlyConfig.addConfig({ ...(settings as ConfigOption), validationMessages, validators });
+      this._formlyConfig.addConfig({ ...(settings as ConfigOption), validationMessages, validators });
     });
   }
 }
