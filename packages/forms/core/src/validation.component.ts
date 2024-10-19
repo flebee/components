@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, inject, Injector, input, isSignal, type Signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Injector,
+  input,
+  isSignal,
+  runInInjectionContext,
+  type Signal
+} from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { filter, isObservable, merge, mergeMap, type Observable, of, startWith } from 'rxjs';
 
@@ -70,9 +79,9 @@ export class BeeValidation {
 
       if (isSignal(message)) return this._getSafeMessage(message);
 
-      if (typeof message === 'function') return this._getSafeMessage(message(error, field));
+      if (typeof message !== 'function') return of(message);
 
-      return of(message);
+      return runInInjectionContext(this._injector, () => this._getSafeMessage(message(error, field)));
     }
 
     return of(undefined);
