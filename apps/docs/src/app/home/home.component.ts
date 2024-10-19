@@ -52,7 +52,7 @@ import { BeeIcon } from '@flebee/ui/icon';
         </li>
       </ul>
 
-      <a beeButton variant="secondary" routerLink="/docs/components/installation">
+      <a beeButton variant="secondary" routerLink="/docs/ui/installation">
         Get Started
         <bee-icon type="outline" name="arrow-narrow-right" size="1.5rem" />
       </a>

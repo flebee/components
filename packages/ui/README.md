@@ -15,7 +15,7 @@ Beautiful, fast, and modern Angular zoneless components with seamless SSR suppor
 
 To get started with Flebee UI, follow the comprehensive guide available on our documentation site. This guide will walk you through the installation process, basic setup, and initial configuration to help you integrate Flebee UI components into your Angular project seamlessly.
 
-Visit the [Flebee UI Getting Started Guide](https://components.flebee.com/docs/getting-started/installation) to begin.
+Visit the [Flebee UI Getting Started Guide](https://components.flebee.com/docs/ui/installation) to begin.
 
 ## Documentation
 

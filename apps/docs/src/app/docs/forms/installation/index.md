@@ -1,5 +1,3 @@
-# {{ NgDocPage.title }}
-
 **Flebee UI** is a set of Angular zoneless components with SSR support, and **Flebee Forms** extends [Formly](https://formly.dev/) with signals and type inference to simplify form creation in Angular.
 
 ### Install Flebee UI and Flebee Forms
@@ -20,7 +18,7 @@ pnpm add @flebee/ui @flebee/forms
 bun add @flebee/ui @flebee/forms
 ```
 
-For additional setup steps, such as configuring **Tailwind CSS** or installing fonts, visit the [Flebee UI installation guide](/docs/components/installation)
+For additional setup steps, such as configuring **Tailwind CSS** or installing fonts, visit the [Flebee UI installation guide](/docs/ui/installation)
 
 ---
 

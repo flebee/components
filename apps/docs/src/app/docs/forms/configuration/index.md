@@ -1,5 +1,3 @@
-# {{ NgDocPage.title }}
-
 ## Default Validators
 
 Flebee Forms includes default validators:
