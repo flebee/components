@@ -19,7 +19,6 @@ import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideNgDocApp(),
     provideNgDocContext(),
     provideClientHydration(),
     provideAnimationsAsync(),
@@ -28,6 +27,7 @@ export const appConfig: ApplicationConfig = {
     providePageSkeleton(NG_DOC_DEFAULT_PAGE_SKELETON),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideMainPageProcessor(NG_DOC_DEFAULT_PAGE_PROCESSORS),
+    provideNgDocApp({ uiKit: { assetsPath: 'assets/ng-doc', customIconsPath: 'assets/ng-doc' } }),
     provideRouter(
       appRoutes,
       withViewTransitions({ skipInitialTransition: true }),

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://components.flebee.com">
-    <img src="https://components.flebee.com/assets/favicon.svg" width="100" height="100" alt="Flebee logo">
+    <img src="https://components.flebee.com/favicon.svg" width="100" height="100" alt="Flebee logo">
   </a>
 </p>
 

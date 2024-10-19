@@ -10,8 +10,8 @@ import { provideBeeIcon } from '@flebee/ui/icon';
 import { appConfig } from './app.config';
 
 const paths = [
-  'browser/assets', // Assets in production
-  'apps/docs/src/assets', // Assets in development mode and build process
+  'browser', // Assets in production
+  'apps/docs/public', // Assets in development mode and build process
   'node_modules/@tabler/icons' // Assets in development mode and build process
 ];
 const icons = new Map(globSync(`{${paths.join()}}/**/*.svg`).map((url) => [url.split('/').slice(-3).join('/'), url]));
