@@ -13,7 +13,7 @@ export class BeeIconService {
   private _injector = inject(Injector);
   private _options = inject(BeeIconOptions);
   private _cacheDocument = this._getCacheDocument();
-  private _inProgressLoads = new Map<string, Observable<string>>();
+  private _inProgressLoads = new Map<string, Observable<GetIconResponse>>();
 
   geIcon({ name, type }: GetIcon): Observable<GetIconResponse> {
     const id = `bee-icon-${type}-${name}`;
@@ -21,22 +21,7 @@ export class BeeIconService {
 
     if (cacheIcon) return of(this._getIconResponse(id, cacheIcon));
 
-    return this._loadIcon({ name, type }).pipe(
-      map((response) => {
-        const div = this._document.createElement('div');
-        div.innerHTML = response;
-
-        const iconSvg = div.querySelector<SVGMarkerElement>('svg');
-
-        if (!iconSvg) throw new Error('<svg> tag not found.');
-
-        removeAttributes.forEach((attribute) => iconSvg.removeAttribute(attribute));
-        iconSvg.setAttribute('id', id);
-
-        this._cacheDocument.appendChild(iconSvg);
-
-        return this._getIconResponse(id, iconSvg);
-      }),
+    return this._loadIcon(id, { name, type }).pipe(
       catchError(() => {
         console.error(`Icon ${name} does not exist or is not registered.`);
 
@@ -59,22 +44,14 @@ export class BeeIconService {
     return newCacheDocument;
   }
 
-  private _getIconResponse(id: string, svg: null | SVGMarkerElement): GetIconResponse {
-    const viewBox = svg?.getAttribute('viewBox') ?? null;
-    const size = viewBox?.split(' ')?.splice(2) || [];
-    const height = Number(size[1]);
-    const width = Number(size[0]);
-
-    return { id, viewBox, height: isNaN(height) ? null : height, width: isNaN(width) ? width : null };
-  }
-
-  private _loadIcon(options: GetIcon): Observable<string> {
+  private _loadIcon(id: string, options: GetIcon): Observable<GetIconResponse> {
     const url = this._options.getUrl(options);
     const inProgress = this._inProgressLoads.get(url);
 
     if (inProgress) return inProgress;
 
     const newInProgress = runInInjectionContext(this._injector, () => this._options.load(url)).pipe(
+      map((content) => this._processResponse({ content, id })),
       finalize(() => this._inProgressLoads.delete(url)),
       share()
     );
@@ -82,5 +59,30 @@ export class BeeIconService {
     this._inProgressLoads.set(url, newInProgress);
 
     return newInProgress;
+  }
+
+  private _processResponse({ content, id }: { content: string; id: string }): GetIconResponse {
+    const div = this._document.createElement('div');
+    div.innerHTML = content;
+
+    const iconSvg = div.querySelector<SVGMarkerElement>('svg');
+
+    if (!iconSvg) throw new Error('<svg> tag not found.');
+
+    removeAttributes.forEach((attribute) => iconSvg.removeAttribute(attribute));
+    iconSvg.setAttribute('id', id);
+
+    this._cacheDocument.appendChild(iconSvg);
+
+    return this._getIconResponse(id, iconSvg);
+  }
+
+  private _getIconResponse(id: string, svg: null | SVGMarkerElement): GetIconResponse {
+    const viewBox = svg?.getAttribute('viewBox') ?? null;
+    const size = viewBox?.split(' ')?.splice(2) || [];
+    const height = Number(size[1]);
+    const width = Number(size[0]);
+
+    return { id, viewBox, height: isNaN(height) ? null : height, width: isNaN(width) ? width : null };
   }
 }
