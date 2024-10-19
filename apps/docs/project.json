@@ -16,27 +16,11 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/docs/tsconfig.app.json",
         "assets": [
-          {
-            "glob": "**/*",
-            "input": "node_modules/@ng-doc/app/assets",
-            "output": "assets/ng-doc/app"
-          },
-          {
-            "glob": "**/*",
-            "input": "node_modules/@ng-doc/ui-kit/assets",
-            "output": "assets/ng-doc/ui-kit"
-          },
-          {
-            "glob": "**/*",
-            "input": "ng-doc/docs/assets",
-            "output": "assets/ng-doc"
-          },
-          {
-            "glob": "**/*",
-            "input": "node_modules/@tabler/icons/icons",
-            "output": "assets/icons"
-          },
-          "apps/docs/src/assets"
+          { "glob": "**/*", "input": "node_modules/@ng-doc/app/assets", "output": "assets/ng-doc" },
+          { "glob": "**/*", "input": "node_modules/@ng-doc/ui-kit/assets", "output": "assets/ng-doc" },
+          { "glob": "**/*", "input": "ng-doc/docs/assets", "output": "assets/ng-doc" },
+          { "glob": "**/*", "input": "node_modules/@tabler/icons/icons", "output": "icons" },
+          { "glob": "**/*", "input": "apps/docs/public" }
         ],
         "styles": ["apps/docs/src/styles.css"],
         "scripts": [],
