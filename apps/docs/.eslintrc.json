@@ -11,8 +11,15 @@
           "error",
           { "type": ["attribute", "element"], "prefix": "app", "style": "camelCase" }
         ],
-        "@angular-eslint/component-selector": ["error", { "type": "element", "prefix": "app", "style": "kebab-case" }]
-
+        "@angular-eslint/component-selector": ["error", { "type": "element", "prefix": "app", "style": "kebab-case" }],
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "allow": ["../../packages/ui/src"],
+            "enforceBuildableLibDependency": true,
+            "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
+          }
+        ]
       }
     },
     {
