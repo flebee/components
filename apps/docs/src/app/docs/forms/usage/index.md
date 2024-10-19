@@ -1,5 +1,3 @@
-# {{ NgDocPage.title }}
-
 ### Creating a Form
 
 To create a form with Flebee Forms, follow this simple example:

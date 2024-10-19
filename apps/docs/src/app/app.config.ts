@@ -2,7 +2,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { type ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
+import { PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading, withViewTransitions } from '@angular/router';
 
 import {
   NG_DOC_DEFAULT_PAGE_PROCESSORS,
@@ -27,9 +27,16 @@ export const appConfig: ApplicationConfig = {
     providePageSkeleton(NG_DOC_DEFAULT_PAGE_SKELETON),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideMainPageProcessor(NG_DOC_DEFAULT_PAGE_PROCESSORS),
-    provideNgDocApp({ uiKit: { assetsPath: 'assets/ng-doc', customIconsPath: 'assets/ng-doc' } }),
+    provideNgDocApp({
+      shiki: {
+        themes: [import('shiki/themes/github-dark.mjs')],
+        theme: { dark: 'github-dark', light: 'github-dark' }
+      },
+      uiKit: { assetsPath: 'assets/ng-doc', customIconsPath: 'assets/ng-doc' }
+    }),
     provideRouter(
       appRoutes,
+      withPreloading(PreloadAllModules),
       withViewTransitions({ skipInitialTransition: true }),
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' })
     )

@@ -16,7 +16,7 @@ export const wrapper = cva({
 });
 
 export const inputBase = cva({
-  base: 'w-full font-normal bg-transparent outline-none focus:outline-none h-full [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none',
+  base: 'w-full font-normal bg-transparent outline-none focus:outline-none h-full [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none placeholder-shown:text-ellipsis',
   variants: {
     size: {
       sm: 'text-sm',
