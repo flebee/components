@@ -24,6 +24,7 @@ export type BeeButtonProps<Type extends BeeButtonType> = (Type extends 'button'
   BeeFieldSignalProps<{
     class?: string;
     iconOnly?: boolean;
+    disabled?: boolean;
     fullWidth?: boolean;
     size?: BeeButtonSize;
     variant?: BeeButtonVariant;
