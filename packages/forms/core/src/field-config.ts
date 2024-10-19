@@ -86,6 +86,8 @@ export interface BeeFieldConfig<
   defaultValue?: Value;
   /** This should be a formly-field type added either by you or a plugin. More information over at Creating Formly Fields. */
   type?: Type<BeeFieldType>;
+  /** Whether to reset the value on hide or not. Defaults to `true`. */
+  resetOnHide?: boolean;
   /** This allows you to specify the `id` of your field. Note, the `id` is generated if not set. */
   id?: string;
   /** If you wish, you can specify a specific `name` for your field. This is useful if you're posting the form to a server using techniques of yester-year. */
@@ -105,7 +107,7 @@ export interface BeeFieldConfig<
       | Observable<BeeExpressions<BeeFieldUnwrapProps<Props>, Model>[Key]>;
   };
   /** You can specify your own class that will be applied to the `formly-field` component. */
-  className?: string;
+  className?: Signal<string> | string;
   /** Whether to focus or blur the element field. Defaults to false. If you wish this to be conditional use `expressions` */
   focus?: boolean;
   hooks?: BeeHookConfig<Key, BeeFieldUnwrapProps<Props>, Value, Model, FormState, Fields, Control>;
@@ -115,7 +117,7 @@ export interface BeeFieldConfig<
    */
   fieldGroup?: BeeFieldConfig[] | Fields;
   /** Specify your own class that will be applied to the `formly-group` component. */
-  fieldGroupClassName?: string;
+  fieldGroupClassName?: Signal<string> | string;
   /** The form options. */
   readonly options?: BeeFieldOptions<BeeFieldUnwrapProps<Props>, Value, Model, FormState, Key>;
   /** The model that stores all the data, where the model[key] is the value of the field */
@@ -185,7 +187,7 @@ export type BeeFieldConfigValidWithoutControlKeys = ExtractStrict<
 
 export type BeeFieldConfigValidWithControlKeys = ExtractStrict<
   keyof BeeFieldConfigWithoutFieldGroup,
-  'defaultValue' | 'key' | BeeFieldConfigValidWithoutControlKeys
+  'defaultValue' | 'key' | 'modelOptions' | 'resetOnHide' | BeeFieldConfigValidWithoutControlKeys
 >;
 
 export type BeeFieldConfigWithFieldGroup<
