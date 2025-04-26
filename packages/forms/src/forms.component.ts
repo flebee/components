@@ -4,8 +4,6 @@ import { FormSubmittedEvent } from '@angular/forms';
 import { FormlyConfig } from '@ngx-formly/core';
 import type { ConfigOption, FormlyFieldConfig, ValidationMessageOption, ValidatorOption } from '@ngx-formly/core/lib/models';
 
-import { BeeField } from '@flebee/forms/core';
-
 import type { buildForm } from './build-form';
 import { BeeFormsModule } from './forms.module';
 import { injectBeeForms } from './provide-forms';
@@ -19,9 +17,9 @@ const isValidation = (
 @Component({
   standalone: true,
   selector: 'bee-forms',
-  imports: [BeeField, BeeFormsModule],
+  imports: [BeeFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: ` <formly-form [form]="formGroup()" [fields]="safeFields()" [(model)]="form().model" [options]="form().options" /> `
+  template: ` <formly-form [form]="formGroup()" [fields]="safeFields()" [options]="form().options" [(model)]="form().model" /> `
 })
 export class BeeForms<Fields extends unknown[]> {
   private _configs = injectBeeForms({ optional: true }) ?? [];

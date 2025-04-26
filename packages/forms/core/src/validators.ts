@@ -38,8 +38,8 @@ export type BeeFieldValidatorFn = (
 ) => null | ValidationErrors;
 
 export type BeeValidators =
-  | { [key: string]: { expression: BeeFieldValidatorFn; message: BeeMessage } }
-  | Partial<DefaultValidationMessages>;
+  | Partial<DefaultValidationMessages>
+  | { [key: string]: { expression: BeeFieldValidatorFn; message: BeeMessage } };
 
 export type BeeFieldValidators<Field extends BeeFieldConfig = BeeFieldConfig> = BeeValidation<boolean, Field>;
 

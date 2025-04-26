@@ -14,7 +14,7 @@ import type { BeeIconName, BeeIconSize, BeeIconType, GetIcon, GetIconResponse, I
   template: `
     <svg [attr.width]="safeWidth()" [attr.height]="safeHeight()" [attr.viewBox]="viewBox()">
       @if (id(); as id) {
-        <use [attr.href]="id"></use>
+        <use [attr.href]="id" />
       }
     </svg>
   `

@@ -14,7 +14,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { type BeeFieldConfig, type BeeFieldTemplateValue, BeeFieldType, type BeeFieldUnwrapProp } from '@flebee/forms/core';
 
-type Props = { inputs?: Record<string, unknown> };
+interface Props {
+  inputs?: Record<string, unknown>;
+}
 
 interface IObserveTarget {
   template: BeeFieldTemplateValue;

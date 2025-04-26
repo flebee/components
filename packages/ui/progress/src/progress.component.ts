@@ -35,7 +35,7 @@ import type { BeeProgressColor, BeeProgressSize } from './types';
     @if (showValue() || label()) {
       <div [class]="labelClass()">
         @if (label()) {
-          <bee-string-template [content]="label()" class="flex-1" />
+          <bee-string-template class="flex-1" [content]="label()" />
         }
 
         @if (!indeterminate() && showValue()) {

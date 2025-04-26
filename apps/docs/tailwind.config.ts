@@ -1,12 +1,11 @@
-import { createGlobPatternsForDependencies } from '@nx/angular/tailwind';
-import { join } from 'node:path';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
 import { flebeeUI } from '../../packages/ui/src';
 
 export default <Config>{
-  content: [join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html,md}'), ...createGlobPatternsForDependencies(__dirname)],
+  content: ['{apps,packages}/**/*.{ts,html,md}'],
   theme: {
     extend: {
       fontFamily: {
@@ -14,5 +13,11 @@ export default <Config>{
       }
     }
   },
-  plugins: [flebeeUI()]
+  plugins: [
+    flebeeUI(),
+    plugin(({ addUtilities, matchUtilities }) => {
+      addUtilities({ '.vt-name-none': { 'view-transition-name': 'none' } });
+      matchUtilities({ 'vt-name': (value) => ({ viewTransitionName: value }) });
+    })
+  ]
 };

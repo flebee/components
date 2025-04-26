@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/release-it/schema/release-it.json",
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          { "type": "feat", "section": "✨ Features" },
+          { "type": "fix", "section": "🩹 Fixes" },
+          { "type": "perf", "section": "⚡️ Performance" },
+          { "type": "refactor", "section": "♻️ Refactor" }
+        ]
+      }
+    },
+    "@release-it/bumper": {
+      "in": "package.json",
+      "out": "packages/**/package.json"
+    }
+  },
+  "git": {
+    "requireBranch": "main",
+    "requireCommits": true,
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": false,
+    "commitMessage": "chore(release): publish ${version}"
+  },
+  "npm": {
+    "publish": false
+  },
+  "github": {
+    "release": true,
+    "releaseName": "Release ${version}"
+  }
+}

@@ -1,6 +1,6 @@
 import type { Observable } from 'rxjs';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-empty-object-type
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface BeeIconTypes {}
 
 type Unit = '' | 'em' | 'px' | 'rem';

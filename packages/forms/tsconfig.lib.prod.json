@@ -1,7 +1,11 @@
 {
   "extends": "./tsconfig.lib.json",
   "compilerOptions": {
-    "declarationMap": false
+    "declarationMap": false,
+    "paths": {
+      "@flebee/*": ["dist/packages/*"],
+      "@ngx-formly/core/lib/models": ["node_modules/@ngx-formly/core/lib/models"]
+    }
   },
   "angularCompilerOptions": {
     "compilationMode": "partial"

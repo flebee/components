@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { NgDocLinkComponent, NgDocPageLinkComponent } from '@ng-doc/app';
+import { NgDocPageLinkComponent } from '@ng-doc/app';
 
 import { BeeButton } from '@flebee/ui/button';
 import { BeeIcon } from '@flebee/ui/icon';
@@ -11,12 +11,9 @@ import { BeeIcon } from '@flebee/ui/icon';
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex flex-col gap-16 mx-auto px-3 pb-6 max-w-screen-lg' },
-  imports: [BeeIcon, BeeButton, RouterLink, NgDocLinkComponent, NgDocPageLinkComponent],
+  imports: [BeeIcon, BeeButton, RouterLink, NgDocPageLinkComponent],
   template: `
-    <h1
-      style="view-transition-name: title;"
-      class="text-primary font-bold flex gap-2 items-center sticky top-0 p-3 -mx-3 bg-backdrop z-10"
-    >
+    <h1 class="text-primary font-bold flex gap-2 items-center sticky top-0 p-3 -mx-3 bg-backdrop z-10 vt-name-[title]">
       <bee-icon type="brand" name="flebee" class="text-7xl" />
       <span class="text-3xl sm:text-5xl"> Flebee Components </span>
     </h1>

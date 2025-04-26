@@ -1,0 +1,137 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "bun",
+    "schematicCollections": ["angular-eslint"]
+  },
+  "projects": {
+    "ui": {
+      "prefix": "bee",
+      "root": "packages/ui",
+      "projectType": "library",
+      "sourceRoot": "packages/ui/src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "packages/ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "packages/ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["packages/ui/**/*.ts", "packages/ui/**/*.html"],
+            "eslintConfig": "packages/ui/eslint.config.mjs"
+          }
+        }
+      }
+    },
+    "forms": {
+      "prefix": "bee",
+      "root": "packages/forms",
+      "projectType": "library",
+      "sourceRoot": "packages/forms/src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "packages/forms/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "packages/forms/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["packages/forms/**/*.ts", "packages/forms/**/*.html"],
+            "eslintConfig": "packages/forms/eslint.config.mjs"
+          }
+        }
+      }
+    },
+    "docs": {
+      "prefix": "app",
+      "root": "apps/docs",
+      "projectType": "application",
+      "sourceRoot": "apps/docs/src",
+      "architect": {
+        "build": {
+          "builder": "@ng-doc/builder:application",
+          "options": {
+            "outputPath": "dist/apps/docs",
+            "index": "apps/docs/src/index.html",
+            "browser": "apps/docs/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "apps/docs/tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "@ng-doc/core",
+              "dayjs",
+              "dompurify",
+              "elkjs/lib/elk.bundled.js",
+              "@braintree/sanitize-url",
+              "cytoscape-cose-bilkent"
+            ],
+            "assets": [
+              { "glob": "**/*", "input": "node_modules/@ng-doc/app/assets", "output": "assets/ng-doc" },
+              { "glob": "**/*", "input": "node_modules/@ng-doc/ui-kit/assets", "output": "assets/ng-doc" },
+              { "glob": "**/*", "input": "node_modules/@tabler/icons/icons", "output": "icons" },
+              { "glob": "**/*", "input": "apps/docs/ng-doc/docs", "output": "assets/ng-doc" },
+              { "glob": "**/*", "input": "apps/docs/public" }
+            ],
+            "styles": ["apps/docs/src/styles.css"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                { "type": "initial", "maximumWarning": "500kb" },
+                { "type": "anyComponentStyle", "maximumWarning": "2kb", "maximumError": "4kb" }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@ng-doc/builder:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "docs:build:production"
+            },
+            "development": {
+              "buildTarget": "docs:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["apps/docs/**/*.ts", "apps/docs/**/*.html"],
+            "eslintConfig": "apps/docs/eslint.config.mjs"
+          }
+        }
+      }
+    }
+  }
+}

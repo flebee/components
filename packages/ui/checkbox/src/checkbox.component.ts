@@ -25,19 +25,19 @@ import type { BeeCheckboxSize } from './types';
       <input
         #input
         type="checkbox"
+        class="sr-only peer"
         [value]="value()"
         [checked]="safeChecked()"
         [disabled]="safeDisabled()"
         [indeterminate]="indeterminate()"
         (blur)="onBlur()"
         (input)="onToggle()"
-        class="sr-only peer"
       />
 
-      <span [class]="wrapperClass()" aria-hidden="true">
+      <span aria-hidden="true" [class]="wrapperClass()">
         @if (indeterminate()) {
           <svg aria-hidden="true" role="presentation" viewBox="0 0 24 24" [class]="iconClass()">
-            <line x1="1" x2="22" y1="12" y2="12" stroke-width="4" stroke="currentColor"></line>
+            <line x1="1" x2="22" y1="12" y2="12" stroke-width="4" stroke="currentColor" />
           </svg>
         } @else {
           <svg aria-hidden="true" role="presentation" viewBox="0 0 17 18" [class]="iconClass()">
@@ -50,7 +50,7 @@ import type { BeeCheckboxSize } from './types';
               points="1 9 7 14 15 4"
               stroke-linejoin="round"
               [attr.stroke-dashoffset]="safeChecked() ? 44 : 66"
-            ></polyline>
+            />
           </svg>
         }
       </span>

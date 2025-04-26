@@ -43,4 +43,4 @@ Thumbs.db
 .angular
 
 # NgDoc files
-/ng-doc
+**/ng-doc

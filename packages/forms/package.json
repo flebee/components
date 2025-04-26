@@ -10,7 +10,8 @@
   },
   "peerDependencies": {
     "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0"
+    "@angular/core": "^18.0.0",
+    "@flebee/ui": "^0.3.0-beta.0"
   },
   "dependencies": {
     "@ngx-formly/core": "^6.3.9"

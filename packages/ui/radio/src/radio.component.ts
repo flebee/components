@@ -15,13 +15,13 @@ import { base, control, description, label, labelWrapper, wrapper } from './styl
     <label [class]="baseClass">
       <input
         type="radio"
+        class="sr-only peer"
         [name]="name()"
         [value]="value()"
         [checked]="isSelected()"
         [disabled]="isDisabled()"
         (input)="onInput()"
         (blur)="cva.markAsTouched()"
-        class="sr-only peer"
       />
 
       <span aria-hidden="true" [class]="wrapperClass()">

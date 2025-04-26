@@ -12,7 +12,7 @@ type BeeHookFn<
   Value,
   Model extends Record<string, any>,
   FormState extends Record<string, any>,
-  Fields extends Array<unknown>,
+  Fields extends unknown[],
   Control extends AbstractControl
 > = (field: BeeFieldConfig<Key, Props, Value, Model, FormState, Fields, Control>) => void;
 
@@ -22,7 +22,7 @@ interface BeeHookConfig<
   Value,
   Model extends Record<string, any>,
   FormState extends Record<string, any>,
-  Fields extends Array<unknown>,
+  Fields extends unknown[],
   Control extends AbstractControl
 > {
   onInit?:
@@ -38,18 +38,18 @@ type BeeExpressions<Props, Model> = { [ModelKey in keyof Model & string as `mode
   [PropKey in keyof Props & string as `props.${PropKey}`]?: Props[PropKey];
 } & { hide?: boolean; template?: string };
 
-type BeeValueChangeEvent<
+interface BeeValueChangeEvent<
   Key extends string,
   Props extends Record<string, any>,
   Value,
   Model extends Record<string, any>,
   FormState extends Record<string, any>
-> = {
+> {
   field: BeeFieldConfig<Key, Props, Value, Model, FormState>;
   type: 'expressionChanges' | 'hidden' | 'valueChanges';
   property?: string;
   value: unknown;
-};
+}
 
 export interface BeeFormOptions<Model extends Record<string, any>, FormState extends Record<string, any>> {
   updateInitialValue?: (model: PartialDeep<Model>) => void;

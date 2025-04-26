@@ -23,14 +23,12 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "project.json": ".*",
-    "nx.json": ".*"
+    "ng-package.json": ".*",
+    "angular.json": ".*"
   },
   "files.exclude": {
     "node_modules/": true,
-    ".angular/": true,
-    "tmp/": true,
-    ".nx/": true
+    ".angular/": true
   },
   "material-icon-theme.files.customClones": [
     { "color": "blue-700", "name": "forms-field", "base": "angular-component", "fileExtensions": ["field.ts"] }

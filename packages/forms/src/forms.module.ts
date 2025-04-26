@@ -1,7 +1,6 @@
 import { NgModule, type Type } from '@angular/core';
 
-import { FormlyModule } from '@ngx-formly/core';
-import type { FieldType } from '@ngx-formly/core/public_api';
+import { type FieldType, FormlyModule } from '@ngx-formly/core';
 
 import { BeeFieldGroup } from '@flebee/forms/field-group';
 import { BeeFieldTemplate } from '@flebee/forms/template';

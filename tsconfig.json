@@ -1,0 +1,39 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist/out-tsc",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "es2022",
+    "sourceMap": true,
+    "verbatimModuleSyntax": true,
+    "paths": {
+      "@flebee/*": ["packages/*/src"],
+      "@flebee/forms/*": ["packages/forms/*/src"],
+      "@flebee/ui/*": ["packages/ui/*/src"],
+      "@flebee/ui/core/*": ["packages/ui/core/*/src"],
+      "@ngx-formly/core/lib/models": ["node_modules/@ngx-formly/core/lib/models"],
+      "@ng-doc/generated": ["apps/docs/ng-doc/docs"],
+      "@ng-doc/generated/*": ["apps/docs/ng-doc/docs/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

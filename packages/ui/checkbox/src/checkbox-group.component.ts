@@ -47,7 +47,7 @@ export class BeeCheckboxGroup {
   public hit = computed(() => (!!this.errorMessage() && this.invalid() ? this.errorMessage() : this.description()));
   public descriptionClass = computed(() => groupDescription({ size: this.size(), invalid: this.invalid() }));
   public labelClass = computed(() => groupLabel({ size: this.size(), invalid: this.invalid() }));
-  public cva = inject<BeeControlValueAccessor<(number | string)[]>>(BeeControlValueAccessor);
+  public cva = inject<BeeControlValueAccessor<Array<number | string>>>(BeeControlValueAccessor);
   public wrapperClass = computed(() => groupWrapper({ orientation: this.orientation() }));
   public describedById = computed(() => (this.hit() ? `${this.id}-described` : undefined));
   public id = useId('bee-checkbox-group');

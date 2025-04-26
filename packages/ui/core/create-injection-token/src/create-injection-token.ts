@@ -52,11 +52,11 @@ type CreateProvideFnOptions<
   TFactoryDeps extends Parameters<TFactory> = Parameters<TFactory>
 > = Pick<CreateInjectionTokenOptions<TFactory, TFactoryDeps>, 'deps' | 'extraProviders' | 'multi'>;
 
-type InjectFn<TFactoryReturn> = {
+export interface InjectFn<TFactoryReturn> {
   (): TFactoryReturn;
   (injectOptions: InjectOptions & { optional?: false } & { injector?: Injector }): TFactoryReturn;
   (injectOptions: InjectOptions & { injector?: Injector }): null | TFactoryReturn;
-};
+}
 
 type ProvideFn<
   TNoop extends boolean,
@@ -186,7 +186,7 @@ export function createNoopInjectionToken<
     (TValue extends (...args: unknown[]) => unknown ? { isFunctionValue: true } : { isFunctionValue?: never }) &
     (TMulti extends true ? { multi: true } : { multi?: never })
 >(description: string, options?: TOptions) {
-  type TReturn = TMulti extends true ? Array<TValue> : TValue;
+  type TReturn = TMulti extends true ? TValue[] : TValue;
   type InjectionReturn = CreateInjectionTokenReturn<TReturn, true>;
 
   const token = new InjectionToken<TReturn>(description);
