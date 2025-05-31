@@ -45,7 +45,7 @@ export class BeeForms<Fields extends unknown[]> {
       const validationMessages: ValidationMessageOption[] = [];
 
       Object.entries(validations || {}).forEach(([name, validation]) => {
-        if (typeof validation === 'function') {
+        if (typeof validation === 'function' || typeof validation === 'string') {
           validationMessages.push({ name, message: validation as ValidationMessageOption['message'] });
         } else if (isValidation(validation)) {
           validationMessages.push({ name, message: validation.message });

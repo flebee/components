@@ -23,4 +23,10 @@ export type {
   RequiredStrict
 } from './types';
 export { BeeValidation } from './validation.component';
-export type { BeeValidationMessages, BeeValidationName, BeeValidators } from './validators';
+export type {
+  BeeFieldAsyncValidators,
+  BeeFieldValidators,
+  BeeValidationMessages,
+  BeeValidationName,
+  BeeValidators
+} from './validators';
