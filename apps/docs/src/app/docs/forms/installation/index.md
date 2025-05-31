@@ -3,19 +3,19 @@
 ### Install Flebee UI and Flebee Forms
 
 ```bash group="installation" name="npm" icon="npm"
-npm install @flebee/ui @flebee/forms
+npm install @flebee/ui @flebee/forms @ngx-formly/core
 ```
 
 ```bash group="installation" name="yarn" icon="yarn"
-yarn add @flebee/ui @flebee/forms
+yarn add @flebee/ui @flebee/forms @ngx-formly/core
 ```
 
 ```bash group="installation" name="pnpm" icon="pnpm"
-pnpm add @flebee/ui @flebee/forms
+pnpm add @flebee/ui @flebee/forms @ngx-formly/core
 ```
 
 ```bash group="installation" name="bun" icon="bun"
-bun add @flebee/ui @flebee/forms
+bun add @flebee/ui @flebee/forms @ngx-formly/core
 ```
 
 For additional setup steps, such as configuring **Tailwind CSS** or installing fonts, visit the [Flebee UI installation guide](/docs/ui/installation)

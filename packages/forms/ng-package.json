@@ -3,6 +3,5 @@
   "dest": "../../dist/packages/forms",
   "lib": {
     "entryFile": "src/index.ts"
-  },
-  "allowedNonPeerDependencies": ["@ngx-formly/core"]
+  }
 }
