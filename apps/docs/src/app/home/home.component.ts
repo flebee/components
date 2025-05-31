@@ -12,7 +12,7 @@ import { BeeIcon } from '@flebee/ui/icon';
   host: { class: 'flex flex-col gap-16 mx-auto px-3 pb-6 max-w-screen-lg' },
   imports: [BeeIcon, BeeButton, RouterLink, NgDocPageLinkComponent],
   template: `
-    <h1 class="text-primary font-bold flex gap-2 items-center sticky top-0 p-3 -mx-3 bg-backdrop z-10 vt-name-[title]">
+    <h1 class="text-primary-500 font-bold flex gap-2 items-center sticky top-0 p-3 -mx-3 bg-backdrop z-10 vt-name-[title]">
       <bee-icon type="brand" name="flebee" class="text-7xl" />
       <span class="text-3xl sm:text-5xl"> Flebee Components </span>
     </h1>
@@ -23,7 +23,7 @@ import { BeeIcon } from '@flebee/ui/icon';
     </p>
 
     <section class="flex flex-col gap-4">
-      <h2 class="text-3xl font-semibold text-primary"> Flebee UI </h2>
+      <h2 class="text-3xl font-semibold text-primary-500"> Flebee UI </h2>
 
       <p class="text-xl text-pretty font-medium">
         Flebee UI provides a collection of beautiful, fast, and modern zoneless components for Angular applications. Inspired by
@@ -33,7 +33,7 @@ import { BeeIcon } from '@flebee/ui/icon';
 
       <h3 class="text-xl text-pretty font-bold mt-4"> Key Features </h3>
 
-      <ul class="text-lg flex flex-col gap-1 list-disc list-inside marker:text-primary">
+      <ul class="text-lg flex flex-col gap-1 list-disc list-inside marker:text-primary-500">
         <li>
           <span class="font-bold"> Zoneless Components: </span>
           Designed for optimal performance without Angular zones.
@@ -55,7 +55,7 @@ import { BeeIcon } from '@flebee/ui/icon';
     </section>
 
     <section class="flex flex-col gap-4">
-      <h2 class="text-3xl font-semibold text-primary"> Flebee Forms </h2>
+      <h2 class="text-3xl font-semibold text-primary-500"> Flebee Forms </h2>
 
       <p class="text-xl text-pretty font-medium">
         Flebee Forms extends <ng-doc-page-link href="https://formly.dev" classes="ngde">Formly</ng-doc-page-link> with advanced
@@ -65,7 +65,7 @@ import { BeeIcon } from '@flebee/ui/icon';
 
       <h3 class="text-xl text-pretty font-bold mt-4"> Key Features </h3>
 
-      <ul class="text-lg flex flex-col gap-1 list-disc list-inside marker:text-primary">
+      <ul class="text-lg flex flex-col gap-1 list-disc list-inside marker:text-primary-500">
         <li>
           <span class="font-bold"> Signal Integration: </span>
           Utilizes signals for effective state management within forms.

@@ -3,44 +3,33 @@ Flebee UI is a set of Angular zoneless components with SSR support
 #### Install Packages
 
 ```bash group="installation" name="npm" icon="npm"
-npm install @flebee/ui
+npm install @flebee/ui cva@beta
 ```
 
 ```bash group="installation" name="yarn" icon="yarn"
-yarn add @flebee/ui
+yarn add @flebee/ui cva@beta
 ```
 
 ```bash group="installation" name="pnpm" icon="pnpm"
-pnpm add @flebee/ui
+pnpm add @flebee/ui cva@beta
 ```
 
 ```bash group="installation" name="bun" icon="bun"
-bun add @flebee/ui
+bun add @flebee/ui cva@beta
 ```
 
 #### Tailwind CSS Setup
 
-Flebee UI is built on top of **Tailwind CSS**, so you need to install **Tailwind CSS** first.
-You can follow the official [installation guide](https://tailwindcss.com/docs/guides/angular) to install **Tailwind CSS.**
-Then you need to add the following code to your `tailwind.config.js` file:
+Flebee UI is built on top of **Tailwind CSS**, so you need to install.
+You can follow the official [installation guide](https://tailwindcss.com/docs/installation/framework-guides/angular)
 
-```javascript name="tailwind.config.js" icon="tailwindcss"
-/** @type {import('tailwindcss').Config} */
-const { flebeeUI } = require('@flebee/ui');
+Add to **global styles**
 
-module.exports = {
-  content: [
-    // ...
-    // Includes all flebeeUI components (this increases the bundle size)
-    './node_modules/@flebee/ui/**/*.mjs',
-    // Optimize the bundle by specifying only the components you use e.g. button, ripple (used by button), and radio
-    './node_modules/@flebee/ui/**/(button|ripple|radio)/*.mjs'
-  ],
-  theme: {
-    extend: {}
-  },
-  plugins: [flebeeUI()]
-};
+```css name="styles.css" icon="css"
+@import 'tailwindcss';
+@import '@flebee/ui/theme.css';
+
+@source "../node_modules/@flebee";
 ```
 
 #### Install Onest Font (Optional)
@@ -48,51 +37,31 @@ module.exports = {
 Recommended font to use with Flebee UI, install from [Fontsource](https://fontsource.org/fonts/onest/install)
 
 ```bash group="font-installation" name="npm" icon="npm"
-npm install @fontsource-variable/onest
+npm install -D @fontsource-variable/onest
 ```
 
 ```bash group="font-installation" name="yarn" icon="yarn"
-yarn add @fontsource-variable/onest
+yarn add -D @fontsource-variable/onest
 ```
 
 ```bash group="font-installation" name="pnpm" icon="pnpm"
-pnpm add @fontsource-variable/onest
+pnpm add -D @fontsource-variable/onest
 ```
 
 ```bash group="font-installation" name="bun" icon="bun"
-bun add @fontsource-variable/onest
+bun add -D @fontsource-variable/onest
 ```
 
 Add to **global styles** and override **Tailwind CSS** default font
 
-```css group="setting-font" name="styles.css" icon="css"
+```css name="styles.css" icon="css"
+@import 'tailwindcss';
+@import '@flebee/ui/theme.css';
 @import '@fontsource-variable/onest/wght.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
+@source "../node_modules/@flebee";
 
-```javascript group="setting-font" name="tailwind.config.js" icon="tailwindcss"
-/** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme');
-const { flebeeUI } = require('@flebee/ui');
-
-module.exports = {
-  content: [
-    // ...
-    // Includes all flebeeUI components (this increases the bundle size)
-    './node_modules/@flebee/ui/**/*.mjs',
-    // Optimize the bundle by specifying only the components you use e.g. button, ripple (used by button), and radio
-    './node_modules/@flebee/ui/**/(button|ripple|radio)/*.mjs'
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['"Onest Variable"', ...defaultTheme.fontFamily.sans]
-      }
-    }
-  },
-  plugins: [flebeeUI()]
-};
+@theme {
+  --font-sans: 'Onest Variable', ui-sans-serif, system-ui, sans-serif;
+}
 ```

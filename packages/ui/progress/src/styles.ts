@@ -18,10 +18,10 @@ export const indicator = cva({
   variants: {
     color: {
       neutral: 'bg-neutral-400',
-      primary: 'bg-primary',
-      success: 'bg-success',
-      warning: 'bg-warning',
-      danger: 'bg-danger'
+      primary: 'bg-primary-500',
+      success: 'bg-success-500',
+      warning: 'bg-warning-500',
+      danger: 'bg-danger-500'
     },
     indeterminate: {
       true: 'absolute w-full origin-left animate-indeterminate-bar'

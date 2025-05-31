@@ -22,7 +22,7 @@ import { BeeIcon } from '@flebee/ui/icon';
   template: `
     <ng-doc-root>
       <ng-doc-navbar>
-        <h2 ngDocNavbarLeft class="text-primary font-medium text-lg vt-name-[title]">
+        <h2 ngDocNavbarLeft class="text-primary-500 font-medium text-lg vt-name-[title]">
           <a routerLink="/" class="inline-flex gap-1 items-center">
             <bee-icon type="brand" name="flebee" class="text-2xl" />
             <span> Flebee Components </span>

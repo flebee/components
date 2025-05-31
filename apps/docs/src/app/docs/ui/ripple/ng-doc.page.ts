@@ -22,7 +22,7 @@ const ButtonPage: NgDocPage = {
       target: BeeRipple,
       hideSidePanel: true,
       template: `
-        <div beeRipple class="text-primary size-56 rounded-bee-md cursor-pointer border-2 border-current">
+        <div beeRipple class="text-primary-500 size-56 rounded-bee-md cursor-pointer border-2 border-current">
           <span class="size-full grid place-content-center select-none font-medium text-xl"> Click me </span>
         </div>
       `
@@ -31,7 +31,7 @@ const ButtonPage: NgDocPage = {
       target: BeeRipple,
       hideSidePanel: true,
       template: `
-        <div beeRipple class="text-success size-56 rounded-bee-md cursor-pointer border-2 border-current">
+        <div beeRipple class="text-success-500 size-56 rounded-bee-md cursor-pointer border-2 border-current">
           <span class="size-full grid place-content-center select-none font-medium text-xl"> Click me </span>
         </div>
       `
@@ -40,7 +40,7 @@ const ButtonPage: NgDocPage = {
       target: BeeRipple,
       hideSidePanel: true,
       template: `
-        <div beeRipple class="text-warning size-56 rounded-bee-md cursor-pointer border-2 border-current">
+        <div beeRipple class="text-warning-500 size-56 rounded-bee-md cursor-pointer border-2 border-current">
           <span class="size-full grid place-content-center select-none font-medium text-xl"> Click me </span>
         </div>
       `
@@ -49,7 +49,7 @@ const ButtonPage: NgDocPage = {
       target: BeeRipple,
       hideSidePanel: true,
       template: `
-        <div beeRipple class="text-danger size-56 rounded-bee-md cursor-pointer border-2 border-current">
+        <div beeRipple class="text-danger-500 size-56 rounded-bee-md cursor-pointer border-2 border-current">
           <span class="size-full grid place-content-center select-none font-medium text-xl"> Click me </span>
         </div>
       `

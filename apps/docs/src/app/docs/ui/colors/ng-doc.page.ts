@@ -1,10 +1,8 @@
 import { NgDocPage } from '@ng-doc/core';
 
-import { BeeColor } from '@flebee/ui';
-
 import UiCategory from '../ng-doc.category';
 
-const colors: Record<Exclude<BeeColor, 'backdrop'>, string[]> = {
+const colors = {
   primary: [
     'bg-primary-50',
     'bg-primary-100',

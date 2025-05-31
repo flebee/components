@@ -9,11 +9,11 @@ export const tag = cva({
       lg: 'px-4 h-8 text-base'
     },
     color: {
-      neutral: 'bg-neutral-50/70 text-neutral-700 border-neutral',
-      primary: 'bg-primary-50/70 text-primary-700 border-primary',
-      success: 'bg-success-50/70 text-success-700 border-success',
-      warning: 'bg-warning-50/70 text-warning-700 border-warning',
-      danger: 'bg-danger-50/70 text-danger-700 border-danger'
+      neutral: 'bg-neutral-50/70 text-neutral-700 border-neutral-500',
+      primary: 'bg-primary-50/70 text-primary-700 border-primary-500',
+      success: 'bg-success-50/70 text-success-700 border-success-500',
+      warning: 'bg-warning-50/70 text-warning-700 border-warning-500',
+      danger: 'bg-danger-50/70 text-danger-700 border-danger-500'
     }
   }
 });

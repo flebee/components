@@ -31,7 +31,7 @@ export const groupLabel = cva({
 });
 
 export const base = cva({
-  base: 'group max-w-fit flex items-center justify-start p-2 -mx-2 select-none has-[:enabled]:cursor-pointer has-[:disabled]:opacity-50'
+  base: 'group max-w-fit flex items-center justify-start p-2 -mx-2 select-none has-enabled:cursor-pointer has-disabled:opacity-50'
 });
 
 export const labelWrapper = cva({
@@ -78,7 +78,7 @@ export const description = cva({
 export const groupDescription = compose(description, cva({ base: 'flex-[100%]' }));
 
 export const wrapper = cva({
-  base: 'relative inline-flex items-center justify-center flex-shrink-0 border-solid border-2 rounded-full transition-colors ease-linear duration-200 motion-reduce:transition-none peer-enabled:peer-hover:bg-opacity-40',
+  base: 'relative inline-flex items-center justify-center shrink-0 border-solid border-2 rounded-full transition-colors ease-linear duration-200 motion-reduce:transition-none',
   variants: {
     size: {
       sm: 'size-4',
@@ -86,14 +86,14 @@ export const wrapper = cva({
       lg: 'size-6'
     },
     invalid: {
-      false: 'border-neutral group-has-[:checked]:border-primary',
-      true: 'border-danger group-has-[:checked]:border-danger'
+      false: 'border-neutral-500 peer-enabled:peer-hover:bg-primary-500/30 group-has-checked:border-primary-500',
+      true: 'border-danger-500 peer-enabled:peer-hover:bg-danger-500/30 group-has-checked:border-danger-500'
     }
   }
 });
 
 export const control = cva({
-  base: 'opacity-0 scale-0 origin-center rounded-full group-has-[:checked]:opacity-100 group-has-[:checked]:scale-100 transition ease-linear duration-200 motion-reduce:transition-none',
+  base: 'opacity-0 scale-0 origin-center rounded-full group-has-checked:opacity-100 group-has-checked:scale-100 transition ease-linear duration-200 motion-reduce:transition-none',
   variants: {
     size: {
       sm: 'size-1.5',
@@ -101,8 +101,8 @@ export const control = cva({
       lg: 'size-2.5'
     },
     invalid: {
-      false: 'bg-primary',
-      true: 'bg-danger'
+      false: 'bg-primary-500',
+      true: 'bg-danger-500'
     }
   }
 });

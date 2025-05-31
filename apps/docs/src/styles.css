@@ -1,33 +1,41 @@
-@import 'node_modules/@ng-doc/app/styles/global.css';
+@import 'tailwindcss';
 @import '@fontsource-variable/onest/wght.css';
+@import '@ng-doc/app/styles/global.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '../../../packages/ui/src/theme.css';
+@source '../../../packages';
+
+@theme {
+  --font-sans: 'Onest Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility vt-name-* {
+  view-transition-name: --value([ *]);
+}
 
 :root {
-  --ng-doc-demo-displayer-background: theme('backgroundColor.foreground');
-  --ng-doc-guide-tag-background: theme('colors.warning.DEFAULT');
-  --ng-doc-api-tag-background: theme('colors.danger.DEFAULT');
-  --ng-doc-mark-background: theme('colors.primary.100/10');
-  --ng-doc-base-1: theme('backgroundColor.foreground');
-  --ng-doc-code-background: theme('colors.gray.900');
-  --ng-doc-app-horizontal-padding: theme('spacing.3');
-  --ng-doc-base-0: theme('backgroundColor.backdrop');
-  --ng-doc-primary: theme('colors.primary.DEFAULT');
-  --ng-doc-text-muted: theme('textColor.secondary');
-  --ng-doc-font-system: theme('fontFamily.sans');
-  --ng-doc-base-10: theme('colors.neutral.900');
-  --ng-doc-base-2: theme('colors.neutral.100');
-  --ng-doc-base-3: theme('colors.neutral.200');
-  --ng-doc-base-4: theme('colors.neutral.300');
-  --ng-doc-base-5: theme('colors.neutral.400');
-  --ng-doc-base-6: theme('colors.neutral.500');
-  --ng-doc-base-7: theme('colors.neutral.600');
-  --ng-doc-base-8: theme('colors.neutral.700');
-  --ng-doc-base-9: theme('colors.neutral.800');
-  --ng-doc-app-max-width: theme('screens.2xl');
-  --ng-doc-text: theme('textColor.main');
+  --ng-doc-demo-displayer-background: var(--color-foreground);
+  --ng-doc-guide-tag-background: var(--color-warning-500);
+  --ng-doc-api-tag-background: var(--color-danger-500);
+  --ng-doc-mark-background: --alpha(var(--color-primary-100) / 10%);
+  --ng-doc-base-1: var(--color-foreground);
+  --ng-doc-code-background: var(--color-gray-900);
+  --ng-doc-app-horizontal-padding: --spacing(3);
+  --ng-doc-base-0: var(--color-backdrop);
+  --ng-doc-primary: var(--color-primary-500);
+  --ng-doc-text-muted: var(--color-secondary);
+  --ng-doc-font-system: var(--font-sans);
+  --ng-doc-base-10: var(--color-neutral-900);
+  --ng-doc-base-2: var(--color-neutral-100);
+  --ng-doc-base-3: var(--color-neutral-200);
+  --ng-doc-base-4: var(--color-neutral-300);
+  --ng-doc-base-5: var(--color-neutral-400);
+  --ng-doc-base-6: var(--color-neutral-500);
+  --ng-doc-base-7: var(--color-neutral-600);
+  --ng-doc-base-8: var(--color-neutral-700);
+  --ng-doc-base-9: var(--color-neutral-800);
+  --ng-doc-app-max-width: var(--breakpoint-2xl);
+  --ng-doc-text: var(--color-main);
 
   --ng-doc-guide-tag-color: var(--ng-doc-code-background);
   --ng-doc-search-result-color: var(--ng-doc-text-muted);

@@ -1,2 +1,1 @@
-export type { BeeColor, BeeTheme } from './colors';
-export { flebeeUI } from './plugin';
+export default void 0;

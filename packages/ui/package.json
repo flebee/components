@@ -7,10 +7,12 @@
   "description": "Beautiful, fast, and modern components, visually inspired by the elegance and functionality of NextUI",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
-  },
-  "dependencies": {
+    "@angular/core": "^19.0.0",
+    "tailwindcss": "^4.1.0",
     "cva": "^1.0.0-beta.4"
+  },
+  "exports": {
+    "./*.css": "./*.css"
   },
   "sideEffects": false
 }

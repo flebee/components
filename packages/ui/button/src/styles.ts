@@ -1,14 +1,14 @@
 import { cva } from 'cva';
 
 export const button = cva({
-  base: 'inline-flex min-w-min relative select-none appearance-none whitespace-nowrap overflow-hidden items-center justify-center font-medium transition duration-200 disabled:opacity-50 enabled:active:scale-95 enabled:hover:bg-opacity-80',
+  base: 'inline-flex min-w-min relative select-none appearance-none whitespace-nowrap overflow-hidden items-center justify-center font-medium transition duration-200 disabled:opacity-50 enabled:active:scale-95',
   variants: {
     variant: {
-      primary: 'bg-primary text-slate-50',
-      secondary: 'bg-primary-100 text-primary-600',
-      danger: 'bg-danger-100 text-danger-700',
-      warning: 'bg-warning-100 text-warning-700',
-      ghost: 'text-primary-700 hover:bg-neutral-50'
+      primary: 'bg-primary-500 text-white enabled:hover:bg-primary-500/80',
+      secondary: 'bg-primary-100 text-primary-600 enabled:hover:bg-primary-100/80',
+      danger: 'bg-danger-100 text-danger-700 enabled:hover:bg-danger-100/80',
+      warning: 'bg-warning-100 text-warning-700 enabled:hover:bg-warning-100/80',
+      ghost: 'text-primary-700 enabled:hover:bg-neutral-50'
     },
     size: {
       sm: 'gap-2 h-9',
@@ -20,7 +20,7 @@ export const button = cva({
       false: 'rounded-bee-md'
     },
     iconOnly: {
-      true: null
+      true: 'aspect-square'
     },
     fullWidth: {
       true: 'w-full'
