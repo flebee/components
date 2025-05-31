@@ -6,8 +6,8 @@
   "homepage": "https://components.flebee.com",
   "description": "Formly integration with flebee ui",
   "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0",
+    "@angular/common": "^19.0.0 || ^20.0.0",
+    "@angular/core": "^19.0.0 || ^20.0.0",
     "@flebee/ui": "^0.3.0-beta.0",
     "@ngx-formly/core": "^6.3.12"
   },
