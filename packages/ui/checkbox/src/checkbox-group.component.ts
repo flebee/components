@@ -8,7 +8,6 @@ import { groupBase, groupDescription, groupLabel, groupWrapper } from './styles'
 import type { BeeCheckboxGroupOrientation, BeeCheckboxSize } from './types';
 
 @Component({
-  standalone: true,
   imports: [BeeStringTemplate],
   selector: 'bee-checkbox-group',
   host: {

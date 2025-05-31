@@ -7,7 +7,6 @@ import { BeeInput } from '@flebee/ui/input';
 import type { BeeInputProps } from './with-input';
 
 @Component({
-  standalone: true,
   selector: 'bee-field-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [BeeInput, BeeValidation, ReactiveFormsModule],

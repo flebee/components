@@ -7,7 +7,7 @@ import type { Nullable } from '@flebee/ui/core';
  *
  * @returns The number formatted or number as string in case of errors.
  */
-@Pipe({ name: 'numberFormat', standalone: true })
+@Pipe({ name: 'numberFormat' })
 export class NumberFormatPipe implements PipeTransform {
   private _locale = inject(LOCALE_ID);
 

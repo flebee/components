@@ -7,7 +7,6 @@ import { BeeButton } from '@flebee/ui/button';
 import type { BeeButtonProps, BeeButtonType } from './with-button';
 
 @Component({
-  standalone: true,
   selector: 'bee-field-button',
   imports: [BeeButton, NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,

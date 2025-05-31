@@ -6,7 +6,6 @@ import { BeeProgress } from '@flebee/ui/progress';
 import type { BeeProgressProps } from './with-progress';
 
 @Component({
-  standalone: true,
   imports: [BeeProgress],
   selector: 'bee-field-progress',
   changeDetection: ChangeDetectionStrategy.OnPush,

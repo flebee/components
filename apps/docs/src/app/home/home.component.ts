@@ -7,7 +7,6 @@ import { BeeButton } from '@flebee/ui/button';
 import { BeeIcon } from '@flebee/ui/icon';
 
 @Component({
-  standalone: true,
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex flex-col gap-16 mx-auto px-3 pb-6 max-w-screen-lg' },

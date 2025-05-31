@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { BeeIcon } from '@flebee/ui/icon';
 
 @Component({
-  standalone: true,
   imports: [BeeIcon],
   selector: 'app-icon-demo',
   template: `

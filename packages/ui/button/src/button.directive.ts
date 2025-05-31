@@ -8,7 +8,6 @@ import { button } from './styles';
 import type { BeeButtonSize, BeeButtonVariant } from './types';
 
 @Directive({
-  standalone: true,
   hostDirectives: [BeeRipple],
   host: { '[class]': 'classList()' },
   selector: 'button[beeButton], a[beeButton]'

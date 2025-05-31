@@ -17,7 +17,6 @@ import { base, icon, label, wrapper } from './styles';
 import type { BeeCheckboxSize } from './types';
 
 @Component({
-  standalone: true,
   selector: 'bee-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `

@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BeeField, type BeeFieldConfig, BeeFieldType } from '@flebee/forms/core';
 
 @Component({
-  standalone: true,
   imports: [BeeField],
   selector: 'bee-field-group',
   template: `

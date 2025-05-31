@@ -67,6 +67,8 @@ export default {
   rules: {
     'body-leading-blank': [2, 'always'],
     'footer-leading-blank': [2, 'always'],
+    'body-max-line-length': [2, 'always', 200],
+    'footer-max-line-length': [2, 'always', 200],
     'type-enum': [2, 'always', COMMIT_TYPES.map(({ value }) => value)],
     'scope-enum': [2, 'always', [...workspaceScopes.map(({ value }) => value), 'security', 'deps', 'release']]
   },
@@ -87,6 +89,7 @@ export default {
       body: 'Commit details (optional):\n> ',
       confirmCommit: 'Confirm commit?'
     },
+    allowBreakingChanges: ['feat', 'fix', 'chore'],
     issuePrefixes: [
       { value: 'link', name: '🔗 Link: Related issues' },
       { value: 'closed', name: '✅ Closed: Resolved issues' }

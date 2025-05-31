@@ -2,7 +2,6 @@ import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, input, type TemplateRef, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  standalone: true,
   imports: [NgTemplateOutlet],
   selector: 'bee-string-template',
   encapsulation: ViewEncapsulation.None,

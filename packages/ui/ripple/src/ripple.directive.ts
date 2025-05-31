@@ -5,7 +5,6 @@ import { clamp } from '@flebee/ui/core';
 import { ripple } from './styles';
 
 @Directive({
-  standalone: true,
   selector: '[beeRipple]',
   host: { class: 'overflow-hidden relative', '(click)': 'onClick($event)' }
 })

@@ -15,7 +15,6 @@ import {
 import { FormlyField } from '@ngx-formly/core';
 
 @Component({
-  standalone: true,
   selector: 'bee-field',
   styles: `
     :host:empty {

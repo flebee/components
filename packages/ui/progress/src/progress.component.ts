@@ -17,7 +17,6 @@ import { base, indicator, label, track } from './styles';
 import type { BeeProgressColor, BeeProgressSize } from './types';
 
 @Component({
-  standalone: true,
   selector: 'bee-progress',
   imports: [BeeStringTemplate, NumberFormatPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,

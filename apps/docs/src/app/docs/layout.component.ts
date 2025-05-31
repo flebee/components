@@ -8,7 +8,6 @@ import { NgDocButtonIconComponent } from '@ng-doc/ui-kit';
 import { BeeIcon } from '@flebee/ui/icon';
 
 @Component({
-  standalone: true,
   selector: 'app-docs-layout',
   imports: [
     BeeIcon,

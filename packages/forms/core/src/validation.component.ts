@@ -18,7 +18,6 @@ import type { BeeMessage } from './validators';
 
 @Component({
   template: '',
-  standalone: true,
   exportAs: 'beeValidation',
   selector: 'bee-validation',
   changeDetection: ChangeDetectionStrategy.OnPush

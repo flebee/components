@@ -7,7 +7,6 @@ import { BeeRadioGroup } from './radio-group.component';
 import { base, control, description, label, labelWrapper, wrapper } from './styles';
 
 @Component({
-  standalone: true,
   selector: 'bee-radio',
   imports: [BeeStringTemplate],
   changeDetection: ChangeDetectionStrategy.OnPush,

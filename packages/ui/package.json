@@ -6,11 +6,11 @@
   "homepage": "https://components.flebee.com",
   "description": "Beautiful, fast, and modern components, visually inspired by the elegance and functionality of NextUI",
   "peerDependencies": {
-    "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
   },
   "dependencies": {
-    "cva": "^1.0.0-beta.1"
+    "cva": "^1.0.0-beta.4"
   },
   "sideEffects": false
 }

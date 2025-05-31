@@ -9,7 +9,6 @@ import { base, content, description, inputBase, label, wrapper } from './styles'
 import type { BeeInputDateType, BeeInputSize, BeeInputType, BeeInputValue } from './types';
 
 @Component({
-  standalone: true,
   selector: 'bee-input',
   imports: [BeeStringTemplate],
   host: { '[class]': 'baseClass' },

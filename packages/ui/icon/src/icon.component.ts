@@ -7,7 +7,6 @@ import { BeeIconOptions } from './provide-icon';
 import type { BeeIconName, BeeIconSize, BeeIconType, GetIcon, GetIconResponse, IsNever } from './types';
 
 @Component({
-  standalone: true,
   selector: 'bee-icon',
   host: { class: 'block align-middle w-max' },
   changeDetection: ChangeDetectionStrategy.OnPush,

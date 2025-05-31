@@ -13,7 +13,7 @@
       "sourceRoot": "packages/ui/src",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
             "project": "packages/ui/ng-package.json"
           },
@@ -43,7 +43,7 @@
       "sourceRoot": "packages/forms/src",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
             "project": "packages/forms/ng-package.json"
           },

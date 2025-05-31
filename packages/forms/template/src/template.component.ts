@@ -26,7 +26,6 @@ interface IObserveTarget {
 }
 
 @Component({
-  standalone: true,
   selector: 'bee-field-template',
   imports: [NgTemplateOutlet, NgComponentOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,

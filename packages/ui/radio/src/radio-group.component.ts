@@ -8,7 +8,6 @@ import { groupBase, groupDescription, groupLabel } from './styles';
 import type { BeeRadioGroupOrientation, BeeRadioGroupSize } from './types';
 
 @Component({
-  standalone: true,
   selector: 'bee-radio-group',
   imports: [BeeStringTemplate],
   changeDetection: ChangeDetectionStrategy.OnPush,

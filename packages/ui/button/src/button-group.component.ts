@@ -6,7 +6,6 @@ import { buttonGroup } from './styles';
 import type { BeeButtonSize, BeeButtonVariant } from './types';
 
 @Component({
-  standalone: true,
   selector: 'bee-button-group',
   host: { '[class]': 'classList()' },
   changeDetection: ChangeDetectionStrategy.OnPush,

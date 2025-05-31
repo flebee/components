@@ -15,7 +15,6 @@ const isValidation = (
 };
 
 @Component({
-  standalone: true,
   selector: 'bee-forms',
   imports: [BeeFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

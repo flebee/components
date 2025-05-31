@@ -14,7 +14,6 @@ const language = signal<'en' | 'es'>('en');
 const isLanguageEn = computed(() => language() === 'en');
 
 @Component({
-  standalone: true,
   selector: 'app-forms-demo',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [BeeForms, BeeButton, ReactiveFormsModule],
