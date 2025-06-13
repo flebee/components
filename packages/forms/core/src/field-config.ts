@@ -182,7 +182,7 @@ export type BeeFieldConfigWithoutFieldGroup<
 
 export type BeeFieldConfigValidWithoutControlKeys = ExtractStrict<
   keyof BeeFieldConfigWithoutFieldGroup,
-  'asyncValidators' | 'className' | 'expressions' | 'hide' | 'id' | 'name' | 'props' | 'validation' | 'validators'
+  'asyncValidators' | 'className' | 'expressions' | 'hide' | 'hooks' | 'id' | 'name' | 'props' | 'validation' | 'validators'
 >;
 
 export type BeeFieldConfigValidWithControlKeys = ExtractStrict<

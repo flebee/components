@@ -1,35 +1,24 @@
-import { effect, isSignal, type ViewContainerRef } from '@angular/core';
+import { isSignal, type Signal } from '@angular/core';
 
-import type { FormlyExtension, FormlyFieldConfig } from '@ngx-formly/core';
+import { type FormlyExtension, type FormlyFieldConfig, ɵdefineHiddenProp } from '@ngx-formly/core';
 
-import type { RequiredStrict } from '@flebee/forms/core';
+import { ɵFLEBEE_SIGNALS_PROPS, type RequiredStrict } from '@flebee/forms/core';
 
 const signalsExtension: FormlyExtension<RequiredStrict<FormlyFieldConfig>> = {
   onPopulate: (field) => {
-    const _viewContainerRef = (field.options as { _viewContainerRef?: ViewContainerRef })?._viewContainerRef;
+    if (ɵFLEBEE_SIGNALS_PROPS in field) return;
 
-    if (!_viewContainerRef) return;
+    const signalProps: Record<string, Signal<unknown>> = {};
 
-    const { injector } = _viewContainerRef;
-    const { hide, template, className, fieldGroupClassName } = field;
-    const attributes = { hide, template, className, fieldGroupClassName };
-
-    Object.entries(attributes).forEach(([key, value]) => {
+    Object.entries(field.props).forEach(([key, value]) => {
       if (!isSignal(value)) return;
 
-      Object.defineProperty(field, key, { set: () => undefined, get: () => value() });
-
-      effect(() => Object.assign(field, { [key]: value() }), { injector });
+      Object.assign(signalProps, { [key]: value });
+      Object.assign(field.props, { [key]: value() });
     });
 
-    Object.entries(field.props || {}).forEach(([key, value]) => {
-      if (!isSignal(value)) return;
-
-      Object.defineProperty(field.props, key, { set: () => undefined, get: () => value() });
-
-      effect(() => Object.assign(field.props, { [key]: value() }), { injector });
-    });
+    ɵdefineHiddenProp(field, ɵFLEBEE_SIGNALS_PROPS, signalProps);
   }
 };
 
-export const extensions = [{ extension: signalsExtension, priority: -350, name: 'flebee-signals' }];
+export const extensions = [{ extension: signalsExtension, priority: -250, name: ɵFLEBEE_SIGNALS_PROPS }];

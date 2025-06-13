@@ -8,7 +8,7 @@ export type {
   BeeFieldTemplateValue,
   BeeFormOptions
 } from './field-config';
-export { BeeField } from './field.component';
+export { BeeField, ɵFLEBEE_SIGNALS_PROPS } from './field.component';
 export type { BeeBuildInferForm, BeeBuildInferModel } from './infer-build-form';
 export type {
   BeeFieldSignalProps,
