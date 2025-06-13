@@ -22,10 +22,12 @@ type InferComponentInputs<T> =
 
 type BaseFieldConfig = OmitStrict<PickStrict<BeeFieldConfig, BeeFieldConfigValidWithoutControlKeys>, 'props'>;
 
+type TemplateValue = Exclude<BeeFieldTemplateValue, Type<any>>;
+
 type BeeFieldConfigTemplate<Template extends BeeFieldTemplateValue> = BaseFieldConfig &
   (Template extends Type<any>
     ? { template: Template; inputs?: BeeFieldSignalProps<InferComponentInputs<Template>> }
-    : { template: Signal<Template> | Template; inputs?: undefined });
+    : { template: Signal<TemplateValue> | TemplateValue; inputs?: never });
 
 export function withTemplate<Template extends BeeFieldTemplateValue>(config: BeeFieldConfigTemplate<Template>) {
   const { inputs, ...options } = config;

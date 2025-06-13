@@ -3,26 +3,21 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  DestroyRef,
   inject,
   type OnInit,
   signal,
   TemplateRef,
-  Type,
-  untracked
+  Type
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+
+import { ɵobserve } from '@ngx-formly/core';
 
 import { type BeeFieldConfig, type BeeFieldTemplateValue, BeeFieldType, type BeeFieldUnwrapProp } from '@flebee/forms/core';
 
 interface Props {
   inputs?: Record<string, unknown>;
-}
-
-interface IObserveTarget {
-  template: BeeFieldTemplateValue;
-  _observers: {
-    template: { value: BeeFieldTemplateValue; onChange: Array<(change: { currentValue: BeeFieldTemplateValue }) => void> };
-  };
 }
 
 @Component({
@@ -46,6 +41,7 @@ interface IObserveTarget {
 export class BeeFieldTemplate extends BeeFieldType<BeeFieldConfig<string, Props>> implements OnInit {
   private _content = signal<BeeFieldUnwrapProp<BeeFieldTemplateValue>>(undefined);
   private _sanitizer = inject(DomSanitizer);
+  private _destroyRef = inject(DestroyRef);
 
   public html = computed(() => {
     const content = this._content();
@@ -70,10 +66,9 @@ export class BeeFieldTemplate extends BeeFieldType<BeeFieldConfig<string, Props>
   });
 
   ngOnInit(): void {
-    const field = this.field as unknown as IObserveTarget;
+    const subscription = ɵobserve(this.field, ['template'], (data) => this._content.set(data.currentValue));
 
-    this._content.set(field.template);
-
-    field._observers.template.onChange.push((data) => untracked(() => this._content.set(data.currentValue)));
+    this._content.set(this.field.template);
+    this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
 }
