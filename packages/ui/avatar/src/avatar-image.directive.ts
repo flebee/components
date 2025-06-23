@@ -12,6 +12,6 @@ import { avatarImage } from './styles';
 export class BeeAvatarImage {
   public class = input<ClassValue>('');
 
-  public imageClass = computed(() => avatarImage({ class: this.class(), loaded: this.loaded() }));
+  public imageClass = computed(() => avatarImage({ class: this.class() }));
   public loaded = signal(false);
 }

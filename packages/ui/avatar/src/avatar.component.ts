@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, contentChild, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, contentChild, input, viewChild } from '@angular/core';
 
 import type { ClassValue } from 'cva';
 
@@ -9,9 +9,9 @@ import type { AvatarRadius, AvatarSize } from './types';
 
 @Component({
   selector: 'bee-avatar',
-  host: { '[class]': 'avatarClass()' },
   imports: [BeeAvatarFallback, BeeAvatarImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { '[class]': 'avatarClass()', '[attr.data-loaded]': 'isImageLoaded()' },
   template: `
     <ng-content select="[beeAvatarFallback]">
       @if (fallback()) {
@@ -20,17 +20,19 @@ import type { AvatarRadius, AvatarSize } from './types';
     </ng-content>
 
     <ng-content select="[beeAvatarImage]">
-      @if (src() && !image()) {
-        <img beeAvatarImage [src]="src()" [alt]="alt()" />
+      @if (src() && !hasImage()) {
+        <img beeAvatarImage [src]="src()" [attr.alt]="alt()" />
       }
     </ng-content>
-
-    @if (!src() && !image() && alt()) {
+    @if (!src() && !hasImage() && alt()) {
       <span class="sr-only"> {{ alt() }} </span>
     }
   `
 })
 export class BeeAvatar {
+  private _contentImage = contentChild(BeeAvatarImage);
+  private _viewImage = viewChild(BeeAvatarImage);
+
   public radius = input<AvatarRadius>('md');
   public size = input<AvatarSize>('md');
   public class = input<ClassValue>('');
@@ -39,5 +41,6 @@ export class BeeAvatar {
   public alt = input<string>();
 
   public avatarClass = computed(() => avatar({ class: this.class(), size: this.size(), radius: this.radius() }));
-  public image = contentChild(BeeAvatarImage);
+  public isImageLoaded = computed(() => this._viewImage()?.loaded() || this._contentImage()?.loaded());
+  public hasImage = computed(() => !!this._contentImage());
 }
