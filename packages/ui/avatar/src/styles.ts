@@ -4,9 +4,13 @@ export const avatar = cva({
   base: 'group flex relative aspect-square justify-center items-center box-border overflow-hidden align-middle bg-neutral-50/70 text-neutral-700',
   variants: {
     size: {
-      sm: 'size-8 text-tiny',
-      md: 'size-10 text-tiny',
-      lg: 'size-14 text-small'
+      sm: 'size-8 text-xs',
+      md: 'size-10 text-xs',
+      lg: 'size-14 text-sm',
+      xl: 'size-16 text-base',
+      '2xl': 'size-20 text-lg',
+      '3xl': 'size-24 text-xl',
+      '4xl': 'size-28 text-2xl'
     },
     radius: {
       none: 'rounded-none',
