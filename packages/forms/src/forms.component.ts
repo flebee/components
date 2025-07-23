@@ -53,7 +53,7 @@ export class BeeForms<Fields extends unknown[]> {
         }
       });
 
-      this._formlyConfig.addConfig({ ...(settings as ConfigOption), validationMessages, validators });
+      this._formlyConfig.addConfig({ ...(settings as unknown as ConfigOption), validationMessages, validators });
     });
   }
 }

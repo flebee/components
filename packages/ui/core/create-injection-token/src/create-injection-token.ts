@@ -148,7 +148,7 @@ export function createInjectionToken<
       createProvideFn(
         token,
         factory,
-        opts as CreateProvideFnOptions<TFactory, TFactoryDeps>
+        opts as unknown as CreateProvideFnOptions<TFactory, TFactoryDeps>
       ) as CreateInjectionTokenReturn<TFactoryReturn>[1],
       token,
       () => []
@@ -172,7 +172,7 @@ export function createInjectionToken<
     createProvideFn(
       token,
       factory,
-      opts as CreateProvideFnOptions<TFactory, TFactoryDeps>
+      opts as unknown as CreateProvideFnOptions<TFactory, TFactoryDeps>
     ) as CreateInjectionTokenReturn<TFactoryReturn>[1],
     token,
     () => ({ provide: ENVIRONMENT_INITIALIZER, useValue: () => injectFn(), multi: true })

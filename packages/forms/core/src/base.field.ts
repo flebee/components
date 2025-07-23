@@ -8,7 +8,7 @@ import type { BeeFieldUnwrapProp } from './types';
 @Directive()
 export abstract class BeeFieldType<Field extends BeeFieldConfig = BeeFieldConfig> extends FieldType {
   get beeField() {
-    return this.field as Field;
+    return this.field as unknown as Field;
   }
   override get form() {
     return this.beeField.form as NonNullable<Field['form']>;
