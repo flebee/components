@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.1-beta.1](https://github.com/flebee/components/compare/v0.3.1-beta.0...v0.3.1-beta.1) (2025-07-23)
+
+### 🩹 Fixes
+
+- **docs:** correct asset paths for ng-doc ([966c474](https://github.com/flebee/components/commit/966c474c66a8ac4ae5da1f2bef5a00a022f9b6c7))
+- **forms/radio:** export BeeOptionContext type for custom template typing ([4103edc](https://github.com/flebee/components/commit/4103edc2faa3ad3f5c6e8bdb4f6ebdcbcc0b4dbb))
+- **forms:** force type casts to ensure compatibility with strict typing ([8bf8def](https://github.com/flebee/components/commit/8bf8def7662c483dc45537a83ce2f1d47f370ddf))
+
+### ⚡️ Performance
+
+- **docs:** switch to zoneless change detection ([74fc788](https://github.com/flebee/components/commit/74fc788d6c21f7ab8708dfd9bd30a2d30a500fac))
+
+### ♻️ Refactor
+
+- **forms/template:** simplify computed getters for content types ([72f35b2](https://github.com/flebee/components/commit/72f35b2cab968f0b5d8c90d03ee0153690b55026))
+
 ## [0.3.1-beta.0](https://github.com/flebee/components/compare/v0.3.0-beta.0...v0.3.1-beta.0) (2025-07-23)
 
 ### ⚠ BREAKING CHANGES
