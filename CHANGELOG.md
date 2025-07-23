@@ -1,29 +1,62 @@
+# Changelog
+
+## [0.3.1-beta.0](https://github.com/flebee/components/compare/v0.3.0-beta.0...v0.3.1-beta.0) (2025-07-23)
+
+### ⚠ BREAKING CHANGES
+
+- **forms:** Consumers must now install @ngx-formly/core manually as a peer dependency.
+- **ui:** Tailwind CSS v4 requires configuration via CSS. JS-based plugin files are no longer supported.
+- The minimum required Angular version is now 19.0.0
+
+### chore
+
+- **forms:** move @ngx-formly/core to peerDependencies ([ba74bbb](https://github.com/flebee/components/commit/ba74bbb8712d8f65379c11809d296b193b9bd8a2))
+- **ui:** migrate Tailwind CSS to v4 ([30cbc1b](https://github.com/flebee/components/commit/30cbc1b265f8b10baf4a6e6cbe46df98985d57a4))
+- update to Angular v19 and adjust libraries ([7216154](https://github.com/flebee/components/commit/7216154c04a370732ea1e06465ae4d1f0fbfc0a3))
+
+### ✨ Features
+
+- **forms/radio:** add radio group field component and utilities ([58f7f9d](https://github.com/flebee/components/commit/58f7f9df7eebc77139a21692a00a6143b5c36cef))
+- **ui/avatar:** add BeeAvatar component and BeeAvatarImage/BeeAvatarFallback directives ([29d94ba](https://github.com/flebee/components/commit/29d94ba79acb3ec702ca60daf9d262cda93d1ffd)), closes [#7](https://github.com/flebee/components/issues/7)
+- **ui/avatar:** add xl, 2xl, 3xl, and 4xl size variants ([f910d0c](https://github.com/flebee/components/commit/f910d0ce834c2b854d958dca3d9d4d4c92ccd2c5))
+- **ui/radio:** support boolean values in radio group and component ([f5d8f72](https://github.com/flebee/components/commit/f5d8f72a1d4408faf5c3c0d0eb80411e852c8850))
+
+### 🩹 Fixes
+
+- **docs:** pass email label as function reference for reactivity ([c78f21f](https://github.com/flebee/components/commit/c78f21ff0d3b0bb9eb63bb896eba9f2c4610acf0))
+- **forms:** restore signal reactivity after component remount ([7d83a47](https://github.com/flebee/components/commit/7d83a4727cb1084a8930eb0855cb062d1d62f58c))
+- **forms:** support string validation messages and export additional validator types ([5849d22](https://github.com/flebee/components/commit/5849d22e7d15e203c05ade007b0abf31d77b522e))
+- **ui/avatar:** hide fallback when image loads to prevent visual overlap ([2c82c53](https://github.com/flebee/components/commit/2c82c53d1c416e8f7edb3b317d3f0b0cfb3b79cc))
+
+### ♻️ Refactor
+
+- **forms/template:** improve field observation and type safety ([89cc470](https://github.com/flebee/components/commit/89cc470efc2c774cea61222e582f029739a425bd))
+
 ## 0.3.0-beta.0 (2024-10-19)
 
 ### 🚀 Features
 
 - **forms:** add support for new Signal attributes in form fields ([96b7f0c](https://github.com/flebee/components/commit/96b7f0c))
-- ⚠️  **forms:** simplify inputs for form component ([fb244d0](https://github.com/flebee/components/commit/fb244d0))
+- ⚠️ **forms:** simplify inputs for form component ([fb244d0](https://github.com/flebee/components/commit/fb244d0))
 - **forms/button:** add disabled prop and enhance onClick for injection context ([d43f681](https://github.com/flebee/components/commit/d43f681))
 - **forms/core:** support runInInjectionContext for error messages ([8c7d405](https://github.com/flebee/components/commit/8c7d405))
 - **ui/button:** add new variants ([9922464](https://github.com/flebee/components/commit/9922464))
-- ⚠️  **ui/icon:** update icon paths for Angular 18 compatibility ([30a9f4f](https://github.com/flebee/components/commit/30a9f4f))
+- ⚠️ **ui/icon:** update icon paths for Angular 18 compatibility ([30a9f4f](https://github.com/flebee/components/commit/30a9f4f))
 
 ### 🩹 Fixes
 
 - **ui/icon:** prevent icon cache duplication on multiple requests ([f8de056](https://github.com/flebee/components/commit/f8de056))
 
-### ⚠️  Breaking Changes
+### ⚠️ Breaking Changes
 
 - **forms:** Existing configurations that rely on the previous input structure may require updates.
 - **ui/icon:** Icon paths have been updated. Please change any references from `/assets/icons` to `/icons` to
 
-### ❤️  Thank You
+### ❤️ Thank You
 
 - Yeison Herrera
 
 ## 0.2.0-beta.2 (2024-09-24)
-
 
 ### 🚀 Features
 
@@ -39,12 +72,11 @@
 - **ui/icon:** resolve styling issues in component ([07cf366](https://github.com/flebee/components/commit/07cf366))
 - **ui/progress:** resolve styling issues in component ([a334fb1](https://github.com/flebee/components/commit/a334fb1))
 
-### ❤️  Thank You
+### ❤️ Thank You
 
 - Yeison Herrera
 
 ## 0.2.0-beta.1 (2024-09-15)
-
 
 ### 🚀 Features
 
@@ -67,12 +99,11 @@
 - **forms:** resolve issue with validation detection in BeeForms component ([64a6083](https://github.com/flebee/components/commit/64a6083))
 - **ui:** text color name ([a4c3f7e](https://github.com/flebee/components/commit/a4c3f7e))
 
-### ❤️  Thank You
+### ❤️ Thank You
 
 - Yeison Herrera
 
 ## 0.1.0-beta.2 (2024-06-19)
-
 
 ### 🚀 Features
 
@@ -100,7 +131,7 @@
 
 - **ui:** add ChangeDetectionStrategy.OnPush to improve performance in zone js applications ([ab19fa0](https://github.com/flebee/components/commit/ab19fa0))
 
-### ❤️  Thank You
+### ❤️ Thank You
 
 - Hollman Gonzalez
 - Yeison Herrera
