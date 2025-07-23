@@ -44,7 +44,7 @@ export class BeeRadioGroup {
   public baseClass = computed(() => groupBase({ orientation: this.orientation(), size: this.size(), class: this.class() }));
   public hit = computed(() => (!!this.errorMessage() && this.invalid() ? this.errorMessage() : this.description()));
   public descriptionClass = computed(() => groupDescription({ size: this.size(), invalid: this.invalid() }));
-  public cva = inject<BeeControlValueAccessor<Nullable<number | string>>>(BeeControlValueAccessor);
+  public cva = inject<BeeControlValueAccessor<Nullable<boolean | number | string>>>(BeeControlValueAccessor);
   public labelClass = computed(() => groupLabel({ size: this.size(), invalid: this.invalid() }));
   public describedById = computed(() => (this.hit() ? `${this.id}-described` : undefined));
   public id = useId('bee-radio-group');

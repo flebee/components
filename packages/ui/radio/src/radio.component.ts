@@ -19,8 +19,8 @@ import { base, control, description, label, labelWrapper, wrapper } from './styl
         [value]="value()"
         [checked]="isSelected()"
         [disabled]="isDisabled()"
-        (input)="onInput()"
         (blur)="cva.markAsTouched()"
+        (input)="cva.value.set(this.value())"
       />
 
       <span aria-hidden="true" [class]="wrapperClass()">
@@ -44,8 +44,8 @@ export class BeeRadio {
   private _size = this._group.size;
 
   public disabled = input<boolean, BooleanInput>(false, { transform: booleanAttribute });
+  public value = input.required<boolean | null | number | string>();
   public description = input<string | TemplateRef<void>>();
-  public value = input.required<number | string>();
 
   public descriptionClass = computed(() => description({ size: this._size(), invalid: this._group.invalid() }));
   public wrapperClass = computed(() => wrapper({ size: this._size(), invalid: this._group.invalid() }));
@@ -57,8 +57,4 @@ export class BeeRadio {
   public name = computed(() => this._group.name() || this._group.id);
   public cva = this._group.cva;
   public baseClass = base();
-
-  onInput(): void {
-    this.cva.value.set(this.value());
-  }
 }
