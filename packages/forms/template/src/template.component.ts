@@ -46,23 +46,17 @@ export class BeeFieldTemplate extends BeeFieldType<BeeFieldConfig<string, Props>
   public html = computed(() => {
     const content = this._content();
 
-    if (typeof content !== 'string') return;
-
-    return this._sanitizer.bypassSecurityTrustHtml(content);
+    return typeof content === 'string' ? this._sanitizer.bypassSecurityTrustHtml(content) : '';
   });
   public template = computed(() => {
     const content = this._content();
 
-    if (content instanceof TemplateRef) return content;
-
-    return;
+    return content instanceof TemplateRef ? content : null;
   });
   public component = computed(() => {
     const content = this._content();
 
-    if (content instanceof Type) return content;
-
-    return;
+    return content instanceof Type ? content : null;
   });
 
   ngOnInit(): void {
