@@ -54,7 +54,7 @@ export class AppComponent {
 
   public myForm = buildForm(
     withInput({ key: 'name', props: { type: 'text', label: 'Name' } }),
-    withInput({ key: 'email', props: { type: 'email', label: this.emailLabel() } })
+    withInput({ key: 'email', props: { type: 'email', label: this.emailLabel } })
   );
 
   toggleLabel() {
