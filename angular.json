@@ -78,6 +78,7 @@
             "outputPath": "dist/apps/docs",
             "index": "apps/docs/src/index.html",
             "browser": "apps/docs/src/main.ts",
+            "server": "apps/docs/src/main.server.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "apps/docs/tsconfig.app.json",
             "allowedCommonJsDependencies": [
@@ -95,7 +96,8 @@
               { "glob": "**/*", "input": "apps/docs/ng-doc/docs", "output": "assets/ng-doc" },
               { "glob": "**/*", "input": "apps/docs/public" }
             ],
-            "styles": ["apps/docs/src/styles.css"]
+            "styles": ["apps/docs/src/styles.css"],
+            "outputMode": "static"
           },
           "configurations": {
             "production": {

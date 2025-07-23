@@ -8,7 +8,6 @@ export default tsEslint.config(
   {
     files: ['**/*.{ts,js}'],
     plugins: { perfectionist },
-    ignores: ['apps/docs/ng-doc/**'],
     settings: { perfectionist: { type: 'natural' } },
     extends: [eslint.configs.recommended, ...tsEslint.configs.stylistic, ...tsEslint.configs.recommended],
     rules: {
@@ -39,7 +38,6 @@ export default tsEslint.config(
   },
   {
     files: ['**/*.ts'],
-    ignores: ['apps/docs/ng-doc/**'],
     extends: angular.configs.tsRecommended,
     processor: angular.processInlineTemplates,
     rules: {
@@ -50,7 +48,6 @@ export default tsEslint.config(
   },
   {
     files: ['**/*.html'],
-    ignores: ['apps/docs/ng-doc/**'],
     extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
     rules: {
       '@angular-eslint/template/button-has-type': 'error',

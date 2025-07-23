@@ -20,8 +20,8 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "ng-package.json": ".*",
-    "angular.json": ".*"
+    "angular.json": "*.config.js,.*,*.config.mjs",
+    "ng-package.json": ".*"
   },
   "files.exclude": {
     "node_modules/": true,
