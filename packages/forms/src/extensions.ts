@@ -8,10 +8,11 @@ const signalsExtension: FormlyExtension<RequiredStrict<FormlyFieldConfig>> = {
   onPopulate: (field) => {
     if (ɵFLEBEE_SIGNALS_PROPS in field) return;
 
+    const untrackedProps = (field as { untrackedProps?: string[] }).untrackedProps ?? [];
     const signalProps: Record<string, Signal<unknown>> = {};
 
     Object.entries(field.props).forEach(([key, value]) => {
-      if (!isSignal(value)) return;
+      if (untrackedProps.includes(key) || !isSignal(value)) return;
 
       Object.assign(signalProps, { [key]: value });
       Object.assign(field.props, { [key]: value() });
