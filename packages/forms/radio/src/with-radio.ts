@@ -72,5 +72,7 @@ type BeeRadioFieldConfig<Key extends string, Props extends BeeRadioGroupProps> =
 export const withRadioGroup = <Key extends string, Props extends BeeRadioGroupProps>(
   input: RequiredStrict<PickStrict<BeeRadioFieldConfig<Key, Props>, BeeFieldConfigValidWithControlKeys>, 'key' | 'props'>
 ) => {
-  return { ...input, type: BeeRadioGroupField } as NonNullable<BeeRadioFieldConfig<Key, Props>>;
+  const untrackedProps = ['options'];
+
+  return { ...input, untrackedProps, type: BeeRadioGroupField } as NonNullable<BeeRadioFieldConfig<Key, Props>>;
 };

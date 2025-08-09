@@ -4,6 +4,7 @@ import {
   Component,
   computed,
   Directive,
+  effect,
   inject,
   Injector,
   input,
@@ -81,16 +82,18 @@ export class BeeRadioGroupField
   extends BeeFieldType<BeeFieldConfigWithoutFieldGroup<string, BeeRadioGroupProps>>
   implements OnInit
 {
-  private _allOptions = signal<ReturnType<BeeRadioGroupField['_resolveOptions']>>(signal([]));
+  private _allOptions = signal<BeeOptionsArray>([]);
   private _injector = inject(Injector);
 
-  public valueOptions = computed(() => this._allOptions()().map((option) => this._parseOption(option)));
+  public valueOptions = computed(() => this._allOptions().map((option) => this._parseOption(option)));
   public description = computed(() => this._getValueSignal(this.props.customOptionRender?.description));
   public className = computed(() => this._getValueSignal(this.props.customOptionRender?.class));
   public label = computed(() => this._getValueSignal(this.props.customOptionRender?.label));
 
   ngOnInit(): void {
-    this._allOptions.set(this._resolveOptions(this.props.options));
+    const allOptions = this._resolveOptions(this.props.options);
+
+    effect(() => this._allOptions.set(allOptions()), { injector: this._injector });
   }
 
   private _resolveOptions(allOptions: BeeOptionsSource): Signal<BeeOptionsArray> {
