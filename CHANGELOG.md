@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.1-beta.2](https://github.com/flebee/components/compare/v0.3.1-beta.1...v0.3.1-beta.2) (2025-08-09)
+
+### ✨ Features
+
+- **forms:** add support for untracked signal props in signalsExtension ([be17c45](https://github.com/flebee/components/commit/be17c45e8ce38ec808c8974e372510c97ec902bd))
+- **ui/tag:** add type exports and improve tag styles ([42dc72f](https://github.com/flebee/components/commit/42dc72f6e507b20ec2cd8ef27518bbed5695513e))
+
+### 🩹 Fixes
+
+- **forms/radio:** fix detection of changes in signal-based options using untracked ([cab19ad](https://github.com/flebee/components/commit/cab19ad3322fef3b73053a54107c657f01d90675))
+
 ## [0.3.1-beta.1](https://github.com/flebee/components/compare/v0.3.1-beta.0...v0.3.1-beta.1) (2025-07-23)
 
 ### 🩹 Fixes
