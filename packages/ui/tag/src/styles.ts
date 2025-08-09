@@ -1,7 +1,7 @@
 import { cva } from 'cva';
 
 export const tag = cva({
-  base: 'relative max-w-fit min-w-min inline-flex items-center border-[0.5px] justify-between whitespace-nowrap rounded-full',
+  base: 'relative max-w-fit min-w-min inline-flex gap-1 items-center border-[0.5px] justify-between whitespace-nowrap rounded-full',
   variants: {
     size: {
       sm: 'px-2 h-6 text-xs',
